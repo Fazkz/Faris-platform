@@ -1,1 +1,74 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خلفيات 4K</title>
+  <link rel="stylesheet" href="photo.css"> <!-- ربط ملف CSS -->
+</head>
+<body>
 
+  <div class="skills" id="skills">
+    <h5>لكي تحفظ الخلفية انقر عليها مطولاً</h5>
+    <h3>4K خلفيات</h3>
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="ابحث عن صورة...">
+      <button class="search-btn" onclick="searchImages()">🔍</button> <!-- زر البحث -->
+    </div>
+
+    <div class="filters">
+      <button class="filter-btn all" onclick="filterImages('all')">الكل</button>
+      <button class="filter-btn cars" onclick="filterImages('cars')">صور سيارات</button>
+      <button class="filter-btn animals" onclick="filterImages('animals')">صور حيوانات</button>
+      <button class="filter-btn nature" onclick="filterImages('nature')">مناظر طبيعية</button>
+      <button class="filter-btn sports" onclick="filterImages('sports')">صور أندية رياضية</button>
+      <button class="filter-btn misc" onclick="filterImages('misc')">صور منوعة</button>
+    </div>
+
+    <div class="gallery">
+      <!-- سيارات -->
+      <div class="card cars">
+        <img src="https://www4.0zz0.com/2024/09/21/23/703378902.jpeg" alt="سيارة">
+        <button class="download-btn" onclick="showImage('https://www4.0zz0.com/2024/09/21/23/703378902.jpeg')">عرض الصورة</button>
+      </div>
+      <div class="card cars">
+        <img src="https://up6.cc/2024/09/172744347918321.jpeg" alt="سيارة">
+        <button class="download-btn" onclick="showImage('https://up6.cc/2024/09/172744347918321.jpeg')">عرض الصورة</button>
+      </div>
+      <!-- حيوانات -->
+      <div class="card animals">
+        <img src="https://www11.0zz0.com/2024/09/24/23/591364537.jpeg" alt="حيوان">
+        <button class="download-btn" onclick="showImage('https://images.pexels.com/photos/1741205/pexels-photo-1741205.jpeg')">عرض الصورة</button>
+      </div>
+      <!-- مناظر طبيعية -->
+      <div class="card nature">
+        <img src="https://up6.cc/2024/09/172744683039811.jpeg" alt="منظر جبال خضراء">
+        <button class="download-btn" onclick="showImage('https://up6.cc/2024/09/172744683039811.jpeg')">عرض الصورة</button>
+      </div>
+      <!-- أندية رياضية -->
+      <div class="card sports">
+        <img src="https://www4.0zz0.com/2024/09/24/23/390755859.jpeg" alt="نادي الهلال">
+        <button class="download-btn" onclick="showImage('https://www4.0zz0.com/2024/09/24/23/390755859.jpeg')">عرض الصورة</button>
+      </div>
+      <div class="card sports">
+        <img src="https://up6.cc/2024/10/172779591454241.jpeg" alt="نادي برشلونة">
+        <button class="download-btn" onclick="showImage('https://up6.cc/2024/10/172779591454241.jpeg')">عرض الصورة</button>
+      </div>
+      <!-- صور منوعة -->
+      <div class="card misc">
+        <img src="" alt="شارع">
+        <button class="download-btn" onclick="showImage('')">عرض الصورة</button>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="popup" id="popup">
+      <img id="popupImage" src="" alt="صورة كبيرة">
+      <button class="close-btn" onclick="closePopup()">×</button>
+    </div>
+  </div>
+      <script src="scripts.js"></script> <!-- ربط ملف JavaScript -->
+    </body>
+    </html>
