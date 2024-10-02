@@ -1,0 +1,837 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+html{
+    scroll-behavior: smooth;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: #1c1e53;
+    transition: color 0.3s ease;
+}
+
+a:hover{
+    color: #5e3bee !important;
+}
+
+li{
+    list-style: none;
+}
+
+nav{
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    padding: 0 85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    box-shadow: 0 5px 80px rgba(0, 0, 0, 0.1);
+}
+
+nav .logo,
+footer .logo{
+    display: flex;
+    align-items: center;
+}
+
+nav .logo a,
+footer .logo a{
+    margin-left: 8px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+nav .logo img,
+footer .logo img{
+    width: 40px;
+    height: 40px;
+}
+
+nav ul,
+footer .top ul{
+    display: flex;
+    gap: 40px;
+}
+
+nav button{
+    color: #1c1e53;
+    background-color: transparent;
+    padding: 12px 16px;
+    border-radius: 5px;
+    border: 1px solid #1c1e53;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+nav button:hover{
+    background-color: #5e3bee;
+    border-color: #5e3bee;
+    color: #fff;
+}
+
+nav button#menuButton{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    padding: 7px;
+}
+
+.main{
+    background-color: #deebee;
+    padding: 90px 85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.main .left{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.main .left h3{
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 46px;
+}
+
+.main .left h3 span{
+    color: #5e3bee;
+}
+
+.main .left p{
+    color: #1c1e53;
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+.main .left button{
+    margin-top: 40px;
+    color: #fff;
+    cursor: pointer;
+    background-color: #5e3bee;
+    padding: 14px 24px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+.main .right img{
+    width: 500px;
+}
+/*قسم الخلفيات */
+.skills{
+    padding: 110px 85px 0;
+}
+.skills h3,
+.about .right h3,
+.portfolio .header h3,
+.feedback h3{
+    font-size: 40px;
+    margin-top: 20px;
+}
+.skills .skill-items{
+    display: flex;
+    margin-top: 70px;
+    gap: 30px;
+}
+.skills .skill-items .item{
+    background-color: #deebee;
+    width: 25%;
+    border-radius: 10px;
+    padding: 32px;
+    border-bottom: 4px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.skills .skill-items .item:hover{
+    border-color: #5e3bee;
+}
+ .skills .skill-items .item h4,
+.portfolio .portfo-items .item .info h4{
+    font-size: 18px;
+}
+.about{
+    padding: 110px;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+.about .left{
+    background-color: #dfebee;
+    border-radius: 10px 10px 0 0;
+}
+/* كود الخلفيات
+/* تحسين المظهر العام للصفحة */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+
+}
+
+.search-bar {
+  display: flex;
+  position: relative;
+}
+
+.search-bar input {
+  padding: 10px 40px 10px 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+}
+
+.search-btn {
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #4CAF50; /* لون مميز */
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search-btn:hover {
+  background-color: #45a049;
+}
+
+.complete-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #f44336; /* لون زر إتمام البحث */
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.complete-btn:hover {
+  background-color: #d32f2f;
+}
+
+/* تحسين تصنيف الأزرار */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.filter-btn {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  color: white;
+}
+
+.cars {
+  background-color: #ff9800; /* لون مخصص للسيارات */
+}
+
+.animals {
+  background-color: #9c27b0; /* لون مخصص للحيوانات */
+}
+
+.nature {
+  background-color: #4caf50; /* لون مخصص للطبيعة */
+}
+
+.sports {
+  background-color: #2196f3; /* لون مخصص للرياضة */
+}
+
+.misc {
+  background-color: #607d8b; /* لون مخصص للصور المنوعة */
+}
+
+.all {
+  background-color: #8b4d14; /* لون مخصص للكل */
+}
+
+.filter-btn:hover {
+  opacity: 0.9;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 90%;
+}
+
+.card {
+  position: relative;
+  border-radius: 17px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  width: 170px;
+  height: 237px;
+  Right: 15%;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.download-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(128, 128, 128, 0.5);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.download-btn:hover {
+  background-color: rgba(128, 128, 128, 0.7);
+}
+
+/* Popup CSS */
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  max-width: 500px;
+  background-color: #ffffff;
+  border: 1px solid #d6d6d6;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  text-align: center;
+  padding: 8px;
+  height: 69%;
+}
+
+.popup img {
+  width: 100%;
+  height: 99%;
+  border-bottom: 1px solid #000000;
+  display: block;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+.popup button {
+  padding: 3px 63px;
+  margin: 10px;
+  cursor: pointer;
+  border: none;
+  background-color: rgb(133, 133, 133, 0.4);
+  color: white;
+  border-radius: 55px;
+  font-size: 11px;
+}
+
+.popup button:hover {
+  background-color: rgb(0, 0, 0, 0.4);
+}
+
+.popup .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(255, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.popup .close-btn:hover {
+  background-color: rgba(255, 0, 0, 0.7);
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(71, 71, 71, 0.5);
+  z-index: 5;
+}
+/*قسم اماكن سياحية */about
+.portfolio .header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.portfolio .header button i{
+    font-size: 426px; 
+}
+
+.portfolio .portfo-items{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.portfolio .portfo-items .item{
+    width: 40px;
+    height: 30px;
+    right: 15px;
+    background-color: #d9f7ff;
+    border-radius: 30px;
+    border-bottom: 6px solid transparent;
+    cursor: pointer;
+    box-shadow: 0 5px 32px rgb(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.portfolio .portfo-items .item:hover{
+    border-color: #0061fe;
+}
+
+.portfolio .portfo-items .item img{
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 30px 10px 20px 20px;
+}
+
+.portfolio .portfo-items .item .info{
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px 32px 42px;
+}
+
+.portfolio .portfo-items .item .info p{
+    font-size: 13px;
+}
+/*مخصص لخط موقع المكان */
+.portfolio .portfo-items .item .info a{
+    text-decoration: underline;
+    text-underline-offset: 14px;
+    text-decoration-color: #0061fe;
+}
+
+.portfolio .portfo-items .item .info a i{
+    margin-left: 2px;
+    font-size: 16px;
+}
+/*قسم عن الموقع */
+.feedback{
+    padding: 110px 85px;
+}
+
+.feedback .customers{
+    margin-top: 50px;
+    display: flex;
+    gap: 40px;
+}
+
+.feedback .customers .item{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 2px solid #006b6a;
+    border-radius: 10px;
+    padding: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.feedback .customers .item .rating{
+    color: #006b6a;
+    font-size: 22px;
+}
+
+.feedback .customers .item:hover{
+    border-color: #5e3bee;
+}
+
+.feedback .customers .item p{
+    line-height: 22px;
+    font-size: 14px;
+}
+
+.feedback .customers .item .user{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.feedback .customers .item .user img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.feedback .customers .item .user h5{
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 3px;
+}
+
+.feedback .customers .item .user p{
+    font-size: 12px;
+}
+
+footer{
+    background-color: #deebee;
+    padding: 85px;
+    display: flex;
+    flex-direction: column;
+}
+
+footer .top,
+footer .bottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer .top .social-links{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 22px;
+}
+
+footer .separator{
+    width: 100%;
+    height: 1px;
+    background-color: #282938;
+    margin: 30px 0 20px;
+}
+
+footer .bottom p{
+    font-size: 12px;
+}
+
+footer .bottom .links a{
+    font-size: 12px;
+    margin-left: 14px;
+}
+
+@media screen and (max-width: 1200px) {
+
+    .main .left h5{
+        font-size: 22px;
+    }
+
+    .main .left h3{
+        font-size: 36px;
+    }
+
+    .main .left p{
+        font-size: 18px;
+    }
+
+    .main .right img{
+        width: 380px;
+    }
+
+    .skills .skill-items{
+        gap: 10px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .skills .skill-items .item{
+        width: 49%;
+    }
+
+    .about .left img{
+        width: 370px;
+    }
+
+    .skills h3,
+    .about .right h3,
+    .portfolio .header h3,
+    .feedback h3{
+        font-size: 32px;
+    }
+
+    .about .right p{
+        font-size: 15px;
+    }
+
+    .feedback .customers .item .rating{
+        font-size: 20px;
+    }
+
+    .feedback .customers .item p{
+        font-size: 13px;
+    }
+
+    footer .top ul{
+        gap: 20px;
+    }
+
+}
+
+@media screen and (max-width: 992px) {
+
+  nav button {
+    display: none;
+  }
+
+  nav ul {
+    gap: 20px;
+  }
+
+  nav ul li a {
+    font-size: 15px;
+  }
+
+  .main {
+    flex-direction: column;
+  }
+
+  .about {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .portfolio .portfo-items {
+    gap: 22px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .portfolio .portfo-items .item {
+    width: 48%;
+  }
+
+  .feedback .customers {
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .feedback .customers .item {
+    width: 48%;
+  }
+
+  footer .top ul {
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    nav{
+        justify-content: space-between;
+        padding: 0 42px;
+    }
+
+    nav ul{
+        display: none;
+    }
+
+    nav.open .logo{
+        display: none;
+    }
+
+    nav.open ul{
+        display: flex;
+    }
+
+    nav button#menuButton{
+        display: flex;
+    }
+
+    .main{
+        padding: 42px;
+    }
+
+    .skills{
+        padding: 85px 42px 0;
+    }
+
+    .skills .skill-items{
+        gap: 8px;
+    }
+
+    .about{
+        padding: 85px 42px;
+    }
+
+    .portfolio{
+        padding: 60px 42px;
+    }
+
+    .portfolio .portfo-items{
+        gap: 18px;
+    }
+
+    .feedback{
+        padding: 85px 42px;
+    }
+
+    footer{
+        padding: 85px 42px;
+    }
+
+    footer .bottom{
+        flex-direction: column-reverse;
+        gap: 14px;
+    }
+
+}
+
+@media screen and (max-width: 576px) {
+
+    nav ul li a{
+        font-size: 13px;
+    }
+
+    nav .logo a{
+        font-size: 18px;
+    }
+
+    .main .left h3{
+        font-size: 32px;
+    }
+
+    .main .left p{
+        font-size: 16px;
+    }
+
+    .skills .skill-items .item{
+        width: 90%;
+    }
+
+    .portfolio .header button{
+        font-size: 12px;
+        padding: 2px 14px;
+    }
+
+    .portfolio .portfo-items .item{
+        width: 53%;
+        height: 38%;
+    }
+
+    .feedback .customers .item{
+        width: 100%;
+    }
+}
+/* كود فلاتر سناب */ 
+.cards-container {
+    display: flex;
+    flex-wrap: wrap; /* السماح بتغليف البطاقات */
+    gap: 14px; /* مسافة بين البطاقات */
+}
+
+.container {
+    position: relative;
+    width: 146px; /* عرض البطاقة */
+    height: 280px; /* ارتفاع البطاقة */
+    border-radius: 20px;
+    overflow: hidden;
+    background-image: url('https://via.placeholder.com/200x400');
+    background-size: cover;
+    background-position: center;
+    text-decoration: none; /* إزالة الخط السفلي من الرابط */
+}
+
+.green-circle {
+    position: absolute;
+    bottom: 26px; /* تعديل الموقع ليناسب البطاقة الصغيرة */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px; /* تقليل حجم الدائرة */
+    height: 70px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.green-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bottom-text {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20px; /* تقليل ارتفاع النص */
+    background-color: #d3e2ff;
+    text-align: center;
+    line-height: 12px; /* تعديل الارتفاع */
+    font-size: 18px; /* تصغير حجم الخط */
+    font-weight: bold;
+    color: black;
+}
+/*كود عدد المستخدمين */
+.counter-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 10px; /* تقليل المساحة الداخلية */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 200px; /* تحديد عرض أقصى للمربع */
+    margin: 0 auto; /* لتوسيط المربع في الصفحة */
+}
+
+h1 {
+    font-size: 1.2em; /* تصغير حجم النص */
+    margin-bottom: 8px; /* تقليل المسافة بين العنوان والمحتوى */
+}
+
+.visit-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#visitCount {
+    font-size: 1.5em; /* تصغير حجم الرقم */
+    color: #3498db;
+    margin-right: 8px; /* تقليل المسافة بين الرقم والأيقونة */
+}
+
+.visit-display i {
+    font-size: 1.5em; /* تصغير حجم الأيقونة */
+    color: #3498db;
+}
+
+#resetButton {
+    margin-top: 10px; /* تقليل المسافة بين الزر والمحتوى */
+    padding: 8px 16px; /* تصغير حجم الزر */
+    font-size: 0.9em; /* تقليل حجم النص في الزر */
+    cursor: pointer;
+}
+/*.<button id="resetButton">إعادة تعيين عدد الزيارات</button>.*/

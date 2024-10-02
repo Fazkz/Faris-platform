@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css">
+  <title>منصة FARIS 🤍</title>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+      <img src="https://up6.cc/2024/10/172781544814281.jpeg">
+      <a href="##نفس الموقع" target="_blank">منصة FARIS</a>
+    </div>
+    <ul>
+      <li><a href="#main">الرئيسية</a></li>
+<li><a href="#skills">خلفيات ايفون</a></li>
+<li><a href="#about">عدسات سناب شات</a></li>
+<li><a href="#portfolio">أماكن سياحية</a></li>
+<li><a href="#feedback">عن المنصة</a></li>
+    </ul>
+    <button id="menuButton" onclick="openMenu()">
+      <i class='bx bx-menu'></i>
+    </button>
+  </nav>
+<!--------الرئيسية ------->
+  <div class="main" id="main">
+    <div class="left">
+      <h5>Welcome to Faris platform</h5>
+      <h3>💙<span>اهلاً بك </span>في منصة faris</h3>
+      <p>
+        اكتشف المنصة الممتعة
+      </p>
+    </div>
+    <div class="right">
+      <img src="######">
+    </div>
+  </div>
+<!---------خلفيات ----------->
+  <div class="skills" id="skills">
+<h5>لكي تحفظ الخلفيه انقر عليها مطولاً</h5>
+     <h3>4K خلفيات</h3>
+ <div class="search-bar">
+   <input type="text" id="searchInput" placeholder="ابحث عن صورة...">
+   <button class="search-btn" onclick="searchImages()">🔍</button> <!-- زر البحث داخل الحقل -->
+ </div>
+ </header>
+
+ <div class="filters">
+   <button class="filter-btn all" onclick="filterImages('all')">الكل</button>
+   <button class="filter-btn cars" onclick="filterImages('cars')">صور سيارات</button>
+   <button class="filter-btn animals" onclick="filterImages('animals')">صور حيوانات</button>
+   <button class="filter-btn nature" onclick="filterImages('nature')">مناظر طبيعية</button>
+   <button class="filter-btn sports" onclick="filterImages('sports')">صور أندية رياضية</button>
+   <button class="filter-btn misc" onclick="filterImages('misc')">صور منوعة</button>
+ </div>
+
+ <div class="gallery">
+   <!------سيارات---------->
+   <div class="card cars">
+     <img src="https://www4.0zz0.com/2024/09/21/23/703378902.jpeg" alt="سيارة">
+     <button class="download-btn" onclick="showImage('https://www4.0zz0.com/2024/09/21/23/703378902.jpeg')">عرض الصورة</button>
+   </div>
+   <div class="card cars">
+      <img src="https://up6.cc/2024/09/172744347918321.jpeg" alt="سيارة">
+      <button class="download-btn" onclick="showImage('https://up6.cc/2024/09/172744347918321.jpeg')">عرض الصورة</button>
+    </div>
+   <!------حيوانات------>
+   <div class="card animals">
+     <img src="https://www11.0zz0.com/2024/09/24/23/591364537.jpeg" alt="حيوان">
+     <button class="download-btn" onclick="showImage('https://images.pexels.com/photos/1741205/pexels-photo-1741205.jpeg')">عرض الصورة</button>
+   </div>
+   <!--------مناظر طبيعية------->
+   <div class="card nature">
+     <img src="https://up6.cc/2024/09/172744683039811.jpeg" alt="منظر جبال خضراء">
+     <button class="download-btn" onclick="showImage('https://up6.cc/2024/09/172744683039811.jpeg')">عرض الصورة</button>
+   </div>
+<!------اندية رياضية------>   
+   <div class="card sports">
+     <img src="https://www4.0zz0.com/2024/09/24/23/390755859.jpeg" alt="نادي الهلال">
+     <button class="download-btn" onclick="showImage('https://www4.0zz0.com/2024/09/24/23/390755859.jpeg')">عرض الصورة</button>
+   </div>
+   <div class="card sports">
+      <img src="https://up6.cc/2024/10/172779591454241.jpeg" alt="نادي برشلونة">
+      <button class="download-btn" onclick="showImage('https://up6.cc/2024/10/172779591454241.jpeg')">عرض الصورة</button>
+    </div>
+   <!-- المزيد من الصور هنا -->
+   <div class="card misc">
+     <img src="" alt="شارع">
+     <button class="download-btn" onclick="showImage('')">عرض الصورة</button>
+   </div>
+ </div>
+
+ <div class="overlay" id="overlay"></div>
+
+ <div class="popup" id="popup">
+   <img id="popupImage" src="" alt="صورة كبيرة">
+   <button class="close-btn" onclick="closePopup()">×</button>
+ </div>
+  </div>
+<!---------عدسات سناب شات  ------->
+  <div class="about" id="about">
+    <div class="left">
+    <img src="assets/about-img.png">
+  </div>
+    <div class="right">
+      <h3>عدسات سناب شات</h3>
+      <div class="cards-container">
+        <!-- البطاقة الأولى -->
+        <div class="container" style="background-image: url('https://up6.cc/2024/09/172745206360921.jpeg');">
+            <a href="https://snapchat.com/t/VPNZaJKY" target="_blank" class="green-circle">
+                <img src="https://up6.cc/2024/09/172744747366291.jpeg" alt="صورة داخل الدائرة">
+            </a>
+            <div class="bottom-text">white light</div>
+        </div>
+          <!-- البطاقة الثانية -->
+        <div class="container" style="background-image: url('https://up6.cc/2024/09/172745206360921.jpeg');">
+            <a href="https://www.example.com" target="_blank" class="green-circle">
+                <img src="https://up6.cc/2024/09/172744747366291.jpeg" alt="صورة داخل الدائرة">
+            </a>
+            <div class="bottom-text">2</div>
+        </div>
+          <!-- البطاقة الثالثة -->
+        <div class="container" style="background-image: url('https://up6.cc/2024/09/172770132543152.jpeg');">
+            <a href="https://snapchat.com/t/7zpURAJj" target="_blank" class="green-circle">
+                <img src="https://up6.cc/2024/09/172770132541551.jpeg" alt="صورة داخل الدائرة">
+            </a>
+            <div class="bottom-text">Pleasant v11</div>
+        </div>
+          <!-- البطاقة الرابعة -->
+        <div class="container" style="background-image: url('https://up6.cc/2024/09/17277024967481.jpeg');">
+            <a href="https://snapchat.com/t/Egfsllm4" target="_blank" class="green-circle">
+                <img src="https://up6.cc/2024/09/1727702496762.jpeg" alt="صورة داخل الدائرة">
+            </a>
+            <div class="bottom-text">عدسة Lens dark</div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!------اماكن سياحية ------->
+  <div class="portfolio" id="portfolio">
+    <div class="header">
+      <div class="info">
+        <h3>أماكن سياحية بالسعودية</h3>
+      </div>
+    </div>
+    <div class="portfo-items">
+      <div class="column">
+        <div class="item">
+          <img src="https://up6.cc/2024/09/17273748921371.jpg">
+          <div class="info">
+            <h4>بوليفار الرياض سيتي #3</h4>
+            <p>مكان ترفيهي بالرياض</p>
+            <a href="https://maps.app.goo.gl/2iVvebYWi2EjizUT8?g_st=com.google.maps.preview.copy">موقع المكان <i class='bx bx-map-pin'></i></a>
+          </div>
+        </div>
+        <div class="item">
+          <img src="###">
+          <div class="info">
+            <h4>اسم المكان</h4>
+            <p>وصف المكان</p>
+            <a href="###">موقع المكان <i class='bx bx-map-pin'></i></a>
+          </div>
+        </div>
+      </div>
+        <div class="item">
+          <img src="###">
+          <div class="info">
+            <h4>اسم المكان</h4>
+            <p>وصف المكان</p>
+            <a href="###">موقع المكان <i class='bx bx-map-pin'></i></a>
+          </div>
+        </div>
+        <div class="item">
+          <img src="###">
+          <div class="info">
+            <h4>اسم المكان</h4>
+            <p>وصف المكان</p>
+            <a href="###">موقع المكان <i class='bx bx-map-pin'></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-----------عن الموقع ------>
+<div class="feedback" id="feedback">
+    <h3>عن المنصة</h3>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <div class="counter-container">
+     <h1>عدد زيارات الموقع</h1>
+    <div class="visit-display">
+     <p id="visitCount">0</p>
+     <i class="fas fa-user"></i> 
+  <!-- أيقونة المستخدم الفردي -->
+          </div>
+      </div>  
+  </div>
+  <footer>
+    <div class="top">
+      <div class="logo">
+        <img src="assets/logo.png">
+        <a href="##">منصة Faris</a>
+      </div>
+      <div class="social-links">
+        <a href="https://snapchat.com/t/9RGOzb2q"><i class='bx bxl-snapchat'></i></a>
+        <a href="www.tiktok.com/@1fr.f"><i class='bx bxl-tiktok'></i></a>
+        <a href="#"><i class='bx bxl-telegram'></i></a>
+        <a href="https://www.instagram.com/f5.ffaa?igsh=MTFnM2t1enE0eTJ4NA%3D%3D&utm_source=qr"><i class='bx bxl-instagram'></i></a>
+      </div>
+    </div>
+    <div class="separator"></div>
+    <div class="bottom">
+      <p>
+        جميع الحقوق محفوظة لمنصة Faris &copy;2024
+      </p>
+تقدم خدمات بسيطه مثل الخلفيات بجودة عالية و عدسات سناب شات الاكثر استخداماً واماكن سياحية خيالية  
+      <p>
+        Made by faris❤️
+        صنع بواسطة فارس ❤️
+      </p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
