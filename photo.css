@@ -1,1 +1,208 @@
+/* كود الخلفيات
+/* تحسين المظهر العام للصفحة */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.search-bar {
+  display: flex;
+  position: relative;
+}
+.search-bar input {
+  padding: 10px 40px 10px 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+}
+.search-btn {
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #4CAF50; /* لون مميز */
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+}
 
+.search-btn:hover {
+  background-color: #45a049;
+}
+
+.complete-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #f44336; /* لون زر إتمام البحث */
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.complete-btn:hover {
+  background-color: #d32f2f;
+}
+
+/* تحسين تصنيف الأزرار */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.filter-btn {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  color: white;
+}
+
+.cars {
+  background-color: #ff9800; /* لون مخصص للسيارات */
+}
+
+.animals {
+  background-color: #9c27b0; /* لون مخصص للحيوانات */
+}
+
+.nature {
+  background-color: #4caf50; /* لون مخصص للطبيعة */
+}
+
+.sports {
+  background-color: #2196f3; /* لون مخصص للرياضة */
+}
+
+.misc {
+  background-color: #607d8b; /* لون مخصص للصور المنوعة */
+}
+
+.all {
+  background-color: #8b4d14; /* لون مخصص للكل */
+}
+
+.filter-btn:hover {
+  opacity: 0.9;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 90%;
+}
+
+.card {
+  position: relative;
+  border-radius: 17px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  width: 170px;
+  height: 237px;
+  left: 4%;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.download-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(128, 128, 128, 0.5);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.download-btn:hover {
+  background-color: rgba(128, 128, 128, 0.7);
+}
+
+/* Popup CSS */
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  max-width: 500px;
+  background-color: #ffffff;
+  border: 1px solid #d6d6d6;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  text-align: center;
+  padding: 8px;
+  height: 69%;
+}
+
+.popup img {
+  width: 100%;
+  height: 99%;
+  border-bottom: 1px solid #000000;
+  display: block;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+.popup button {
+  padding: 3px 63px;
+  margin: 10px;
+  cursor: pointer;
+  border: none;
+  background-color: rgb(133, 133, 133, 0.4);
+  color: white;
+  border-radius: 55px;
+  font-size: 11px;
+}
+
+.popup button:hover {
+  background-color: rgb(0, 0, 0, 0.4);
+}
+
+.popup .close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(255, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.popup .close-btn:hover {
+  background-color: rgba(255, 0, 0, 0.7);
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(71, 71, 71, 0.5);
+  z-index: 5;
+}
