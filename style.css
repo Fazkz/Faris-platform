@@ -89,6 +89,7 @@ nav button#menuButton{
     margin-top: 10px;
     font-weight: bold;
     font-size: 46px;
+    
 }
 .main .left h3 span{
     color: #5e3bee;
@@ -114,12 +115,13 @@ nav button#menuButton{
 .skills{
     padding: 110px 85px 0;
 }
+
 .skills h3,
 .about .right h3,
 .portfolio .header h3,
 .feedback h3{
     font-size: 40px;
-    margin-top: 20px;
+    margin-top: 45px;
 }
 .skills .skill-items{
     display: flex;
@@ -382,62 +384,89 @@ header {
     align-items: center;
     justify-content: space-between;
 }
-
-.portfolio .header button i{
-    font-size: 426px; 
-}
-
-.portfolio .portfo-items{
+/* تنسيق البطاقة */
+.tourist-places {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
+    flex-wrap: wrap; /* للسماح بتكرار البطاقات على عدة أسطر */
 }
 
-.portfolio .portfo-items .item{
-    width: 40px;
-    height: 30px;
-    right: 15px;
-    background-color: #d9f7ff;
-    border-radius: 30px;
-    border-bottom: 6px solid transparent;
-    cursor: pointer;
-    box-shadow: 0 5px 32px rgb(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
+.card-oo {
+    width:125px; /* حجم البطاقات الصغيرة */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.2s ease;
 }
 
-.portfolio .portfo-items .item:hover{
-    border-color: #0061fe;
+.card:hover {
+    transform: scale(1.05);
 }
 
-.portfolio .portfo-items .item img{
+/* صورة البطاقة */
+.image-section img {
     width: 100%;
-    height: 120px;
+    height: 150px; /* ارتفاع الصورة للبطاقات الصغيرة */
     object-fit: cover;
-    object-position: top;
-    border-radius: 30px 10px 20px 20px;
 }
 
-.portfolio .portfo-items .item .info{
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    padding: 20px 32px 42px;
+/* النصوص داخل البطاقة */
+.text-section {
+    padding: 15px;
 }
 
-.portfolio .portfo-items .item .info p{
-    font-size: 13px;
-}
-/*مخصص لخط موقع المكان */
-.portfolio .portfo-items .item .info a{
-    text-decoration: underline;
-    text-underline-offset: 14px;
-    text-decoration-color: #0061fe;
-}
-
-.portfolio .portfo-items .item .info a i{
-    margin-left: 2px;
+.text-section h1 {
     font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
 }
+
+.text-section .large-text {
+    font-size: 13px;
+    margin-bottom: 4px;
+    color: #555;
+}
+
+.text-section .small-text {
+    font-size: 11px;
+    margin-bottom: 10px;
+    color: #777;
+}
+
+.link-button {
+    display: inline-block;
+    padding: 6px 10px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.link-button:hover {
+    background-color: #45a049;
+}
+
+.icon {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 20px;
+    color: red;
+}
+
+/* التنسيق الخاص بالبطاقة الكبيرة */
+.large-card {
+    width: 350px; /* حجم البطاقة الكبيرة */
+}
+
+/* الصورة في البطاقة الكبيرة */
+.large-card .image-section img {
+    height: 200px; /* ارتفاع الصورة في البطاقة الكبيرة */
+}
+
 /*قسم عن الموقع */
 .feedback{
     padding: 110px 85px;
@@ -539,9 +568,10 @@ footer .bottom .links a{
     .main .left h5{
         font-size: 22px;
     }
-
+/*خاص لنص البداية */
     .main .left h3{
         font-size: 36px;
+        text-align: center
     }
 
     .main .left p{
@@ -827,3 +857,9 @@ h1 {
     cursor: pointer;
 }
 /*.<button id="resetButton">إعادة تعيين عدد الزيارات</button>.*/
+h2 {
+  text-align: center; /* توسيط النص */
+  font-size: 48px; /* تكبير حجم الخط */
+  margin-top: 20px; /* إضافة هوامش علوية */
+  margin-bottom: 20px; /* إضافة هوامش سفلية */
+}
