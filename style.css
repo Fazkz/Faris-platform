@@ -398,7 +398,7 @@ header {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
+    background-color: #d6d6d6;
     transition: transform 0.2s ease;
 }
 
@@ -459,12 +459,13 @@ header {
 
 /* التنسيق الخاص بالبطاقة الكبيرة */
 .large-card {
-    width: 350px; /* حجم البطاقة الكبيرة */
+    width: 350px;
+    background-color: #79b5cf;/* حجم البطاقة الكبيرة */
 }
 
 /* الصورة في البطاقة الكبيرة */
 .large-card .image-section img {
-    height: 200px; /* ارتفاع الصورة في البطاقة الكبيرة */
+    height: 250px; /* ارتفاع الصورة في البطاقة الكبيرة */
 }
 /*قسم عن الموقع */
 .feedback{
