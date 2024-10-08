@@ -61,29 +61,55 @@ function filterImages(category) {
     }
   });
 }
-//كود عدد المستخدمين
-// تحقق مما إذا كانت هذه أول زيارة للمستخدم
-let hasVisited = localStorage.getItem('hasVisited');
-
-// إذا لم يكن هناك سجل للزيارة السابقة
-if (!hasVisited) {
-    // اضبط أن المستخدم قد زار الموقع
-    localStorage.setItem('hasVisited', 'true');
-
-    // جلب عدد الزيارات من LocalStorage
-    let visitCount = localStorage.getItem('visitCount');
-
-    // إذا كان العداد غير موجود، اضبطه على 0
-    if (!visitCount) {
-        visitCount = 0;
-    }
-
-    // زيد العداد بمقدار 1
+// كود عدد المستخدمين
+    // عداد الزيارات
+document.addEventListener('DOMContentLoaded', function() {
+    // تحديث عداد الزيارات
+    let visitCount = localStorage.getItem('visitCount') || 0;
     visitCount++;
-
-    // تحديث قيمة العداد في LocalStorage
     localStorage.setItem('visitCount', visitCount);
-}
+    document.getElementById('visitCount').textContent = visitCount;
 
-// عرض عدد الزيارات في الصفحة
-document.getElementById('visitCount').textContent = localStorage.getItem('visitCount') || 0;
+    // تحديث عداد التقييمات
+    let ratingCount = localStorage.getItem('ratingCount') || 0;
+    document.getElementById('ratingCount').textContent = ratingCount;
+
+    // التقييم بالنجوم
+    const stars = document.querySelectorAll('.stars i');
+    let selectedStars = 0;
+    stars.forEach((star, index) => {
+        star.addEventListener('click', () => {
+            selectedStars = index + 1;
+            stars.forEach((s, i) => {
+                if (i < selectedStars) {
+                    s.classList.add('selected');
+                } else {
+                    s.classList.remove('selected');
+                }
+            });
+        });
+    });
+
+    // وظيفة عند النقر على زر "قيّم الموقع"
+    document.getElementById('rateBtn').addEventListener('click', () => {
+        if (selectedStars > 0) {
+            ratingCount++;
+            localStorage.setItem('ratingCount', ratingCount);
+            document.getElementById('ratingCount').textContent = ratingCount;
+            alert('شكراً لتقييمك!');
+        } else {
+            alert('يرجى تحديد عدد النجوم قبل التقييم.');
+        }
+    });
+
+    // وظيفة عند النقر على زر "إعادة التعيين"
+    document.getElementById('resetBtn').addEventListener('click', () => {
+        localStorage.setItem('visitCount', 0);
+        localStorage.setItem('ratingCount', 0);
+        document.getElementById('visitCount').textContent = 0;
+        document.getElementById('ratingCount').textContent = 0;
+        stars.forEach(star => star.classList.remove('selected'));
+        selectedStars = 0;
+        alert('تمت إعادة التعيين بنجاح!');
+    });
+});
