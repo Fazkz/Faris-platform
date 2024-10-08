@@ -768,6 +768,7 @@ footer .bottom .links a{
         width: 100%;
     }
 }
+
 /* كود فلاتر سناب */ 
 .cards-container {
     display: flex;
@@ -818,15 +819,6 @@ footer .bottom .links a{
     color: black;
 }
 /*كود عدد المستخدمين */
-.counter-container {
-    text-align: center;
-    background-color: #fff;
-    padding: 10px; /* تقليل المساحة الداخلية */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 200px; /* تحديد عرض أقصى للمربع */
-    margin: 0 auto; /* لتوسيط المربع في الصفحة */
-}
 
 h1 {
     font-size: 1.2em; /* تصغير حجم النص */
@@ -856,10 +848,44 @@ h1 {
     font-size: 0.9em; /* تقليل حجم النص في الزر */
     cursor: pointer;
 }
-/*.<button id="resetButton">إعادة تعيين عدد الزيارات</button>.*/
-h2 {
-  text-align: center; /* توسيط النص */
-  font-size: 48px; /* تكبير حجم الخط */
-  margin-top: 20px; /* إضافة هوامش علوية */
-  margin-bottom: 20px; /* إضافة هوامش سفلية */
+/*.<!-- زر إعادة التعيين -->
+<button id="resetBtn">إعادة التعيين</button>.*/
+.feedback-box, .rating-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+.feedback-box i, .rating-box i {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.stars i {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.stars i.selected {
+    color: gold;
+}
+
+#rateBtn {
+    background-color: #008CBA; /* لون الخلفية */
+    border: none; /* إزالة الحدود */
+    color: white; /* لون النص */
+    padding: 10px 20px; /* الحشوة */
+    text-align: center; /* محاذاة النص */
+    text-decoration: none; /* إزالة التزيين */
+    display: inline-block; /* عرض كتلة داخلية */
+    font-size: 16px; /* حجم الخط */
+    margin: 4px 2px; /* الهوامش */
+    cursor: pointer; /* مؤشر الفأرة */
+    border-radius: 12px; /* زوايا مستديرة */
+    transition: background-color 0.3s; /* تأثير الانتقال */
+}
+
+#rateBtn:hover {
+    background-color: #005f73; /* لون الخلفية عند التمرير */
 }
