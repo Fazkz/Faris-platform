@@ -111,6 +111,57 @@ nav button#menuButton{
 .main .right img{
     width: 500px;
 }
+
+/* الأزرار */
+.nav-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: #669BBC;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column; /* ترتيب العناصر عمودي */
+  align-items: center; /* محاذاة النص في المنتصف */
+  text-align: center;
+  color: black; /* لون النص */
+}
+
+.nav-item a {
+  color: black; /* لون الأيقونات */
+  font-size: 1.5rem;
+  text-decoration: none;
+  padding: 5px;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.nav-item:hover a {
+  background: #073B4C;
+  border-radius: 50%;
+  transform: scale(1.2);
+}
+
+.nav-item i {
+  color: white; /* لون الأيقونات */
+  font-size: 24px;
+}
+
+.nav-item span {
+  font-size: 14px; /* حجم النص */
+  margin-top: 5px; /* مسافة بين الأيقونة والنص */
+  color: white; /* لون النص */
+}
+
+.home-icon {
+  position: relative;
+  font-size: 46px;
+}
 /*قسم الخلفيات */
 .skills{
     padding: 110px 85px 0;
