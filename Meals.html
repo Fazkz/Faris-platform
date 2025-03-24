@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تتبع الصحة</title>
+    <link rel="stylesheet" href="Meals.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  
+<div class="container">
+  <h1>جدول غذائي</h1>
+
+  <button id="deleteFoodTrigger" onclick="showDeleteButtons()">تعديل</button>
+  <div class="meal" id="breakfast">
+    <h2>الفطور</h2>
+    <div class="food-list" id="breakfast-list"></div>
+    <button onclick="openFoodSearch('breakfast')">إضافة</button>
+  </div>
+  <div class="meal" id="snack1">
+    <h2>وجبة خفيفة </h2>
+    <div class="food-list" id="snack1-list"></div>
+    <button onclick="openFoodSearch('snack1')">إضافة</button>
+  </div>
+  <div class="meal" id="lunch">
+    <h2>الغداء</h2>
+    <div class="food-list" id="lunch-list"></div>
+    <button onclick="openFoodSearch('lunch')">إضافة</button>
+  </div>
+  <div class="meal" id="snack2">
+    <h2>وجبة خفيفة </h2>
+    <div class="food-list" id="snack2-list"></div>
+    <button onclick="openFoodSearch('snack2')">إضافة</button>
+  </div>
+  <div class="meal" id="dinner">
+    <h2>العشاء</h2>
+    <div class="food-list" id="dinner-list"></div>
+    <button onclick="openFoodSearch('dinner')">إضافة</button>
+  </div>
+</div>
+
+<div id="foodSearchModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeFoodSearch()">×</span>
+    <div class="search-container">
+      <input type="text" id="foodSearchInput" placeholder="ابحث عن الطعام...">
+      <button id="searchCompleteButton" onclick="searchComplete()">بحث</button>
+      <div class="container">
+        <button class="btn-create" onclick="openPopup()"><i class="fas fa-utensils"></i> إنشاء طعام</button>
+      </div>
+    </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+
+  <div id="categories-container">
+  <div id="categories">
+<button onclick="filterFoods('all')">
+ <i class="fas fa-list fa-lg"style="color: #000000;"></i> كل الأطعمة
+</button>
+<button onclick="filterFoods('فواكه')">
+<i class="fas fa-apple-alt fa-lg" style="color: #D4201D;"></i> فواكه
+</button>
+
+<button onclick="filterFoods('خضراوات')">
+<i class="fa-solid fa-carrot fa-lg" style="color: #F37D48;"></i> خضراوات
+</button>
+<button onclick="filterFoods('خضار مجمده')">
+<i class="fa-regular fa-snowflake fa-lg" style="color: #0077B6;"></i>خضار مجمده
+</button>
+<button onclick="filterFoods('لحوم')">
+ <i class="fas fa-drumstick-bite fa-lg"></i>لحوم
+</button>
+<button onclick="filterFoods('دواجن')">
+ <i class="fas fa-drumstick-bite fa-lg"></i>دواجن
+</button>
+<button onclick="filterFoods('بيض')">
+ <i class="fas fa-egg fa-lg"></i>بيض
+</button>
+<button onclick="filterFoods('مأكولات بحرية')">
+ <i class="fa-solid fa-fish-fins fa-lg"></i>مأكولات بحرية
+</button>
+<button onclick="filterFoods('الحبوب و منتجاتها')">
+ <i class="fas fa-seedling fa-lg"></i> الحبوب و منتجاتها
+</button>
+<button onclick="filterFoods('الأجبان و منتجاتها')">
+ <i class="fas fa-cheese fa-lg"></i> الأجبان و منتجاتها
+</button>
+<button onclick="filterFoods('مشروبات غازية')">
+ <i class="fas fa-wine-bottle fa-lg"></i> مشروبات غازية
+</button>
+<button onclick="filterFoods('مشروبات ساخنه')">
+<i class="fa-solid fa-mug-hot fa-lg"style="color: #000000;"></i> مشروبات ساخنه
+</button>
+<button onclick="filterFoods('مخبوزات')">
+ <i class="fas fa-bread-slice fa-lg"></i> مخبوزات
+</button>
+<button onclick="filterFoods('بيتزا')">
+ <i class="fa-solid fa-pizza-slice fa-lg"></i>بيتزا
+</button>
+<button onclick="filterFoods('منتجات اخرى')">
+<i class="fa-solid fa-boxes-stacked fa-lg" style="color: #D4A373;"></i> منتجات اخرى
+</button>
+<button onclick="filterFoods('وجباتي')">
+<i class="fa-solid fa-burger fa-lg" style="color: #000000;"></i> وجباتي
+</button>
+  </div>
+</div>
+<!---------->
+  <div id="categories-container">
+  <div id="categories">
+<button onclick="filterFoods('ورقيات')">
+<i class="fa-brands fa-canadian-maple-leaf fa-rotate-by fa-lg" style="color: #208B3A; --fa-rotate-angle: 32deg;"></i>ورقيات
+    </button>
+<button onclick="filterFoods('قمح و بذور')">
+<i class="fa-solid fa-wheat-awn fa-lg"style="color: #000000;"></i>قمح و بذور
+    </button>
+<button onclick="filterFoods('شيبس')">
+<i class="fa-solid fa-bowl-rice"></i>شيبس
+    </button>
+<button onclick="filterFoods('ايسكريم')">
+  <i class="fa-solid fa-ice-cream fa-lg"style="color: #000000;"></i>ايسكريم
+    </button>
+<button onclick="filterFoods('شوكولاته')">
+  <i class="fa-solid fa-cookie-bite fa-lg"style="color: #000000;"></i>شوكولاته
+    </button>
+<button onclick="filterFoods('عصائر')">
+<i class="fa-solid fa-wine-glass fa-lg"style="color: #000000;"></i>عصائر
+    </button>
+
+    
+<button onclick="filterFoods('الدهون و الزيوت')">
+<i class="fa-solid fa-bottle-droplet fa-rotate-by fa-lg" style="--fa-rotate-angle: 8deg;"></i>الدهون و الزيوت 
+    </button>
+    
+  </div>
+  
+</div>
+<div id="foodTypes">
+  <!-- ستظهر الأنواع هنا -->
+</div>
+    <!--الاطعمه -->
+    <div id="foodList">
+      <div id="foodList">
+<!--------فواكة  ------->
+
+<div class="food-item" data-category="فواكه" onclick="showFoodConfirmation('أناناس طازج', 'lunch', 50, 0.1, 0.5, 13.1, 'أناناس، طازج طبيعي، بدون قشره [ لكل 1 جرام = 0.5 سعره ] الكمية لكل 100 g ', 'https://up6.cc/2025/02/173920276491571.jpeg')">
+ <img src="https://up6.cc/2025/02/173920276491571.jpeg" alt="أناناس طازج">
+  <span>أناناس طازج، بدون قشره</span>
+</div>
+
+<div class="food-item" data-category="فواكه" onclick="showFoodConfirmation('تفاحه بالقشره', 'lunch', 52, 0.17, 0.26, 13.81, 'تفاح، طازج طبيعي، بقشرة الكمية لكل 100 جرام  (لكل 1جم 0.52cal)', 'https://up6.cc/2025/02/173920276494582.jpeg')">
+  <img src="https://up6.cc/2025/02/173920276494582.jpeg" alt="تفاحه بالقشره">
+       <span>تفاحه بالقشره</span>
+ </div>
+<div class="food-item" data-category="فواكه" onclick="showFoodConfirmation('موز طازج|بدون قشر', 'lunch', 97, 0.28, 0.74, 22, 'موز، طازج بدون قشر-الكمية لكل 100 جرام  (لكل 1جم = 0.97 )', 'https://up6.cc/2025/02/173920276499163.jpeg')">
+  <img src="https://up6.cc/2025/02/173920276499163.jpeg" alt="موز طازج|بدون قشر">
+       <span>موز طازج|بدون قشر</span>
+ </div>
+  
+<div class="food-item" data-category="فواكه" onclick="showFoodConfirmation('فراولة طازجه', 'lunch', 16, 0.15, 0.3, 3.8, 'فراولة طازجه لكل 50 جرام ( لكل 1جم 0.32سعره)', 'https://up6.cc/2025/02/173920276501424.jpeg')">
+  <img src="https://up6.cc/2025/02/173920276501424.jpeg" alt="فراولة طازجه">
+       <span>فراولة طازجه</span>
+ </div>
+ 
+ <div class="food-item" data-category="فواكه" onclick="showFoodConfirmation('برتقال طازج', 'lunch', 47, 0.1, 0.9, 11.8, 'برتقال طازج لكل 100 جرام', 'https://up6.cc/2025/02/17390322280141.png')">
+  <img src="https://up6.cc/2025/02/17390322280141.png" alt="برتقال طازج">
+  <span>برتقال طازج</span>
+</div>
+
+<div class="food-item" data-category="فواكه" onclick="showFoodConfirmation('عنب طازج', 'lunch', 69, 0.2, 0.72, 18, 'عنب طازج لكل 100 جرام', 'https://up6.cc/2025/02/173909792043911.png')">
+  <img src="https://up6.cc/2025/02/173909792043911.png" alt="عنب طازج">
+  <span>عنب طازج</span>
+</div>
+
+<div class="food-item" data-category="فواكه" onclick="showFoodConfirmation('رمان', 'lunch', 83, 1.2, 1.67, 18.7, 'رمان لكل 100 جرام', 'https://up6.cc/2025/02/173909799108551.png')">
+  <img src="https://up6.cc/2025/02/173909799108551.png" alt="رمان">
+  <span>رمان</span>
+</div>
+<div class="food-item" data-category="فواكه" onclick="showFoodConfirmation('كيوي', 'lunch', 61, 0.5, 1.1, 14.7, 'كيوي، طازج طبيعي، لكل 100 جرام (لكل 1 جم 0.61 سعره)', 'https://up6.cc/2025/02/173920276504055.jpeg')">
+  <img src="https://up6.cc/2025/02/173920276504055.jpeg" alt="كيوي">
+  <span>كيوي</span>
+</div>
+
+<div class="food-item" data-category="فواكه" onclick="showFoodConfirmation('مانجو', 'lunch', 60, 0.4, 0.8, 15, 'مانجو، طازج طبيعي، لكل 100 جرام (لكل 1 جم 0.60 سعره)', 'https://up6.cc/2025/02/173920301033011.jpeg')">
+  <img src="https://up6.cc/2025/02/173920301033011.jpeg" alt="مانجو">
+  <span>مانجو</span>
+</div>
+
+<div class="food-item" data-category="فواكه" onclick="showFoodConfirmation('بابايا', 'lunch', 43, 0.3, 0.5, 10.8, 'بابايا، طازج طبيعي، لكل 100 جرام (لكل 1 جم 0.43 سعره)', 'https://up6.cc/2025/02/173920301038142.jpeg')">
+  <img src="https://up6.cc/2025/02/173920301038142.jpeg" alt="بابايا">
+  <span>بابايا</span>
+</div>
+
+<div class="food-item" data-category="فواكه" onclick="showFoodConfirmation('تين', 'lunch', 74, 0.3, 0.8, 19.2, 'تين، طازج طبيعي، لكل 100 جرام (لكل 1 جم 0.74 سعره)', 'https://up6.cc/2025/02/173920301041163.jpeg')">
+  <img src="https://up6.cc/2025/02/173920301041163.jpeg" alt="تين">
+  <span>تين</span>
+</div>
+
+<div class="food-item" data-category="فواكه" onclick="showFoodConfirmation('كمثرى', 'lunch', 57, 0.1, 0.4, 15.2, 'كمثرى، طازج طبيعي، لكل 100 جرام (لكل 1 جم 0.57 سعره)', 'https://up6.cc/2025/02/173920301043944.jpeg')">
+  <img src="https://up6.cc/2025/02/173920301043944.jpeg" alt="كمثرى">
+  <span>كمثرى</span>
+</div>
+
+<div class="food-item" data-category="فواكه" onclick="showFoodConfirmation('توت أزرق', 'lunch', 57, 0.3, 0.7, 14.5, 'توت أزرق، طازج طبيعي، لكل 100 جرام (لكل 1 جم 0.57 سعره)', 'https://up6.cc/2025/02/173920301046085.jpeg')">
+  <img src="https://up6.cc/2025/02/173920301046085.jpeg" alt="توت أزرق">
+  <span>توت أزرق</span>
+</div>
+
+<div class="food-item" data-category="فواكه" onclick="showFoodConfirmation('خوخ', 'lunch', 39, 0.3, 0.9, 9.5, 'خوخ، طازج طبيعي، لكل 100 جرام (لكل 1 جم 0.39 سعره)', 'https://up6.cc/2025/02/173920311423141.jpeg')">
+  <img src="https://up6.cc/2025/02/173920311423141.jpeg" alt="خوخ">
+  <span>خوخ</span>
+</div>
+
+<div class="food-item" data-category="فواكه" onclick="showFoodConfirmation('جوافة', 'lunch', 68, 0.3, 2.6, 14.3, 'جوافة، طازج طبيعي، لكل 100 جرام (لكل 1 جم 0.68 سعره)', 'https://up6.cc/2025/02/173920311429392.jpeg')">
+  <img src="https://up6.cc/2025/02/173920311429392.jpeg" alt="جوافة">
+  <span>جوافة</span>
+</div>
+
+<div class="food-item" data-category="فواكه" onclick="showFoodConfirmation('بطيخ أحمر', 'lunch', 30, 0.2, 0.6, 7.6, 'بطيخ أحمر، طازج طبيعي، لكل 100 جرام (لكل 1 جم 0.30 سعره)', 'https://up6.cc/2025/02/173920311434423.jpeg')">
+  <img src="https://up6.cc/2025/02/173920311434423.jpeg" alt="بطيخ أحمر">
+  <span>بطيخ أحمر</span>
+</div>
+<!--------خضراوات  ------->
+<div class="food-item" data-category="خضراوات" onclick="showFoodConfirmation('جزر', 'lunch', 41, 0.24, 0.93, 9.58, 'جزر بالقشر القيم لكل 100 جرام', 'https://up6.cc/2025/02/173912031758741.jpeg')">
+  <img src="https://up6.cc/2025/02/173912031758741.jpeg" alt="جزر بالقشر">
+       <span>جزر بالقشر</span>
+ </div>
+ 
+ 
+<!---------ورقيات --------->
+<div class="food-item" data-category="ورقيات" onclick="showFoodConfirmation('خس طازج', 'lunch', 17, 0.3, 1.2, 3.3, 'خس، طازج طبيعي، لكل 100 جرام (لكل 1 جم 0.15 سعره)', 'https://up6.cc/2025/02/173912031762712.jpeg')">
+  <img src="https://up6.cc/2025/02/173912031762712.jpeg" alt="خس طازج">
+  <span>خس طازج</span>
+</div>
+
+<div class="food-item" data-category="ورقيات" onclick="showFoodConfirmation('جرجير', 'lunch', 25, 0.7, 2.6, 3.7, 'جرجير، طازج طبيعي، لكل 100 جرام (لكل 1 جم 0.25 سعره)', 'https://up6.cc/2025/02/173912136422821.jpeg')">
+  <img src="https://up6.cc/2025/02/173912136422821.jpeg" alt="جرجير">
+  <span>جرجير</span>
+</div>
+
+<div class="food-item" data-category="ورقيات" onclick="showFoodConfirmation('كزبرة طازج', 'lunch', 23, 0.5, 2.1, 3.7, 'كزبرة، طازج طبيعي، لكل 100 جرام (لكل 1 جم 0.23 سعره)', 'https://up6.cc/2025/02/173912136429093.jpeg')">
+  <img src="https://up6.cc/2025/02/173912136429093.jpeg" alt="كزبرة طازج">
+  <span>كزبرة طازج</span>
+</div>
+<div class="food-item" data-category="ورقيات" onclick="showFoodConfirmation('كراث طازج', 'lunch', 61, 0.3, 1.5, 14.2, 'كراث، طازج طبيعي، لكل 100 جرام (لكل 1 جم 0.61 سعره)', 'https://up6.cc/2025/02/1739120317653.jpeg')">
+  <img src="https://up6.cc/2025/02/1739120317653.jpeg" alt="كراث">
+  <span>كراث طازج</span>
+</div>
+
+<div class="food-item" data-category="ورقيات" onclick="showFoodConfirmation('نعناع بلدي طازج', 'lunch', 44, 0.7, 3.3, 8.4, 'نعناع، طازج طبيعي، لكل 100 جرام (لكل 1 جم 0.44 سعره)', 'https://up6.cc/2025/02/173912031771265.jpeg')">
+  <img src="https://up6.cc/2025/02/173912031771265.jpeg" alt="نعناع طازج">
+  <span>نعناع بلدي طازج</span>
+</div>
+
+<div class="food-item" data-category="ورقيات" onclick="showFoodConfirmation('بقدونس طازج', 'lunch', 36, 0.8, 3, 6.3, 'بقدونس، طازج طبيعي، لكل 100 جرام (لكل 1 جم 0.36 سعره)', 'https://up6.cc/2025/02/17391213642562.jpeg')">
+  <img src="https://up6.cc/2025/02/17391213642562.jpeg" alt="بقدونس طازج">
+  <span>بقدونس طازج</span>
+</div>
+  <!-----لحوم  ------>
+  
+<div class="food-item" data-category="لحوم" onclick="showFoodConfirmation('سلطة دجاج سيزر', 'lunch', 42, 31, 52, 4, 'دجاج، خس، جبن، صلصة سيزر', 'https://www3.0zz0.com/2024/08/11/18/183479178.jpeg')">
+ <img src="https://www3.0zz0.com/2024/08/11/18/183479178.jpeg" alt="سلطة دجاج سيزر">
+       <span>سلطة دجاج سيزر</span>
+  </div>
+<!----بيض ------>
+    
+ <div class="food-item" data-category="بيض" onclick="showFoodConfirmation('بيض مسلوق', 'breakfast', 135, 21, 5, 1, 'بيض', 'https://up6.cc/2025/02/17392039213131.jpeg')">
+   <img src="https://up6.cc/2025/02/17392039213131.jpeg" alt="بيض مسلوق">
+        <span>بيض مسلوق</span>
+  </div>
+  <!-------الحبوب و منتجاتها -------->
+<div class="food-item" data-category="الحبوب و منتجاتها" onclick="showFoodConfirmation('أرز ابيض (مطبوخ)', '', 130, 0.2, 2.7, 28,'أرز ابيض (مطبوخ) الكمية 100 جرام ', 'https://up6.cc/2024/12/173307160299611.jpeg')">
+  <img src="https://up6.cc/2024/12/173307160299611.jpeg" alt="أرز ابيض (مطبوخ)">
+  <span>أرز ابيض (مطبوخ)</span>
+</div>
+<!---الاجبان و منتجاتها ---->
+<div class="food-item" data-category="الأجبان و منتجاتها" onclick="showFoodConfirmation('جبن سائل بوك', '', 323, 31, 8.7, 1.9,'جبن سائل من شركة بوك الكمية 100 جرام ', 'https://up6.cc/2024/11/173297855094161.jpeg')">
+  <img src="https://up6.cc/2024/11/173297855094161.jpeg" alt="جبن سائل بوك ">
+  <span>جبن سائل بوك</span>
+</div>
+
+<div class="food-item" data-category="الأجبان و منتجاتها" onclick="showFoodConfirmation('جبن سائل المراعي', '', 103, 10, 1.6, 1,'جبن سائل من شركة المراعي قابل للدهن الكمية 30غم', 'https://up6.cc/2024/12/173301021439461.jpeg')">
+  <img src="https://up6.cc/2024/12/173301021439461.jpeg" alt="جبن سائل المراعي ">
+  <span>جبن سائل المراعي</span>
+</div>
+
+<div class="food-item" data-category="الأجبان و منتجاتها" onclick="showFoodConfirmation('جبنة بالقشطة', '', 100, 10, 2, 1,'جبنة المربعات بالقشطة لذيذه من المراعي  الكمية 108جم', 'https://up6.cc/2024/12/173301183293171.jpeg')">
+  <img src="https://up6.cc/2024/12/173301183293171.jpeg" alt="جبنة بالقشطة المراعي ">
+  <span>جبنة بالقشطة</span>
+</div>
+  
+ <!-----مشروبات غازية -------->
+  <div class="food-item" data-category="مشروبات غازية" onclick="showFoodConfirmation('ميرندا فراولة', 'مشروبات غازية', 153.6, 0, 0, 13, 'مشروب ميرندا فراولة الكمية 320 مل', 'https://up6.cc/2024/12/173307930902752.jpeg')">
+   <img src="https://up6.cc/2024/12/173307930902752.jpeg" alt="ميرندا فراولة">
+   <span>ميرندا فراولة</span>
+ </div>
+ 
+<div class="food-item" data-category="مشروبات غازية" onclick="showFoodConfirmation('بيبسي دايت', 'مشروبات غازية', 1, 0, 0, 0, 'مشروب غازي', 'https://up6.cc/2024/10/172917270272061.jpeg')">
+ <img src="https://up6.cc/2024/10/172917270272061.jpeg" alt="بيبسي دايت">
+         <span>بيبسي دايت </span>
+</div>
+        
+    <div class="food-item" data-category="مشروبات غازية" onclick="showFoodConfirmation('ميرندا تفاح أخضر', 'مشروبات غازية', 176.4, 0, 0, 13, 'مشروب ميرندا تفاح أخضر منعش و لذيذ الكمية 360 مل', 'https://up6.cc/2024/12/173307930900511.jpeg')">
+   <img src="https://up6.cc/2024/12/173307930900511.jpeg" alt="ميرندا تفاح أخضر">
+   <span>ميرندا تفاح أخضر</span>
+ </div>
+ 
+  <div class="food-item" data-category="مشروبات غازية" onclick="showFoodConfirmation('ميرندا برتقال', 'مشروبات غازية', 170, 0, 0, 14, 'مشروب ميرندا برتقال منعش و لذيذ الكمية 320 مل [لكل 1 جرام > 0.53 سعره ]  ', 'https://up6.cc/2025/01/173654161156771.jpeg')">
+   <img src="https://up6.cc/2025/01/173654161156771.jpeg" alt="ميرندا برتقال">
+   <span>ميرندا برتقال</span>
+ </div>
+ 
+  <div class="food-item" data-category="مشروبات غازية" onclick="showFoodConfirmation('بربيكان شعير فراوله', 'مشروبات غازية', 82.5, 0, 0, 8.4, 'مشروب بربيكان شعير فراوله 250 مل', 'https://up6.cc/2024/12/173396154522591.jpeg')">
+   <img src="https://up6.cc/2024/12/173396154522591.jpeg" alt="بربيكان شعير فراوله">
+   <span>بربيكان شعير فراوله</span>
+ </div>
+ 
+ <div class="food-item" data-category="مشروبات غازية" onclick="showFoodConfirmation('كينزا كوكتيل تفاح ونعناع', 'مشروبات غازية', 134.5, 0, 0, 13.2, 'كينزا شامبانيا سعودية تفاح ونعناع 250مل', 'https://www2.0zz0.com/2024/12/12/22/815637918.jpeg')">
+  <img src="https://www2.0zz0.com/2024/12/12/22/815637918.jpeg" alt="كينزا كوكتيل تفاح ونعناع">
+  <span>كينزا كوكتيل تفاح ونعناع</span>
+</div>
+
+  <div class="food-item" data-category="مشروبات غازية" onclick="showFoodConfirmation('شاني بنكهة الفواكة', 'مشروبات غازية', 166.4, 0, 0, 14, 'مشروب شاني بنكهة الفواكة الكمية 320 مل', 'https://up6.cc/2024/12/173308036034541.jpeg')">
+   <img src="https://up6.cc/2024/12/173308036034541.jpeg" alt="شاني بنكهة الفواكة">
+   <span>شاني بنكهة الفواكة</span>
+ </div>
+
+<!------مخبوزات ---------->       
+      <div class="food-item" data-category="مخبوزات" onclick="showFoodConfirmation('خبز توست بر', 'lunch', 75, 1, 3, 13, ' خبز توست بر من لوزين، الكمية لكل 30جرام', 'https://up6.cc/2024/12/173301317151771.jpeg')">
+        <img src="https://up6.cc/2024/12/173301317151771.jpeg" alt="خبز توست بر">
+        <span>خبز توست بر</span>
+      </div>
+      
+   <div class="food-item" data-category="مخبوزات" onclick="showFoodConfirmation('خبز توست أبيض', 'lunch', 79, 1, 3, 15, ' خبز توست أبيض من لوزين، الكمية لكل 30جرام', 'https://up6.cc/2024/12/173301346486351.jpeg')">
+   <img src="https://up6.cc/2024/12/173301346486351.jpeg" alt="خبز توست أبيض">
+   <span>خبز توست أبيض</span>
+   </div>
+     
+   <div class="food-item" data-category="مخبوزات" onclick="showFoodConfirmation('خبز توست نخالة', 'lunch', 81, 1, 3, 13, ' خبز توست نخالة من لوزين، الكمية لكل 30جرام', 'https://up6.cc/2024/12/173314970131561.jpeg')">
+   <img src="https://up6.cc/2024/12/173314970131561.jpeg" alt="خبز توست نخالة">
+   <span>خبز توست نخالة</span>
+   </div>
+   
+    <div class="food-item" data-category="مخبوزات" onclick="showFoodConfirmation('خبز توست بالحليب', 'lunch', 86, 2, 3, 15, ' خبز توست بالحليب من لوزين،، الكمية لكل 30جرام', 'https://up6.cc/2024/12/17331497013342.jpeg')">
+   <img src="https://up6.cc/2024/12/17331497013342.jpeg" alt="خبز توست بالحليب">
+   <span>خبز توست بالحليب</span>
+ </div>
+ 
+  <div class="food-item" data-category="مخبوزات" onclick="showFoodConfirmation('فطيرة الجبنة', 'lunch', 265, 15, 7, 25, ' فطيرة الجبنة من لوزين،الكميه لكل 70جرام', 'https://up6.cc/2024/12/173314970134513.jpeg')">
+   <img src="https://up6.cc/2024/12/173314970134513.jpeg" alt="فطيرة الجبنة">
+   <span>فطيرة الجبنة</span>
+ </div>
+ 
+   <div class="food-item" data-category="مخبوزات" onclick="showFoodConfirmation('كرواسان الشوكولاتة', 'lunch', 265, 15, 4, 25, ' كرواسان الشوكولاتة من لوزين،الكميه لكل 55جرام', 'https://up6.cc/2024/12/173315082089551.jpeg')">
+    <img src="https://up6.cc/2024/12/173315082089551.jpeg" alt="كرواسان الشوكولاتة">
+    <span>كرواسان الشوكولاتة</span>
+  </div>
+<!------شوكولاته------->
+<div class="food-item" data-category="شوكولاته" onclick="showFoodConfirmation('شوكولاته سنيكرز', 'lunch', 147, 7, 2.5, 
+ 17, 'شوكولاته سنيكرز لكل 30جم', 'https://up6.cc/2024/12/173316293641921.jpeg')"><img src="https://up6.cc/2024/12/173316293641921.jpeg" alt=" شوكولاته سنيكرز ">
+   <span>شوكولاته سنيكرز</span>
+ </div>
+ 
+   <div class="food-item" data-category="شوكولاته" onclick="showFoodConfirmation('شوكولاته بريك سوبا', 'lunch', 149, 7, 1, 21, 'شوكولاته بريك سوبا قطعتين لذيذ لكل 30جم', 'https://up6.cc/2024/12/173307628217191.jpeg')">
+   <img src="https://up6.cc/2024/12/173307628217191.jpeg" alt=" شوكولاته بريك سوبا">
+   <span>شوكولاته بريك سوبا</span>
+   </div>
+   
+<div class="food-item" data-category="شوكولاته" onclick="showFoodConfirmation('كيك بار الشوكولاته بالكراميل', 'lunch', 158, 7, 1.5, 
+ 23, 'شوكولاته سنيكرز لكل 40جم', 'https://up6.cc/2024/12/173555886146151.jpeg')"><img src="https://up6.cc/2024/12/173555886146151.jpeg" alt="كيك بار الشوكولاته بالكراميل">
+  <span>كيك بار الشوكولاته بالكراميل</span>
+</div>
+
+   <div class="food-item" data-category="شوكولاته" onclick="showFoodConfirmation('شوكولاته بريك ستار', 'lunch', 69, 4, 1, 7, 'شوكولاته بريك ستار لكل 13 جم', 'https://up6.cc/2024/12/17331643004981.jpeg')">
+     <img src="https://up6.cc/2024/12/17331643004981.jpeg" alt=" شوكولاته بريك ستار">
+     <span>شوكولاته بريك ستار</span>
+   </div>
+   
+   
+   <div class="food-item" data-category="شوكولاته" onclick="showFoodConfirmation('ديمة فانتزي كيك بالشوكولاته', 'lunch', 156, 23, 6, 16, 'ديمة فانتزي كيك بالشوكولاته لكل 40جرام', 'https://up6.cc/2024/12/173377458039231.jpeg')">
+     <img src="https://up6.cc/2024/12/173377458039231.jpeg" alt="ديمة فانتزي كيك بالشوكولاته">
+   <span>ديمة فانتزي كيك بالشوكولاته</span>
+   </div>
+   
+     <div class="food-item" data-category="شوكولاته" onclick="showFoodConfirmation('بسكريم بكريمة الكراميل', 'lunch', 65.16, 5, 1, 13, 'بسكريم بكريمة الكراميل سناك لذيذ لكل 36جرام', 'https://www2.0zz0.com/2024/12/13/18/114922296.jpeg')">
+    <img src="https://www2.0zz0.com/2024/12/13/18/114922296.jpeg" alt="ديمة فانتزي كيك بالشوكولاته">
+    <span>بسكريم بكريمة الكراميل</span>
+  </div>
+  
+      </div><!--اضاف الطعام فوق هذي-->
+    </div><!--اضاف الطعام فوق هذي-->
+  </div>
+</div>
+
+<div id="foodConfirmationModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeFoodConfirmation()">×</span>
+    <div id="foodConfirmationDetails"></div>
+    <button onclick="confirmAddFood()">أضف</button>
+  </div>
+</div>
+
+<!--- القيم الغذائية  -->
+<div class="meal-info">
+  <div class="info-item">
+    <div class="info-title">سعرات حرارية</div>
+    <div class="info-circle calories-circle">
+      <div id="total-calories" class="info-value">0</div>
+    </div>
+    <div class="info-value">كالوري</div>
+  </div>
+  <div class="info-item">
+    <div class="info-title">بروتين</div>
+    <div class="info-circle protein-circle">
+      <div id="total-protein" class="info-value">0</div>
+    </div>
+    <div class="info-value">جرام</div>
+  </div>
+  <div class="info-item">
+    <div class="info-title">كربوهيدرات</div>
+    <div class="info-circle carbs-circle">
+      <div id="total-carbs" class="info-value">0</div>
+    </div>
+    <div class="info-value">جرام</div>
+  </div>
+  <div class="info-item">
+    <div class="info-title">دهون</div>
+    <div class="info-circle fats-circle">
+      <div id="total-fat" class="info-value">0</div>
+    </div>
+    <div class="info-value">جرام</div>
+  </div>
+</div>
+<!---انشاء طعام --->
+<div class="popup" id="foodPopup">
+  <!-- زر لإغلاق النافذة -->
+  <button class="btn-close-popup" onclick="closePopup()">X</button>
+
+  <h2>إضافة وجبة</h2>
+  
+  <label for="foodImage">اختر صورة</label>
+  <input type="file" id="foodImage">
+
+  <label for="foodName">اسم الوجبة</label>
+  <input type="text" id="foodName" placeholder="أضف اسم الوجبة">
+
+  <label for="foodDesc">الوصف</label>
+  <input type="text" id="foodDesc" placeholder="أضف وصف الوجبة (اختياري)">
+
+  <label for="servingUnit">وحدة التقديم</label>
+  <select id="servingUnit">
+    <option value="جرام">جرام</option>
+    <option value="لتر">لتر</option>
+    <option value="ملل">ملل</option>
+    <option value="حبة">حبة</option>
+    <option value="كيس صغير">كيس صغير</option>
+    <option value="كوب صغير">كوب صغير</option>
+    <option value="كوب">كوب</option>
+    <option value="ملعقة صغيرة">ملعقة صغيرة</option>
+    <option value="ملعقة كبيرة">ملعقة كبيرة</option>
+  </select>
+
+  <label for="unitCount">عدد الوحدات ( الحصص ) </label>
+  <input type="number" id="unitCount" placeholder="أضف عدد الوحدات(الحصص)">
+
+  <!-- حقل جديد للكمية -->
+  <label for="quantity">الكمية</label>
+  <input type="number" id="quantity" placeholder="أضف الكمية  ">
+
+  <label for="calories">السعرات</label>
+  <input type="number" id="calories" placeholder="السعرات / السعرات">
+
+  <label for="carbs">الكربوهيدرات (جم)</label>
+  <input type="number" id="carbs" placeholder="كربوهيدرات / جم">
+
+  <label for="fats">الدهون (جم)</label>
+  <input type="number" id="fats" placeholder="دهون / جم">
+
+  <label for="protein">البروتين (جم)</label>
+  <input type="number" id="protein" placeholder="بروتين / جم">
+
+  <!-- إضافة تصنيف الوجبة -->
+  <label for="foodCategory">اختر تصنيف الوجبة</label>
+  <select id="foodCategory">
+    <option value="وجباتي">وجباتي</option>
+  </select>
+
+  <button class="btn-close" onclick="saveCustomFood()">اضف الطعام</button>
+</div>
+<h5>هذي المصادر الذي تم اعتماد المعلومات الغذائيه منها <p>USDA(وزارة الزراعة بالولايات المتحدة</p>المصدر 2 </h5>
+    <script src="Meals.js"></script>
+</body>
+</html>
