@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="stylesheet" href="style.css">
-  <title>منصة FARIS 🤍</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تتبع الصحة</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  
     <!--الازرار -->
    <div class="nav-bar">
   <div class="nav-item">
@@ -32,256 +31,99 @@
     <span>المعلومات</span>
   </div>
 </div>
-  <nav>
-    <div class="logo">
-      <img src="https://up6.cc/2024/10/172791366571082.png">
-      <a href="https://fazkz.github.io/Faris-platform/" target="_blank">منصة FARIS</a>
-    </div>
-    <ul>
-      <li><a href="#main">الرئيسية</a></li>
-<li><a href="#skills">خلفيات ايفون</a></li>
-<li><a href="#about">عدسات سناب شات</a></li>
-<li><a href="#portfolio">أماكن سياحية</a></li>
-<li><a href="#feedback">عن المنصة</a></li>
-    </ul>
-    <button id="menuButton" onclick="openMenu()">
-      <i class='bx bx-menu'></i>
-    </button>
-  </nav>
-<!--------الرئيسية ------->
-  <div class="main" id="main">
-    <div class="left">
-      <h4>Welcome to Faris platform</h4>
-      <h3>🌙<span>  اهلاً بك </span>في منصة faris</h3>
-      <p>
-        اكتشف المنصة الممتعة  والمميزة والمفيدة
-      </p>
-    </div>
-    <div class="right">
-      <img src="https://up6.cc/2024/10/172795612516911.png">
-    </div>
-  </div>
-<!---------خلفيات ----------->
-  <div class="skills" id="skills">
-<a href="Mega.html" class="more-btn">
-        اظهار الكل &#8594;
-    </a>
-<h4> لحفظ الخلفيه انقر عليها مطولاً</h4>
-     <h2>4K خلفيات</h2>
- <div class="search-bar">
-   <input type="text" id="searchInput" placeholder="ابحث عن صورة...">
-   <button class="search-btn" onclick="searchImages()">🔍</button> <!-- زر البحث داخل الحقل -->
- </div>
- </header>
-
- <div class="filters">
-   <button class="filter-btn all" onclick="filterImages('all')">الكل</button>
-   <button class="filter-btn cars" onclick="filterImages('cars')">صور سيارات</button>
-   <button class="filter-btn animals" onclick="filterImages('animals')">صور حيوانات</button>
-   <button class="filter-btn nature" onclick="filterImages('nature')">مناظر طبيعية</button>
-   <button class="filter-btn sports" onclick="filterImages('sports')">صور أندية رياضية</button>
-   <button class="filter-btn misc" onclick="filterImages('misc')">صور منوعة</button>
- </div>
-
- <div class="gallery">
-   <!------سيارات---------->
-   <div class="card cars">
-     <img src="https://www4.0zz0.com/2024/09/21/23/703378902.jpeg" alt="سيارة">
-     <button class="download-btn" onclick="showImage('https://www4.0zz0.com/2024/09/21/23/703378902.jpeg')">عرض الصورة</button>
-   </div>
-   <div class="card cars">
-      <img src="https://up6.cc/2024/09/172744347918321.jpeg" alt="سيارة">
-      <button class="download-btn" onclick="showImage('https://up6.cc/2024/09/172744347918321.jpeg')">عرض الصورة</button>
-    </div>
-   <!------حيوانات------>
-   <div class="card animals">
-     <img src="https://www11.0zz0.com/2024/09/24/23/591364537.jpeg" alt="حيوان">
-     <button class="download-btn" onclick="showImage('https://images.pexels.com/photos/1741205/pexels-photo-1741205.jpeg')">عرض الصورة</button>
-   </div>
-   <div class="card animals">
-      <img src="https://up6.cc/2024/10/172791602491161.jpeg" alt="حيوان">
-      <button class="download-btn" onclick="showImage('https://up6.cc/2024/10/172791602491161.jpeg')">عرض الصورة</button>
-    </div>
-   <!--------مناظر طبيعية------->
-   <div class="card nature">
-     <img src="https://up6.cc/2024/09/172744683039811.jpeg" alt="منظر جبال خضراء">
-     <button class="download-btn" onclick="showImage('https://up6.cc/2024/09/172744683039811.jpeg')">عرض الصورة</button>
-   </div>
-   <div class="card nature">
-      <img src="https://up6.cc/2024/10/172791602496042.jpeg" alt="منظر جبال خضراء">
-      <button class="download-btn" onclick="showImage('https://up6.cc/2024/10/172791602496042.jpeg')">عرض الصورة</button>
-    </div>
-<!------اندية رياضية------>   
-   <div class="card sports">
-     <img src="https://www4.0zz0.com/2024/09/24/23/390755859.jpeg" alt="نادي الهلال">
-     <button class="download-btn" onclick="showImage('https://www4.0zz0.com/2024/09/24/23/390755859.jpeg')">عرض الصورة</button>
-   </div>
-   <div class="card sports">
-      <img src="https://up6.cc/2024/10/172779591454241.jpeg" alt="نادي برشلونة">
-      <button class="download-btn" onclick="showImage('https://up6.cc/2024/10/172779591454241.jpeg')">عرض الصورة</button>
-    </div>
-   <!-- المزيد من الصور هنا -->
-   <div class="card misc">
-     <img src="https://up6.cc/2024/10/172791366568561.jpeg" alt="مدينة ، شارع ">
-     <button class="download-btn" onclick="showImage('https://up6.cc/2024/10/172791366568561.jpeg')">عرض الصورة</button>
-   </div>
-   <div class="card misc">
-      <img src="https://up6.cc/2024/10/172791602499543.jpeg" alt="شاطئ،اسود ،">
-      <button class="download-btn" onclick="showImage('https://up6.cc/2024/10/172791602499543.jpeg')">عرض الصورة</button>
-    </div>
- </div>
-
- <div class="overlay" id="overlay"></div>
-
- <div class="popup" id="popup">
-   <img id="popupImage" src="" alt="صورة كبيرة">
-   <button class="close-btn" onclick="closePopup()">×</button>
- </div> 
-  </div>
-  </div>
-<!---------عدسات سناب شات  ------->
-  <div class="about" id="about">
-    <div class="left">
-    <img src="https://up6.cc/2024/10/172792368968421.jpeg">
-  </div>
-    <div class="right">
-<a href="lens.Html" class="more-btn">
-          اظهار الكل &#8594;
-      </a>
-      <h2>عدسات سناب شات</h2>
-      <div class="cards-container">
-        <!-- البطاقة الأولى -->
-        <div class="container" style="background-image: url('https://up6.cc/2024/09/172745206360921.jpeg');">
-            <a href="https://snapchat.com/t/VPNZaJKY" target="_blank" class="green-circle">
-                <img src="https://up6.cc/2024/09/172744747366291.jpeg" alt="صورة داخل الدائرة">
-            </a>
-            <div class="bottom-text">white light</div>
-        </div>
-          <!-- البطاقة الثانية -->
-        <div class="container" style="background-image: url('https://up6.cc/2024/10/172792092468691.jpeg');">
-            <a href="https://snapchat.com/t/mHvN9d8Z" target="_blank" class="green-circle">
-                <img src="https://up6.cc/2024/10/172792092470232.jpeg" alt="صورة داخل الدائرة">
-            </a>
-            <div class="bottom-text">HDR Ship</div>
-        </div>
-          <!-- البطاقة الثالثة -->
-        <div class="container" style="background-image: url('https://up6.cc/2024/09/172770132543152.jpeg');">
-            <a href="https://snapchat.com/t/7zpURAJj" target="_blank" class="green-circle">
-                <img src="https://up6.cc/2024/09/172770132541551.jpeg" alt="صورة داخل الدائرة">
-            </a>
-            <div class="bottom-text">Pleasant v11</div>
-        </div>
-          <!-- البطاقة الرابعة -->
-        <div class="container" style="background-image: url('https://up6.cc/2024/09/17277024967481.jpeg');">
-            <a href="https://snapchat.com/t/Egfsllm4" target="_blank" class="green-circle">
-                <img src="https://up6.cc/2024/09/1727702496762.jpeg" alt="صورة داخل الدائرة">
-            </a>
-            <div class="bottom-text">Lens dark</div>
-        </div>
-        <!-- البطاقة الخامسة -->
-        <div class="container" style="background-image: url('https://up6.cc/2024/10/172792201118641.jpeg');">
-            <a href="https://snapchat.com/t/onOqIzRi" target="_blank" class="green-circle">
-                <img src="https://up6.cc/2024/10/172792201119742.jpeg" alt="صورة داخل الدائرة">
-            </a>
-            <div class="bottom-text">Empire World</div>
-        </div>
-        <!-- البطاقة السادسة -->
-        <div class="container" style="background-image: url('https://up6.cc/2024/10/172792150092821.jpeg');">
-            <a href="https://snapchat.com/t/hcl6MQ9y" target="_blank" class="green-circle">
-                <img src="https://up6.cc/2024/10/172792150093882.jpeg" alt="صورة داخل الدائرة">
-            </a>
-            <div class="bottom-text">Lens Black</div>
-        </div>
-      </div>
-    </div>
-  </div>
     
-<!------اماكن سياحية ------->
-  <div class="portfolio" id="portfolio">
-    <div class="header">
-      <div class="info">
-<a href="ملف.Html" class="more-btn">
-اظهار الكل &#8594;</a>
-        <h2>أماكن سياحية بالسعودية</h2>
-      </div>
+<!---صور عرض ---->
+<!---صور -------->
+<div class="slider-container">
+  <div class="slider">
+    <div class="slide">
+      <img src="https://up6.cc/2024/11/17328983239191.jpeg" alt="صورة 1">
     </div>
-    <div class="tourist-places">
-            <!-- البطاقة الأولى -->
-            <div class="card-oo">
-                <div class="image-section">
-                    <img src="https://up6.cc/2024/10/172797807111221.png" alt="بوليفارد وورلد">
-                </div>
-                <div class="text-section">
-                    <h1>بوليفارد وورلد</h1>
-                    <p class="large-text">“بوليفارد وورلد” في الرياض هو وجهة ترفيهية تجمع بين ثقافات وأنشطة ممتعة لجميع الأعمار مما يجعله مكانًا مميزًا للترفيه العائلي والتجارب الثقافية الفريدة..</p>
-          <p class="small-text"></p>
-                    <a href="https://maps.app.goo.gl/WnZ7XhyReAeU8wGb9?g_st=com.google.maps.preview.copy" class="link">موقع البوليفارد</a>
-    <i class='bx bx-map-pin icon'></i>
-                </div>
-            </div>
+    <div class="slide">
+      <img src="https://up6.cc/2024/11/17328983239392.jpeg" alt="صورة 2">
+    </div>
+    <div class="slide">
+      <img src="https://up6.cc/2024/12/173438659412951.jpeg" alt="صورة 3">
+    </div>
+    <div class="slide">
+      <img src="https://up6.cc/2024/12/173438659412951.jpeg" alt="صورة 4">
+    </div>
+    <div class="slide">
+      <img src="https://up6.cc/2024/12/173438659412951.jpeg" alt="صورة 5">
+    </div>
+  </div>
+  <a class="prev" onclick="moveSlide(1)">&#10095;</a>
+  <a class="next" onclick="moveSlide(-1)">&#10094;</a>
+</div>
+    <!--كود تتبع شرب الماء -->
+    <h2>تتبع شرب الماء اليومي </h2>
+    <div class="water-tracker">
+      <div class="glass">
+        <img src="https://up6.cc/2024/10/172861248646921.png" alt="زجاجة ماء">
+        <p>زجاجة <span id="waterAmount">100</span> مل</p>
+      </div>
+      <div class="controls">
+        <button id="increase">+</button>
+        <input type="number" id="amountInput" value="100" min="0" />
+        <button id="decrease">-</button>
+      </div>
+      <button class="drink-btn">
+        <img src="https://img.icons8.com/ios-glyphs/30/ffffff/water.png" alt="قطرة ماء">
+        أشرب
+      </button>
+    </div>
+  <h2>بعد حساب احتياجاتك الغذائية</h2>
+  <h5>سجلها هنا عشان تتذكرها</h5>
+<!----الاحتياجات ---->
+<table class="nutritional-table">
+<thead>
+<tr><th colspan="2">جدول القيم الغذائية اليومية</th></tr>
+</thead>
+<tbody id="nutritionBody">
+<tr><td>السعرات الحرارية (kcal)</td><td contenteditable="true" onBlur="saveData(this)">0</td></tr>
+<tr><td>البروتينات (g)</td><td contenteditable="true" onBlur="saveData(this)">0</td></tr>
+<tr><td>الكربوهيدرات (g)</td><td contenteditable="true" onBlur="saveData(this)">0</td></tr>
+<tr><td>الدهون (g)</td><td contenteditable="true" onBlur="saveData(this)">0</td></tr>
+</tbody>
+</table>
 
-            <!-- البطاقة الثانية -->
-            <div class="card-oo">
-                <div class="image-section">
-                    <img src="https://up6.cc/2024/10/172798369892421.jpeg" alt="منتجع شادن بالعلا">
-                </div>
-                <div class="text-section">
-             <h1>منتجع شادن</h1>
-                    <p class="large-text">يجمع بين الرفاهية والتقاليد العربية الأصيلة. يقدم تجربة إقامة مميزة بين الجبال والصحراء،مع فلل إضافة إلى أنشطة مغامرات وجولات استكشافية</p>
-        <p class="small-text"></p>
-                    <a href="https://maps.app.goo.gl/fei9tJ83kGKcVyX56?g_st=com.google.maps.preview.copy" class="link">موقع المكان</a>
-                    <i class='bx bx-map-pin icon'></i>
-                </div>
-            </div>
 
-            <!-- البطاقة الكبيرة -->
-            <div class="card-oo large-card">
-                <div class="image-section">
-                    <img src="your-image-url3.jpg" alt="صورة المكان الثالث">
-                </div>
-                <div class="text-section">
-                    <h1>المكان الثالث</h1>
-                    <p class="large-text">وصف مختصر للمكان الثالث</p>
-                    <p class="small-text">موقع المكان</p>
-                    <a href="http://www.link3.com" class="link">موقع المكان</a>
-                    <i class='bx bx-map-pin icon'></i>
-                </div>
-            </div>
-        </div><!--شكل البطاقات-->
-    </div>
+<div class="card" onclick="openLink('https://example.com/link1')">
+  <div class="card-content">
+    <h2>دليل الغذاء الصحي</h2>
+    <p>يشرح مبادئ وأساسيات الغذاء الصحي...</p>
   </div>
-<!-----------عن الموقع ------>
-<div class="feedback" id="feedback">
-    <h2>عن المنصة</h2>
- 
+  <div class="card-image">
+    <img src="https://up6.cc/2025/02/173851254445471.jpeg" alt="صورة الدليل">
   </div>
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</div>
+
+<div class="card" onclick="openLink('https://example.com/link2')">
+  <div class="card-content">
+    <h2>دليل السعرات الحرارية لخفض الوزن</h2>
+    <p>Cal | سعره 1200 - 2200</p>
   </div>
-  <footer>
-    <div class="top">
-      <div class="logo">
-        <img src="https://up6.cc/2024/10/172791366571082.png">
-        <a href="https://fazkz.github.io/Faris-platform/">منصة Faris</a>
-      </div>
-      <div class="social-links">
-        <a href="https://snapchat.com/t/9RGOzb2q"><i class='bx bxl-snapchat'></i></a>
-        <a href="www.tiktok.com/@1fr.f"><i class='bx bxl-tiktok'></i></a>
-        <a href="#"><i class='bx bxl-telegram'></i></a>
-        <a href="https://www.instagram.com/f5.ffaa?igsh=MTFnM2t1enE0eTJ4NA%3D%3D&utm_source=qr"><i class='bx bxl-instagram'></i></a>
-      </div>
-    </div>
-    <div class="separator"></div>
-    <div class="bottom">
-      <p>
-        جميع الحقوق محفوظة لمنصة Faris &copy;2024
-      </p>
-تقدم خدمات بسيطه مثل الخلفيات بجودة عالية و عدسات سناب شات الاكثر استخداماً واماكن سياحية خيالية  
-      <p>
-        Made by faris❤️
-        صنع بواسطة فارس ❤️
-      </p>
-    </div>
-  </footer>
-  <script src="script.js"></script>
+  <div class="card-image">
+    <img src="image2.jpg" alt="صورة الدليل">
+  </div>
+</div>
+
+<div class="card" onclick="openLink('https://join.whoop.com/sa/en/')">
+  <div class="card-content">
+    <h2>دليل السعرات الحرارية لوزن صحي</h2>
+    <p>Cal | سعره 1200 - 2200</p>
+  </div>
+  <div class="card-image">
+    <img src="image3.jpg" alt="صورة الدليل">
+  </div>
+</div>
+    
+عشان تحسب المغذيات الكبرى مثلاً 
+البروتين في الاناناس لكل ١٠٠ جم = ٠،٥
+و انت حسبت اناناس طلع ٧١ جرام 
+تكون ٠.٥ ضرب ٧١ قسمة ١٠٠
+   
+    <script src="script.js"></script>
+    
 </body>
 </html>
