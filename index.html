@@ -1,129 +1,339 @@
-<!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تتبع الصحة</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>مولد أكواد الغذاء مع الحفظ والنسخ والحذف</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+    }
+  </style>
 </head>
-<body>
-    <!--الازرار -->
-   <div class="nav-bar">
-  <div class="nav-item">
-    <a href="settings/settings.html"><i class="fas fa-calculator"></i></a>
-    <span>الحاسبة</span>
-  </div>
-  <div class="nav-item">
-    <a href="sports/sports.html"><i class="fas fa-dumbbell"></i></a>
-    <span>الرياضة</span>
-  </div>
-  <div class="nav-item home-icon">
-    <a href="index.html"><i class="fas fa-home"></i></a>
-    <span>الرئيسية</span>
-  </div>
-  <div class="nav-item">
-    <a href="Meals/Meals.html"><i class="fas fa-utensils"></i></a>
-    <span>الوجبات</span>
-  </div>
-  <div class="nav-item">
-    <a href="book/book.html"><i class="fas fa-book"></i></a>
-    <span>المعلومات</span>
-  </div>
-</div>
-    
-<!---صور عرض ---->
-<!---صور -------->
-<div class="slider-container">
-  <div class="slider">
-    <div class="slide">
-      <img src="https://up6.cc/2024/11/17328983239191.jpeg" alt="صورة 1">
+<body class="bg-gray-50 min-h-screen flex flex-col items-center p-4">
+  <h1 class="text-3xl font-bold mb-6 text-gray-800">مولد أكواد الغذاء مع الحفظ والنسخ والحذف</h1>
+
+  <form id="foodForm" class="w-full max-w-xl bg-white p-6 rounded-lg shadow-md space-y-5">
+    <div>
+      <label for="name" class="block mb-1 font-semibold text-gray-700">الاسم</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        placeholder="مثال: خيار"
+        class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+      />
     </div>
-    <div class="slide">
-      <img src="https://up6.cc/2024/11/17328983239392.jpeg" alt="صورة 2">
+
+    <div>
+      <label for="calories" class="block mb-1 font-semibold text-gray-700">السعرات الحرارية</label>
+      <input
+        type="number"
+        id="calories"
+        name="calories"
+        min="0"
+        step="any"
+        required
+        placeholder="مثال: 16"
+        class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+      />
     </div>
-    <div class="slide">
-      <img src="https://up6.cc/2024/12/173438659412951.jpeg" alt="صورة 3">
+
+    <div>
+      <label for="fat" class="block mb-1 font-semibold text-gray-700">الدهون</label>
+      <input
+        type="number"
+        id="fat"
+        name="fat"
+        min="0"
+        step="any"
+        required
+        placeholder="مثال: 0.1"
+        class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+      />
     </div>
-    <div class="slide">
-      <img src="https://up6.cc/2024/12/173438659412951.jpeg" alt="صورة 4">
+
+    <div>
+      <label for="carb" class="block mb-1 font-semibold text-gray-700">الكربوهيدرات</label>
+      <input
+        type="number"
+        id="carb"
+        name="carb"
+        min="0"
+        step="any"
+        required
+        placeholder="مثال: 3.6"
+        class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+      />
     </div>
-    <div class="slide">
-      <img src="https://up6.cc/2024/12/173438659412951.jpeg" alt="صورة 5">
+
+    <div>
+      <label for="protein" class="block mb-1 font-semibold text-gray-700">البروتين</label>
+      <input
+        type="number"
+        id="protein"
+        name="protein"
+        min="0"
+        step="any"
+        required
+        placeholder="مثال: 0.7"
+        class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+      />
     </div>
-  </div>
-  <a class="prev" onclick="moveSlide(1)">&#10095;</a>
-  <a class="next" onclick="moveSlide(-1)">&#10094;</a>
-</div>
-    <!--كود تتبع شرب الماء -->
-    <h2>تتبع شرب الماء اليومي </h2>
-    <div class="water-tracker">
-      <div class="glass">
-        <img src="https://up6.cc/2024/10/172861248646921.png" alt="زجاجة ماء">
-        <p>زجاجة <span id="waterAmount">100</span> مل</p>
-      </div>
-      <div class="controls">
-        <button id="increase">+</button>
-        <input type="number" id="amountInput" value="100" min="0" />
-        <button id="decrease">-</button>
-      </div>
-      <button class="drink-btn">
-        <img src="https://img.icons8.com/ios-glyphs/30/ffffff/water.png" alt="قطرة ماء">
-        أشرب
+
+    <div>
+      <label for="category" class="block mb-1 font-semibold text-gray-700">التصنيف الأساسي</label>
+      <input
+        type="text"
+        id="category"
+        name="category"
+        required
+        placeholder="مثال: الفواكه والخضروات"
+        class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+      />
+    </div>
+
+    <div>
+      <label for="subcategory" class="block mb-1 font-semibold text-gray-700">التصنيف الفرعي</label>
+      <input
+        type="text"
+        id="subcategory"
+        name="subcategory"
+        required
+        placeholder="مثال: خضراوات"
+        class="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+      />
+    </div>
+
+    <button
+      type="submit"
+      class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-md transition-colors"
+    >
+      إضافة الكود
+    </button>
+  </form>
+
+  <section class="w-full max-w-xl mt-8 space-y-6">
+    <div>
+      <label for="output" class="block mb-2 font-semibold text-gray-700">الأكواد الناتجة</label>
+      <textarea
+        id="output"
+        readonly
+        rows="15"
+        class="w-full p-4 rounded-md border border-gray-300 bg-gray-100 text-gray-800 font-mono text-sm resize-none"
+        placeholder="سيظهر الكود هنا بعد إضافة العناصر"
+      ></textarea>
+    </div>
+
+    <button
+      id="copyBtn"
+      class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-md transition-colors flex items-center justify-center gap-2"
+      title="نسخ الكود"
+    >
+      <i class="fas fa-copy"></i> نسخ الكود
+    </button>
+
+    <div>
+      <label for="savedCodes" class="block mb-2 font-semibold text-gray-700">الأكواد المحفوظة في المتصفح</label>
+      <textarea
+        id="savedCodes"
+        readonly
+        rows="10"
+        class="w-full p-4 rounded-md border border-gray-300 bg-yellow-50 text-gray-800 font-mono text-sm resize-none"
+        placeholder="سيتم عرض الأكواد المحفوظة هنا"
+      ></textarea>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-3">
+      <button
+        id="moveToSavedBtn"
+        class="flex-1 bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 rounded-md transition-colors flex items-center justify-center gap-2"
+        title="نقل الأكواد إلى الحافظة"
+      >
+        <i class="fas fa-arrow-right"></i> نقل للحافظة
+      </button>
+      <button
+        id="copySavedBtn"
+        class="flex-1 bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-md transition-colors flex items-center justify-center gap-2"
+        title="نسخ الأكواد المحفوظة"
+      >
+        <i class="fas fa-copy"></i> نسخ الأكواد المحفوظة
+      </button>
+      <button
+        id="clearSavedBtn"
+        class="flex-1 bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-md transition-colors flex items-center justify-center gap-2"
+        title="حذف الأكواد المحفوظة"
+      >
+        <i class="fas fa-trash-alt"></i> حذف الأكواد المحفوظة
       </button>
     </div>
-  <h2>بعد حساب احتياجاتك الغذائية</h2>
-  <h5>سجلها هنا عشان تتذكرها</h5>
-<!----الاحتياجات ---->
-<table class="nutritional-table">
-<thead>
-<tr><th colspan="2">جدول القيم الغذائية اليومية</th></tr>
-</thead>
-<tbody id="nutritionBody">
-<tr><td>السعرات الحرارية (kcal)</td><td contenteditable="true" onBlur="saveData(this)">0</td></tr>
-<tr><td>البروتينات (g)</td><td contenteditable="true" onBlur="saveData(this)">0</td></tr>
-<tr><td>الكربوهيدرات (g)</td><td contenteditable="true" onBlur="saveData(this)">0</td></tr>
-<tr><td>الدهون (g)</td><td contenteditable="true" onBlur="saveData(this)">0</td></tr>
-</tbody>
-</table>
+  </section>
 
+  <script>
+    const transliterationMap = {
+      'ا': 'a', 'أ': 'a', 'إ': 'i', 'آ': 'a',
+      'ب': 'b',
+      'ت': 't',
+      'ث': 'th',
+      'ج': 'j',
+      'ح': 'h',
+      'خ': 'kh',
+      'د': 'd',
+      'ذ': 'dh',
+      'ر': 'r',
+      'ز': 'z',
+      'س': 's',
+      'ش': 'sh',
+      'ص': 's',
+      'ض': 'd',
+      'ط': 't',
+      'ظ': 'z',
+      'ع': 'a',
+      'غ': 'gh',
+      'ف': 'f',
+      'ق': 'q',
+      'ك': 'k',
+      'ل': 'l',
+      'م': 'm',
+      'ن': 'n',
+      'ه': 'h',
+      'و': 'w',
+      'ي': 'y',
+      'ى': 'a',
+      'ء': 'a',
+      'ئ': 'a',
+      'ؤ': 'w',
+      'ة': 'h',
+      ' ': '_',
+      '-': '_',
+      '_': '_',
+    };
 
-<div class="card" onclick="openLink('https://example.com/link1')">
-  <div class="card-content">
-    <h2>دليل الغذاء الصحي</h2>
-    <p>يشرح مبادئ وأساسيات الغذاء الصحي...</p>
-  </div>
-  <div class="card-image">
-    <img src="https://up6.cc/2025/02/173851254445471.jpeg" alt="صورة الدليل">
-  </div>
-</div>
+    function transliterateArabic(text) {
+      return text
+        .toLowerCase()
+        .split('')
+        .map(char => transliterationMap[char] ?? char)
+        .join('')
+        .replace(/[^a-z0-9_]/g, '')
+        .replace(/_+/g, '_')
+        .replace(/^_+|_+$/g, '');
+    }
 
-<div class="card" onclick="openLink('https://example.com/link2')">
-  <div class="card-content">
-    <h2>دليل السعرات الحرارية لخفض الوزن</h2>
-    <p>Cal | سعره 1200 - 2200</p>
-  </div>
-  <div class="card-image">
-    <img src="image2.jpg" alt="صورة الدليل">
-  </div>
-</div>
+    const form = document.getElementById('foodForm');
+    const output = document.getElementById('output');
+    const copyBtn = document.getElementById('copyBtn');
+    const savedCodes = document.getElementById('savedCodes');
+    const moveToSavedBtn = document.getElementById('moveToSavedBtn');
+    const clearSavedBtn = document.getElementById('clearSavedBtn');
+    const copySavedBtn = document.getElementById('copySavedBtn');
 
-<div class="card" onclick="openLink('https://join.whoop.com/sa/en/')">
-  <div class="card-content">
-    <h2>دليل السعرات الحرارية لوزن صحي</h2>
-    <p>Cal | سعره 1200 - 2200</p>
-  </div>
-  <div class="card-image">
-    <img src="image3.jpg" alt="صورة الدليل">
-  </div>
-</div>
-    
-عشان تحسب المغذيات الكبرى مثلاً 
-البروتين في الاناناس لكل ١٠٠ جم = ٠،٥
-و انت حسبت اناناس طلع ٧١ جرام 
-تكون ٠.٥ ضرب ٧١ قسمة ١٠٠
-   
-    <script src="script.js"></script>
-    
+    // Load saved codes from localStorage on page load
+    let saved = JSON.parse(localStorage.getItem('savedFoodCodes') || '[]');
+    savedCodes.value = saved.join('\n');
+
+    // Current session codes (not yet saved)
+    let codes = [];
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = form.name.value.trim();
+      const calories = parseFloat(form.calories.value);
+      const fat = parseFloat(form.fat.value);
+      const carb = parseFloat(form.carb.value);
+      const protein = parseFloat(form.protein.value);
+      const category = form.category.value.trim();
+      const subcategory = form.subcategory.value.trim();
+
+      const id = transliterateArabic(name) || 'item';
+
+      const code = `{
+  id: "${id}",
+  name: "${name}",
+  image: "sss",
+  calories: ${calories},
+  fat: ${fat},
+  protein: ${protein},
+  carb: ${carb},
+  category: "${category}",
+  subcategory: "${subcategory}",
+},`;
+
+      codes.push(code);
+      output.value = codes.join('\n');
+
+      form.reset();
+      form.name.focus();
+    });
+
+    copyBtn.addEventListener('click', () => {
+      if (!output.value) return;
+      navigator.clipboard.writeText(output.value).then(() => {
+        copyBtn.textContent = 'تم النسخ!';
+        setTimeout(() => {
+          copyBtn.innerHTML = '<i class="fas fa-copy"></i> نسخ الكود';
+        }, 2000);
+      });
+    });
+
+    moveToSavedBtn.addEventListener('click', () => {
+      if (codes.length === 0) return;
+
+      // Append current codes to saved array
+      saved = saved.concat(codes);
+
+      // Save to localStorage
+      localStorage.setItem('savedFoodCodes', JSON.stringify(saved));
+
+      // Update savedCodes textarea
+      savedCodes.value = saved.join('\n');
+
+      // Clear current codes and output textarea
+      codes = [];
+      output.value = '';
+
+      // Reset copy button text if needed
+      copyBtn.innerHTML = '<i class="fas fa-copy"></i> نسخ الكود';
+
+      // Focus back to form
+      form.name.focus();
+    });
+
+    clearSavedBtn.addEventListener('click', () => {
+      if (!confirm('هل أنت متأكد من حذف جميع الأكواد المحفوظة؟')) return;
+
+      // Clear saved array and localStorage
+      saved = [];
+      localStorage.removeItem('savedFoodCodes');
+
+      // Clear savedCodes textarea
+      savedCodes.value = '';
+
+      // Focus back to form
+      form.name.focus();
+    });
+
+    copySavedBtn.addEventListener('click', () => {
+      if (!savedCodes.value) return;
+      navigator.clipboard.writeText(savedCodes.value).then(() => {
+        copySavedBtn.textContent = 'تم النسخ!';
+        setTimeout(() => {
+          copySavedBtn.innerHTML = '<i class="fas fa-copy"></i> نسخ الأكواد المحفوظة';
+        }, 2000);
+      });
+    });
+  </script>
+      <ul class="flex flex-col p-4 space-y-4 text-[#0b5ea8] font-semibold text-lg">
+      <li><a href="#"><i class="fas fa-home"></i> الرئيسية</a></li>
 </body>
 </html>
