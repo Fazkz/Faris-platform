@@ -1,409 +1,260 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>مولد أكواد الغذاء مع الحفظ والنسخ والحذف</title>
-
-  <!-- TailwindCSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- خط عربي -->
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
-
-  <style>
-    body { font-family: 'Cairo', sans-serif; }
-    textarea, select, input { font-size: 14px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEST Healthy - الرئيسية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
+    <link rel="icon" type="image/png" href="https://up6.cc/2025/10/176486275940331.jpeg">
 </head>
-<body class="bg-gray-50 p-6">
+<body>
 
-  <h1 class="text-2xl font-bold text-center mb-6">مولد أكواد الغذاء — الحفظ والنسخ والحذف</h1>
+    <!-- شريط التنقل العلوي -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-section">
+                <img src="https://up6.cc/2025/10/176486275940331.jpeg" alt="BEST Healthy Logo" class="logo-img">
+                <span class="logo-text">BEST <span class="logo-highlight">Healthy</span></span>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link active">
+                    <i class="fas fa-home"></i> الرئيسية
+                </a>
+                <a href="diet-app.html" class="nav-link">
+                    <i class="fas fa-utensils"></i> نظامي الغذائي
+                </a>
+                <a href="#recipes" class="nav-link">
+                    <i class="fas fa-book-open"></i> وصفات
+                </a>
+                <a href="#about" class="nav-link">
+                    <i class="fas fa-info-circle"></i> عن التطبيق
+                </a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="القائمة">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
 
-  <!-- النموذج -->
-  <form id="foodForm" class="max-w-xl mx-auto bg-white p-6 rounded-lg shadow space-y-4">
-    <div>
-      <label class="block mb-1 font-semibold">اسم الطعام</label>
-      <input id="name" name="name" type="text" required placeholder="مثال: خيار" class="w-full border rounded p-2" />
-    </div>
+    <!-- القائمة الجانبية للجوال -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <nav class="mobile-nav" id="mobileNav">
+        <button class="mobile-close" id="mobileClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="index.html" class="mobile-link active">
+            <i class="fas fa-home"></i> الرئيسية
+        </a>
+        <a href="Meals/diet-app.html" class="mobile-link">
+            <i class="fas fa-utensils"></i> نظامي الغذائي
+        </a>
+        <a href="#recipes" class="mobile-link">
+            <i class="fas fa-book-open"></i> وصفات
+        </a>
+        <a href="#about" class="mobile-link">
+            <i class="fas fa-info-circle"></i> عن التطبيق
+        </a>
+    </nav>
 
-    <div class="grid grid-cols-2 gap-4">
-      <div>
-        <label class="block mb-1 font-semibold">السعرات (لكل 100 جم)</label>
-        <input id="calories" name="calories" type="number" step="any" min="0" required placeholder="مثال: 16" class="w-full border rounded p-2" />
-      </div>
-      <div>
-        <label class="block mb-1 font-semibold">الدهون (جم)</label>
-        <input id="fat" name="fat" type="number" step="any" min="0" required placeholder="مثال: 0.1" class="w-full border rounded p-2" />
-      </div>
-      <div>
-        <label class="block mb-1 font-semibold">الكربوهيدرات (جم)</label>
-        <input id="carb" name="carb" type="number" step="any" min="0" required placeholder="مثال: 3.6" class="w-full border rounded p-2" />
-      </div>
-      <div>
-        <label class="block mb-1 font-semibold">البروتين (جم)</label>
-        <input id="protein" name="protein" type="number" step="any" min="0" required placeholder="مثال: 0.7" class="w-full border rounded p-2" />
-      </div>
-    </div>
+    <!-- المحتوى الرئيسي -->
+    <main>
 
-    <!-- التصنيف الأساسي -->
-    <div>
-      <label class="block mb-1 font-semibold">التصنيف الأساسي</label>
-      <select id="category" name="category" required class="w-full border rounded p-2">
-        <option value="">اختر التصنيف</option>
-      </select>
-    </div>
+        <!-- قسم الترحيب (Hero) -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="hero-highlight">BEST</span> Healthy
+                    <br>
+                    <span class="hero-sub">نظامك الغذائي الذكي</span>
+                </h1>
+                <p class="hero-desc">
+                    تتبع سعراتك الحرارية، سجل وجباتك اليومية، وتعرف على القيم الغذائية
+                    لأكثر من 500 صنف غذائي. صحتك تبدأ من هنا.
+                </p>
+                <div class="hero-buttons">
+<a href="Meals/diet-app.html" class="btn-primary">
+                        <i class="fas fa-arrow-left"></i> ابدأ الآن
+                    </a>
+                    <a href="#features" class="btn-secondary">
+                        تعرف أكثر
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://up6.cc/2025/10/176486275940331.jpeg" alt="BEST Healthy App" class="hero-img">
+            </div>
+        </section>
 
-    <!-- التصنيف الفرعي -->
-    <div>
-      <label class="block mb-1 font-semibold">التصنيف الفرعي</label>
-      <select id="subcategory" name="subcategory" required class="w-full border rounded p-2">
-        <option value="">اختر التصنيف الفرعي</option>
-      </select>
-    </div>
+        <!-- قسم المميزات -->
+        <section class="features-section" id="features">
+            <h2 class="section-title">مميزات التطبيق</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon blue">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>تقويم الوجبات</h3>
+                    <p>سجل وجباتك اليومية وتتبع ما تأكله عبر تقويم تفاعلي سهل الاستخدام.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon green">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>تحليل غذائي</h3>
+                    <p>اعرف السعرات والدهون والبروتين والكاربوهيدرات لكل طعام تستهلكه.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon orange">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>المفضلة</h3>
+                    <p>احفظ أطعمتك المفضلة للوصول السريع إليها في أي وقت.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon purple">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <h3>إضافة أطعمة</h3>
+                    <p>أضف أطعمتك الخاصة مع القيم الغذائية الدقيقة لتوسيع قاعدة البيانات.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon red">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>تجربة سلسة</h3>
+                    <p>واجهة مستخدم مصممة خصيصاً لتجربة سلسة وسريعة على جميع الأجهزة.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon teal">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>بيانات آمنة</h3>
+                    <p>جميع بياناتك محفوظة محلياً في متصفحك، خصوصية تامة.</p>
+                </div>
+            </div>
+        </section>
 
-    <button type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded font-semibold">➕ إضافة الكود</button>
-  </form>
+        <!-- قسم الإحصائيات السريعة -->
+        <section class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="500">0</span>
+                    <span class="stat-label">+ صنف غذائي</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="50">0</span>
+                    <span class="stat-label">+ وصفة صحية</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="100">0</span>
+                    <span class="stat-label">% مجاني</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="4">0</span>
+                    <span class="stat-label">وجبات يومية</span>
+                </div>
+            </div>
+        </section>
 
-  <!-- الأكواد الناتجة -->
-  <section class="max-w-xl mx-auto mt-6 bg-white p-6 rounded-lg shadow">
-    <h2 class="font-semibold mb-2">الأكواد الناتجة</h2>
-    <textarea id="output" readonly rows="10" class="w-full border rounded p-3 font-mono text-sm bg-gray-100"></textarea>
-    <button id="copyBtn" class="mt-3 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded flex items-center justify-center gap-2">
-      <i class="fa-solid fa-copy"></i> نسخ الكود
-    </button>
-  </section>
+        <!-- قسم الوصفات -->
+        <section class="recipes-section" id="recipes">
+            <h2 class="section-title">وصفات <span class="highlight-text">BEST</span></h2>
+            <div class="recipes-grid">
+                <div class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('https://up6.cc/2025/10/176495274035491.jpeg');"></div>
+                    <div class="recipe-info">
+                        <h4>باستا الدجاج المشوي</h4>
+                        <p>وجبة متكاملة غنية بالبروتين، مثالية للغداء</p>
+                        <span class="recipe-cal">🔥 128 سعرة</span>
+                    </div>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('https://up6.cc/2025/08/175881308746151.jpeg');"></div>
+                    <div class="recipe-info">
+                        <h4>سلطة الفواكه</h4>
+                        <p>وجبة خفيفة منعشة غنية بالفيتامينات</p>
+                        <span class="recipe-cal">🔥 60 سعرة</span>
+                    </div>
+                </div>
+                <div class="recipe-card">
+                    <div class="recipe-image" style="background-image: url('https://up6.cc/2025/10/176513072771191.jpeg');"></div>
+                    <div class="recipe-info">
+                        <h4>البيض المسلوق والأفوكادو</h4>
+                        <p>وجبة فطور مثالية غنية بالدهون الصحية</p>
+                        <span class="recipe-cal">🔥 442 سعرة</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- الأكواد المحفوظة -->
-  <section class="max-w-xl mx-auto mt-6 bg-white p-6 rounded-lg shadow">
-    <h2 class="font-semibold mb-2">الأكواد المحفوظة في المتصفح (localStorage)</h2>
-    <textarea id="savedCodes" readonly rows="10" class="w-full border rounded p-3 font-mono text-sm bg-yellow-50"></textarea>
+        <!-- قسم عن التطبيق -->
+        <section class="about-section" id="about">
+            <div class="about-content">
+                <h2 class="section-title">عن <span class="highlight-text">BEST Healthy</span></h2>
+                <p class="about-desc">
+                    BEST Healthy هو تطبيق لتتبع النظام الغذائي مصمم خصيصاً للمستخدم العربي.
+                    يهدف التطبيق إلى مساعدتك في مراقبة ما تتناوله من طعام،
+                    ومعرفة القيم الغذائية الدقيقة لكل وجبة، مع إمكانية إضافة أطعمة جديدة
+                    وحفظ المفضلة وتتبع السعرات اليومية.
+                </p>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <i class="fas fa-check-circle text-green-500"></i>
+                        <span>قاعدة بيانات تضم 500+ صنف غذائي</span>
+                    </div>
+                    <div class="about-feature">
+                        <i class="fas fa-check-circle text-green-500"></i>
+                        <span>إضافة أطعمة مخصصة بسهولة</span>
+                    </div>
+                    <div class="about-feature">
+                        <i class="fas fa-check-circle text-green-500"></i>
+                        <span>تتبع السعرات والماكروز اليومية</span>
+                    </div>
+                    <div class="about-feature">
+                        <i class="fas fa-check-circle text-green-500"></i>
+                        <span>واجهة عربية بالكامل</span>
+                    </div>
+                </div>
+                <a href="diet-app.html" class="btn-primary">
+                    <i class="fas fa-arrow-left"></i> ابدأ رحلتك الصحية
+                </a>
+            </div>
+        </section>
 
-    <div class="mt-3 flex gap-2">
-      <button id="moveToSavedBtn" class="flex-1 bg-yellow-600 hover:bg-yellow-700 text-white py-2 rounded flex items-center justify-center gap-2">
-        <i class="fa-solid fa-arrow-right"></i> نقل للحافظة
-      </button>
-      <button id="copySavedBtn" class="flex-1 bg-green-600 hover:bg-green-700 text-white py-2 rounded flex items-center justify-center gap-2">
-        <i class="fa-solid fa-copy"></i> نسخ الأكواد المحفوظة
-      </button>
-      <button id="clearSavedBtn" class="flex-1 bg-red-600 hover:bg-red-700 text-white py-2 rounded flex items-center justify-center gap-2">
-        <i class="fa-solid fa-trash"></i> حذف الأكواد المحفوظة
-      </button>
-    </div>
-  </section>
+    </main>
 
-  <script>
-    /**********************
-     * بيانات التصنيفات
-     **********************/
-const categoriesData = {
-  "الفواكه والخضروات": {
-    icon: "fas fa-apple-alt",
-    subcategories: ["فواكه", "خضراوات", "ورقيات", "سلطات", "عصائر طبيعية", "فواكة مجمدة", "خضراوات مجمدة", "مجففه"]
-  },
-  "الحليب و مشتقاته": {
-    icon: "fa-solid fa-cheese",
-    subcategories: ["الحليب", "الالبان", "الاجبان", "لبنه", "زبادي", "قشطة", "كريمة", "حليب مكثف", "حليب شاهي", "منتجات اخرى"]
-  },
-  "المخبوزات": {
-    icon: "fa-solid fa-bread-slice",
-    subcategories: ["مفرود", "صامولي و خبز برجر", "توست", "تورتيلا", "فطائر", "شابورة", "معمول", "مقرمشات", "مخبوزات صحية"]
-  },
-  "المشروبات": {
-    icon: "fa-solid fa-bottle-water",
-    subcategories: ["مشروبات غازية", "مشروب شاي مثلج", "مشروبات طاقة", "مشروبات ساخنة", "مشروبات باردة", "عصائر", "اظرف سريعة التحضير"]
-  },
-  "السكريات": {
-    icon: "fa-solid fa-ice-cream",
-    subcategories: ["🍦ايسكريم", "شوكولاتة", "تمور", "كيك", "حلويات شرقية", "مارشميلو", "علك", "سكر"]
-  },
-  "موالح": {
-    icon: "fa-solid fa-cookie-bite",
-    subcategories: ["🍿شبسات", "فصفص", "مكسرات"]
-  },
-  "المعلبات": {
-    icon: "bx bx-box",
-    subcategories: ["حلاوة طحينية", "المربى", "الفول السوداني", "فواكة معلبة", "خضروات معلبة", "اسماك معلبة", "صلصات معلبة"]
-  },
-  "اللحوم والبيض": {
-    icon: "fas fa-drumstick-bite",
-    subcategories: ["بيض🥚", "لحم غنم🐑", "دواجن🐓", "بحريات🐟", "لحم بقري🐄", "لحم جمل🐪"]
-  },
-  "الحبوب والبذور": {
-    icon: "fas fa-seedling",
-    subcategories: ["حبوب كاملة", "رز🍚", "مكرونة🍝", "شعبيات", "شوربات", "كورن فليكس", "طحين", "بذور"]
-  },
-  "الصلصات والإضافات": {
-    icon: "fa-solid fa-wine-bottle",
-    subcategories: [
-      "معجون و صلصة الطماطم",
-      "كاتشب و مايونيز",
-      "➕إضافات للطعام",
-      "صلصات البيتزا و الباستا",
-      "صلصات الباربكيو و الصويا",
-      "صلصات حارة",
-      "خل"
-    ]
-  },
-  "الزيوت و الدهون ": {
-    icon: "fas fa-oil-can",
-    subcategories: ["زيوت صحية", "زيوت", "زبدة", "صلصات"]
-  },
-  "مطاعم عالميه": {
-    icon: "fa-solid fa-shop",
-    subcategories: ["ماكدونالدز🍔", "🍗كنتاكي", "🍗هارديز", "🥪كودو", "دومينوز🍕"]
-  }
-};
+    <!-- تذييل الصفحة -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="https://up6.cc/2025/10/176486275940331.jpeg" alt="BEST Healthy" class="footer-logo">
+                <span>BEST Healthy</span>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">الرئيسية</a>
+                <a href="diet-app.html">نظامي الغذائي</a>
+                <a href="#recipes">وصفات</a>
+                <a href="#about">عن التطبيق</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://t.me/+CGAAHT4akoNlNzA0" target="_blank" aria-label="تيليجرام">
+                    <i class="fab fa-telegram-plane"></i>
+                </a>
+                <a href="https://www.tiktok.com/@best.h5?_r=1&_t=ZS-973LWpllyZE" target="_blank" aria-label="تيك توك">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="https://snapchat.com/t/TT2yTewz" target="_blank" aria-label="سناب شات">
+                    <i class="fab fa-snapchat-ghost"></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© <span id="year"></span> جميع الحقوق محفوظة - BEST Healthy</p>
+        </div>
+    </footer>
 
-    /**********************
-     * عناصر الواجهة
-     **********************/
-    const categorySelect = document.getElementById('category');
-    const subcategorySelect = document.getElementById('subcategory');
-    const form = document.getElementById('foodForm');
-    const outputEl = document.getElementById('output');
-    const savedCodesEl = document.getElementById('savedCodes');
-    const copyBtn = document.getElementById('copyBtn');
-    const moveToSavedBtn = document.getElementById('moveToSavedBtn');
-    const copySavedBtn = document.getElementById('copySavedBtn');
-    const clearSavedBtn = document.getElementById('clearSavedBtn');
-
-    // المفتاح في localStorage
-    const STORAGE_KEY = 'savedFoodCodes';
-
-    // الأكواد المؤقتة (الجلسة الحالية)
-    let codes = [];
-
-    // الأكواد المحفوظة (مأخوذة من localStorage)
-    let saved = [];
-
-    /**********************
-     * دوال مساعدة
-     **********************/
-    function transliterateArabic(text) {
-      if (!text) return '';
-      const map = {
-        'ا':'a','أ':'a','إ':'i','آ':'a','ب':'b','ت':'t','ث':'th','ج':'j','ح':'h','خ':'kh',
-        'د':'d','ذ':'dh','ر':'r','ز':'z','س':'s','ش':'sh','ص':'s','ض':'d','ط':'t','ظ':'z',
-        'ع':'a','غ':'gh','ف':'f','ق':'q','ك':'k','ل':'l','م':'m','ن':'n','ه':'h','و':'w','ي':'y',
-        'ى':'a','ء':'a','ئ':'e','ؤ':'o','ة':'h',' ':'_','-':'_','_':'_'
-      };
-      return text
-        .toLowerCase()
-        .split('')
-        .map(ch => map[ch] ?? ch)
-        .join('')
-        .replace(/[^a-z0-9_]/g,'')
-        .replace(/_+/g,'_')
-        .replace(/^_+|_+$/g,'');
-    }
-
-    // تحديث textarea للأكواد المحفوظة من المصفوفة saved
-    function refreshSavedTextarea() {
-      savedCodesEl.value = saved.length ? saved.join('\n\n') : '';
-    }
-
-    // تحديث textarea للأكواد المؤقتة من المصفوفة codes
-    function refreshOutputTextarea() {
-      outputEl.value = codes.length ? codes.join('\n\n') : '';
-    }
-
-    // تحميل saved من localStorage عند البداية
-    function loadSavedFromStorage() {
-      try {
-        const raw = localStorage.getItem(STORAGE_KEY);
-        saved = raw ? JSON.parse(raw) : [];
-      } catch (err) {
-        saved = [];
-        console.error('خطأ بقراءة localStorage:', err);
-      }
-      refreshSavedTextarea();
-    }
-
-    // حفظ saved إلى localStorage
-    function saveSavedToStorage() {
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(saved));
-      } catch (err) {
-        console.error('خطأ بحفظ localStorage:', err);
-      }
-    }
-
-    /**********************
-     * تهيئة الصفحة
-     **********************/
-    function init() {
-      // تعبئة قائمة التصنيفات الأساسية
-      Object.keys(categoriesData).forEach(cat => {
-        const opt = document.createElement('option');
-        opt.value = cat;
-        opt.textContent = cat;
-        categorySelect.appendChild(opt);
-      });
-
-      // تحميل الأكواد المحفوظة من التخزين
-      loadSavedFromStorage();
-
-      // مسح المسودات وتهيئة المساحات
-      codes = [];
-      refreshOutputTextarea();
-    }
-
-    // نفّذ التهيئة بعد تحميل DOM
-    document.addEventListener('DOMContentLoaded', init);
-
-    /**********************
-     * حدث تغيير التصنيف الأساسي → تحديث التصنيف الفرعي
-     **********************/
-    categorySelect.addEventListener('change', () => {
-      // إعادة تهيئة الفرعي
-      subcategorySelect.innerHTML = '<option value="">اختر التصنيف الفرعي</option>';
-      const cat = categorySelect.value;
-      if (cat && categoriesData[cat]) {
-        categoriesData[cat].subcategories.forEach(sub => {
-          const opt = document.createElement('option');
-          opt.value = sub;
-          opt.textContent = sub;
-          subcategorySelect.appendChild(opt);
-        });
-      }
-    });
-
-    /**********************
-     * حدث إرسال النموذج — توليد الكود
-     **********************/
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      const name = (document.getElementById('name').value || '').trim();
-      const calories = parseFloat(document.getElementById('calories').value || 0);
-      const fat = parseFloat(document.getElementById('fat').value || 0);
-      const carb = parseFloat(document.getElementById('carb').value || 0);
-      const protein = parseFloat(document.getElementById('protein').value || 0);
-      const category = categorySelect.value || '';
-      const subcategory = subcategorySelect.value || '';
-
-      if (!name) {
-        alert('أدخل اسم الطعام');
-        return;
-      }
-      if (!category || !subcategory) {
-        alert('اختر التصنيف الأساسي والفرعي');
-        return;
-      }
-
-      // توليد id إنجليزي آمن
-      const id = transliterateArabic(name) || 'item';
-
-      // تكوين كود الكائن كنص
-      const code = `{
-  id: "${id}",
-  name: "${name}",
-  image: "sss",
-  calories: ${isNaN(calories) ? 0 : calories},
-  fat: ${isNaN(fat) ? 0 : fat},
-  protein: ${isNaN(protein) ? 0 : protein},
-  carb: ${isNaN(carb) ? 0 : carb},
-  category: "${category}",
-  subcategory: "${subcategory}",
-},`;
-
-      // إضافة إلى مصفوفة الأكواد المؤقتة وعرضها
-      codes.push(code);
-      refreshOutputTextarea();
-
-      // إعادة تعيين النموذج مع إبقاء اختيار التصنيف فارغ (اختياري)
-      form.reset();
-      // إعادة وضع خيارات الفرعي للانتظار
-      subcategorySelect.innerHTML = '<option value="">اختر التصنيف الفرعي</option>';
-      // ترك التركيز على الاسم
-      document.getElementById('name').focus();
-    });
-
-    /**********************
-     * زر نسخ الأكواد الناتجة
-     **********************/
-    copyBtn.addEventListener('click', async () => {
-      if (!outputEl.value) {
-        alert('لا توجد أكواد للنسخ.');
-        return;
-      }
-      try {
-        await navigator.clipboard.writeText(outputEl.value);
-        const prev = copyBtn.innerHTML;
-        copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> تم النسخ!';
-        setTimeout(() => { copyBtn.innerHTML = prev; }, 1500);
-      } catch (err) {
-        alert('فشل النسخ. تأكد من صلاحية المتصفح.');
-        console.error(err);
-      }
-    });
-
-    /**********************
-     * زر نقل الأكواد إلى الحافظة (localStorage)
-     **********************/
-    moveToSavedBtn.addEventListener('click', () => {
-      if (codes.length === 0) {
-        alert('لا توجد أكواد مؤقتة للنقل.');
-        return;
-      }
-
-      // أضف العناصر المؤقتة إلى المصفوفة المحفوظة
-      saved = saved.concat(codes);
-
-      // حفظها في localStorage
-      saveSavedToStorage();
-
-      // تحديث مساحة العرض
-      refreshSavedTextarea();
-
-      // مسح المسودة الحالية
-      codes = [];
-      refreshOutputTextarea();
-
-      // ترك التركيز
-      document.getElementById('name').focus();
-    });
-
-    /**********************
-     * زر نسخ الأكواد المحفوظة
-     **********************/
-    copySavedBtn.addEventListener('click', async () => {
-      if (!savedCodesEl.value) {
-        alert('لا توجد أكواد محفوظة للنسخ.');
-        return;
-      }
-      try {
-        await navigator.clipboard.writeText(savedCodesEl.value);
-        const prev = copySavedBtn.innerHTML;
-        copySavedBtn.innerHTML = '<i class="fa-solid fa-check"></i> تم النسخ!';
-        setTimeout(() => { copySavedBtn.innerHTML = prev; }, 1500);
-      } catch (err) {
-        alert('فشل النسخ. تأكد من صلاحية المتصفح.');
-        console.error(err);
-      }
-    });
-
-    /**********************
-     * زر حذف الأكواد المحفوظة
-     **********************/
-    clearSavedBtn.addEventListener('click', () => {
-      if (!saved.length) {
-        alert('لا توجد أكواد محفوظة للحذف.');
-        return;
-      }
-      if (!confirm('هل أنت متأكد من حذف جميع الأكواد المحفوظة؟')) return;
-
-      saved = [];
-      saveSavedToStorage(); // سيحذف من localStorage
-      refreshSavedTextarea();
-    });
-
-    /**********************
-     * عند تحميل الصفحة — تأكد من تحميل saved للعرض
-     **********************/
-    // (loadSavedFromStorage داخل init ⇒ ينفّذ على DOMContentLoaded)
-  </script>
+    <script src="main.js"></script>
 </body>
 </html>
