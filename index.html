@@ -2,259 +2,211 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BEST Healthy - الرئيسية</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="main.css">
-    <link rel="icon" type="image/png" href="https://up6.cc/2025/10/176486275940331.jpeg">
+    <title>جدول متابعة المقررات الدراسية الشامل</title>
+    <style>
+        body { font-family: Tahoma, sans-serif; background-color: #f4f7f6; padding: 20px; direction: rtl; }
+        h2 { text-align: center; color: #333; }
+        .table-container { overflow-x: auto; background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; min-width: 1000px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: center; font-size: 11px; }
+        th { background-color: #004080; color: #fff; }
+        .course-name { text-align: right; font-weight: bold; background-color: #eef2f7; width: 190px; font-size: 12px; }
+        .grid-container { display: flex; flex-wrap: wrap; gap: 3px; justify-content: center; margin: 0 auto; }
+        .box {
+            width: 22px;
+            height: 22px;
+            border: 1px solid #004080;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 9px;
+            border-radius: 3px;
+            user-select: none;
+            transition: 0.2s;
+        }
+        .box.checked {
+            background-color: #28a745;
+            color: #fff;
+            border-color: #1e7e34;
+        }
+        .box.checked::after {
+            content: "✓";
+            font-weight: bold;
+            font-size: 11px;
+        }
+        .box.checked span {
+            display: none;
+        }
+        .final-exam-info {
+            font-size: 10px;
+            color: #d9534f;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- شريط التنقل العلوي -->
-    <header class="main-header">
-        <div class="header-container">
-            <div class="logo-section">
-                <img src="https://up6.cc/2025/10/176486275940331.jpeg" alt="BEST Healthy Logo" class="logo-img">
-                <span class="logo-text">BEST <span class="logo-highlight">Healthy</span></span>
-            </div>
-            <nav class="main-nav">
-                <a href="index.html" class="nav-link active">
-                    <i class="fas fa-home"></i> الرئيسية
-                </a>
-                <a href="diet-app.html" class="nav-link">
-                    <i class="fas fa-utensils"></i> نظامي الغذائي
-                </a>
-                <a href="#recipes" class="nav-link">
-                    <i class="fas fa-book-open"></i> وصفات
-                </a>
-                <a href="#about" class="nav-link">
-                    <i class="fas fa-info-circle"></i> عن التطبيق
-                </a>
-            </nav>
-            <button class="menu-toggle" id="menuToggle" aria-label="القائمة">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </header>
+    <h2>جدول متابعة المقررات الدراسية (انقر على الحقل لتحديد ✅)</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>المادة الدراسية</th>
+                    <th>نظري</th>
+                    <th>عملي</th>
+                    <th>الوحدات (للحاسب)</th>
+                    <th>أنشطة (3)</th>
+                    <th>واجبات (3)</th>
+                    <th>البحوث والعروض التقديمية</th>
+                    <th>فصلي</th>
+                    <th>الاختبار النهائي (الفاينل)</th>
+                </tr>
+            </thead>
+            <tbody id="tracker-body">
+                </tbody>
+        </table>
+    </div>
 
-    <!-- القائمة الجانبية للجوال -->
-    <div class="mobile-overlay" id="mobileOverlay"></div>
-    <nav class="mobile-nav" id="mobileNav">
-        <button class="mobile-close" id="mobileClose">
-            <i class="fas fa-times"></i>
-        </button>
-        <a href="index.html" class="mobile-link active">
-            <i class="fas fa-home"></i> الرئيسية
-        </a>
-        <a href="Meals/diet-app.html" class="mobile-link">
-            <i class="fas fa-utensils"></i> نظامي الغذائي
-        </a>
-        <a href="#recipes" class="mobile-link">
-            <i class="fas fa-book-open"></i> وصفات
-        </a>
-        <a href="#about" class="mobile-link">
-            <i class="fas fa-info-circle"></i> عن التطبيق
-        </a>
-    </nav>
+<script>
+    const courses = [
+        { 
+            name: "CS 101 - مقدمة في الحاسب الآلي", 
+            theory: 6, practical: 0, units: 12, activities: 3, homework: 3, research: 1, midtermsCount: 1,
+            finalExam: "13-07-1448 هـ<br>[08:00 ص - 10:00 ص]" 
+        },
+        { 
+            name: "CNUT318 - الكيمياء الحيوية التغذوية", 
+            theory: 20, practical: 20, units: 0, activities: 3, homework: 3, research: 1, midtermsCount: 2,
+            finalExam: "28-07-1448 هـ<br>[10:30 ص - 12:30 م]" 
+        },
+        { 
+            name: "FSNU314 - كيمياء وتحليل الأغذية", 
+            theory: 20, practical: 20, units: 0, activities: 3, homework: 3, research: 1, midtermsCount: 2,
+            finalExam: "18-07-1448 هـ<br>[08:00 ص - 10:00 ص]" 
+        },
+        { 
+            name: "FSNU344 - أسس التغذية العلاجية", 
+            theory: 18, practical: 20, units: 0, activities: 3, homework: 3, research: 1, midtermsCount: 2,
+            finalExam: "25-07-1448 هـ<br>[08:00 ص - 10:00 ص]" 
+        },
+        { 
+            name: "FSNU311 - شؤون صحية غذائية", 
+            theory: 20, practical: 20, units: 0, activities: 3, homework: 3, research: 1, midtermsCount: 2,
+            finalExam: "26-07-1448 هـ<br>[10:30 ص - 12:30 م]" 
+        },
+        { 
+            name: "FSNU322 - أسس تقنية الألبان", 
+            theory: 18, practical: 18, units: 0, activities: 3, homework: 3, research: 1, midtermsCount: 2,
+            finalExam: "20-07-1448 هـ<br>[08:00 ص - 10:00 ص]" 
+        },
+        { 
+            name: "FSNU341 - التغذية والمناعة في الإنسان", 
+            theory: 18, practical: 0, units: 0, activities: 3, homework: 3, research: 1, midtermsCount: 2,
+            finalExam: "21-07-1448 هـ<br>[10:30 ص - 12:30 م]" 
+        },
+        { 
+            name: "FSNU455 - دراسات خاصة في الأغذية", 
+            theory: 0, practical: 1, units: 0, activities: 0, homework: 0, research: 1, midtermsCount: 0,
+            finalExam: "لم يُحدد من الكلية" 
+        }
+    ];
 
-    <!-- المحتوى الرئيسي -->
-    <main>
+    const tbody = document.getElementById('tracker-body');
 
-        <!-- قسم الترحيب (Hero) -->
-        <section class="hero-section">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="hero-highlight">BEST</span> Healthy
-                    <br>
-                    <span class="hero-sub">نظامك الغذائي الذكي</span>
-                </h1>
-                <p class="hero-desc">
-                    تتبع سعراتك الحرارية، سجل وجباتك اليومية، وتعرف على القيم الغذائية
-                    لأكثر من 500 صنف غذائي. صحتك تبدأ من هنا.
-                </p>
-                <div class="hero-buttons">
-<a href="Meals/diet-app.html" class="btn-primary">
-                        <i class="fas fa-arrow-left"></i> ابدأ الآن
-                    </a>
-                    <a href="#features" class="btn-secondary">
-                        تعرف أكثر
-                    </a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <img src="https://up6.cc/2025/10/176486275940331.jpeg" alt="BEST Healthy App" class="hero-img">
-            </div>
-        </section>
+    courses.forEach((course) => {
+        const tr = document.createElement('tr');
+        
+        // 1. اسم المقرر
+        const tdName = document.createElement('td');
+        tdName.className = 'course-name';
+        tdName.innerText = course.name;
+        tr.appendChild(tdName);
 
-        <!-- قسم المميزات -->
-        <section class="features-section" id="features">
-            <h2 class="section-title">مميزات التطبيق</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon blue">
-                        <i class="fas fa-calendar-check"></i>
-                    </div>
-                    <h3>تقويم الوجبات</h3>
-                    <p>سجل وجباتك اليومية وتتبع ما تأكله عبر تقويم تفاعلي سهل الاستخدام.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon green">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
-                    <h3>تحليل غذائي</h3>
-                    <p>اعرف السعرات والدهون والبروتين والكاربوهيدرات لكل طعام تستهلكه.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon orange">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3>المفضلة</h3>
-                    <p>احفظ أطعمتك المفضلة للوصول السريع إليها في أي وقت.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon purple">
-                        <i class="fas fa-plus-circle"></i>
-                    </div>
-                    <h3>إضافة أطعمة</h3>
-                    <p>أضف أطعمتك الخاصة مع القيم الغذائية الدقيقة لتوسيع قاعدة البيانات.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon red">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>تجربة سلسة</h3>
-                    <p>واجهة مستخدم مصممة خصيصاً لتجربة سلسة وسريعة على جميع الأجهزة.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon teal">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3>بيانات آمنة</h3>
-                    <p>جميع بياناتك محفوظة محلياً في متصفحك، خصوصية تامة.</p>
-                </div>
-            </div>
-        </section>
+        // دالة إنشاء المربعات
+        function createBoxes(count, maxWidth) {
+            const container = document.createElement('div');
+            container.className = 'grid-container';
+            container.style.maxWidth = maxWidth + 'px';
+            for (let i = 1; i <= count; i++) {
+                const box = document.createElement('div');
+                box.className = 'box';
+                const span = document.createElement('span');
+                span.innerText = count === 1 ? "✓" : i;
+                if(count === 1) span.style.display = "block"; // جعل الحقل الفردي جاهز بالعلامة أو الرقم
+                box.appendChild(span);
+                box.addEventListener('click', function() { 
+                    this.classList.toggle('checked'); 
+                    if(count === 1) {
+                        this.querySelector('span').style.display = this.classList.contains('checked') ? "none" : "block";
+                    }
+                });
+                container.appendChild(box);
+            }
+            return container;
+        }
 
-        <!-- قسم الإحصائيات السريعة -->
-        <section class="stats-section">
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <span class="stat-number" data-target="500">0</span>
-                    <span class="stat-label">+ صنف غذائي</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-target="50">0</span>
-                    <span class="stat-label">+ وصفة صحية</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-target="100">0</span>
-                    <span class="stat-label">% مجاني</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-target="4">0</span>
-                    <span class="stat-label">وجبات يومية</span>
-                </div>
-            </div>
-        </section>
+        // 2. النظري
+        const tdTheory = document.createElement('td');
+        tdTheory.appendChild(course.theory > 0 ? createBoxes(course.theory, 150) : document.createTextNode("-"));
+        tr.appendChild(tdTheory);
 
-        <!-- قسم الوصفات -->
-        <section class="recipes-section" id="recipes">
-            <h2 class="section-title">وصفات <span class="highlight-text">BEST</span></h2>
-            <div class="recipes-grid">
-                <div class="recipe-card">
-                    <div class="recipe-image" style="background-image: url('https://up6.cc/2025/10/176495274035491.jpeg');"></div>
-                    <div class="recipe-info">
-                        <h4>باستا الدجاج المشوي</h4>
-                        <p>وجبة متكاملة غنية بالبروتين، مثالية للغداء</p>
-                        <span class="recipe-cal">🔥 128 سعرة</span>
-                    </div>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image" style="background-image: url('https://up6.cc/2025/08/175881308746151.jpeg');"></div>
-                    <div class="recipe-info">
-                        <h4>سلطة الفواكه</h4>
-                        <p>وجبة خفيفة منعشة غنية بالفيتامينات</p>
-                        <span class="recipe-cal">🔥 60 سعرة</span>
-                    </div>
-                </div>
-                <div class="recipe-card">
-                    <div class="recipe-image" style="background-image: url('https://up6.cc/2025/10/176513072771191.jpeg');"></div>
-                    <div class="recipe-info">
-                        <h4>البيض المسلوق والأفوكادو</h4>
-                        <p>وجبة فطور مثالية غنية بالدهون الصحية</p>
-                        <span class="recipe-cal">🔥 442 سعرة</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+        // 3. العملي
+        const tdPractical = document.createElement('td');
+        tdPractical.appendChild(course.practical > 0 ? createBoxes(course.practical, 150) : document.createTextNode("-"));
+        tr.appendChild(tdPractical);
 
-        <!-- قسم عن التطبيق -->
-        <section class="about-section" id="about">
-            <div class="about-content">
-                <h2 class="section-title">عن <span class="highlight-text">BEST Healthy</span></h2>
-                <p class="about-desc">
-                    BEST Healthy هو تطبيق لتتبع النظام الغذائي مصمم خصيصاً للمستخدم العربي.
-                    يهدف التطبيق إلى مساعدتك في مراقبة ما تتناوله من طعام،
-                    ومعرفة القيم الغذائية الدقيقة لكل وجبة، مع إمكانية إضافة أطعمة جديدة
-                    وحفظ المفضلة وتتبع السعرات اليومية.
-                </p>
-                <div class="about-features">
-                    <div class="about-feature">
-                        <i class="fas fa-check-circle text-green-500"></i>
-                        <span>قاعدة بيانات تضم 500+ صنف غذائي</span>
-                    </div>
-                    <div class="about-feature">
-                        <i class="fas fa-check-circle text-green-500"></i>
-                        <span>إضافة أطعمة مخصصة بسهولة</span>
-                    </div>
-                    <div class="about-feature">
-                        <i class="fas fa-check-circle text-green-500"></i>
-                        <span>تتبع السعرات والماكروز اليومية</span>
-                    </div>
-                    <div class="about-feature">
-                        <i class="fas fa-check-circle text-green-500"></i>
-                        <span>واجهة عربية بالكامل</span>
-                    </div>
-                </div>
-                <a href="diet-app.html" class="btn-primary">
-                    <i class="fas fa-arrow-left"></i> ابدأ رحلتك الصحية
-                </a>
-            </div>
-        </section>
+        // 4. الوحدات (للحاسب)
+        const tdUnits = document.createElement('td');
+        tdUnits.appendChild(course.units > 0 ? createBoxes(course.units, 120) : document.createTextNode("-"));
+        tr.appendChild(tdUnits);
 
-    </main>
+        // 5. الأنشطة (3)
+        const tdActivities = document.createElement('td');
+        tdActivities.appendChild(course.activities > 0 ? createBoxes(course.activities, 70) : document.createTextNode("-"));
+        tr.appendChild(tdActivities);
 
-    <!-- تذييل الصفحة -->
-    <footer class="main-footer">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <img src="https://up6.cc/2025/10/176486275940331.jpeg" alt="BEST Healthy" class="footer-logo">
-                <span>BEST Healthy</span>
-            </div>
-            <div class="footer-links">
-                <a href="index.html">الرئيسية</a>
-                <a href="diet-app.html">نظامي الغذائي</a>
-                <a href="#recipes">وصفات</a>
-                <a href="#about">عن التطبيق</a>
-            </div>
-            <div class="footer-social">
-                <a href="https://t.me/+CGAAHT4akoNlNzA0" target="_blank" aria-label="تيليجرام">
-                    <i class="fab fa-telegram-plane"></i>
-                </a>
-                <a href="https://www.tiktok.com/@best.h5?_r=1&_t=ZS-973LWpllyZE" target="_blank" aria-label="تيك توك">
-                    <i class="fab fa-tiktok"></i>
-                </a>
-                <a href="https://snapchat.com/t/TT2yTewz" target="_blank" aria-label="سناب شات">
-                    <i class="fab fa-snapchat-ghost"></i>
-                </a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© <span id="year"></span> جميع الحقوق محفوظة - BEST Healthy</p>
-        </div>
-    </footer>
+        // 6. الواجبات (3)
+        const tdHomework = document.createElement('td');
+        tdHomework.appendChild(course.homework > 0 ? createBoxes(course.homework, 70) : document.createTextNode("-"));
+        tr.appendChild(tdHomework);
 
-    <script src="main.js"></script>
+        // 7. البحوث والعروض التقديمية (1)
+        const tdResearch = document.createElement('td');
+        tdResearch.appendChild(course.research > 0 ? createBoxes(course.research, 40) : document.createTextNode("-"));
+        tr.appendChild(tdResearch);
+
+        // 8. الاختبارات الفصلية
+        const tdMidterms = document.createElement('td');
+        if (course.midtermsCount > 0) {
+            const gridMidterms = document.createElement('div');
+            gridMidterms.className = 'grid-container';
+            gridMidterms.style.maxWidth = '50px';
+            for (let i = 1; i <= course.midtermsCount; i++) {
+                const box = document.createElement('div');
+                box.className = 'box';
+                const span = document.createElement('span');
+                span.innerText = course.midtermsCount === 1 ? "ف" : "ف" + i;
+                box.appendChild(span);
+                box.addEventListener('click', function() { this.classList.toggle('checked'); });
+                gridMidterms.appendChild(box);
+            }
+            tdMidterms.appendChild(gridMidterms);
+        } else {
+            tdMidterms.innerText = "-";
+        }
+        tr.appendChild(tdMidterms);
+
+        // 9. الاختبار النهائي
+        const tdFinal = document.createElement('td');
+        tdFinal.className = 'final-exam-info';
+        tdFinal.innerHTML = course.finalExam;
+        tr.appendChild(tdFinal);
+
+        tbody.appendChild(tr);
+    });
+</script>
+
 </body>
 </html>
