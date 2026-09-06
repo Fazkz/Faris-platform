@@ -47,12 +47,18 @@
             color: #d9534f;
             font-weight: bold;
         }
+        .reset-container { text-align: left; margin-bottom: 10px; }
+        .reset-btn { background-color: #d9534f; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; font-family: Tahoma, sans-serif; }
+        .reset-btn:hover { background-color: #c9302c; }
     </style>
 </head>
 <body>
 
     <h2>جدول متابعة المقررات الدراسية (انقر على الحقل لتحديد ✅)</h2>
     <div class="table-container">
+        <div class="reset-container">
+            <button class="reset-btn" onclick="resetProgress()">إعادة ضبط الكل 🔄</button>
+        </div>
         <table>
             <thead>
                 <tr>
@@ -75,41 +81,49 @@
 <script>
     const courses = [
         { 
+            id: "cs101",
             name: "CS 101 - مقدمة في الحاسب الآلي", 
             theory: 6, practical: 0, units: 12, activities: 3, homework: 3, research: 1, midtermsCount: 1,
             finalExam: "13-07-1448 هـ<br>[08:00 ص - 10:00 ص]" 
         },
         { 
+            id: "cnut318",
             name: "CNUT318 - الكيمياء الحيوية التغذوية", 
             theory: 20, practical: 20, units: 0, activities: 3, homework: 3, research: 1, midtermsCount: 2,
             finalExam: "28-07-1448 هـ<br>[10:30 ص - 12:30 م]" 
         },
         { 
+            id: "fsnu314",
             name: "FSNU314 - كيمياء وتحليل الأغذية", 
             theory: 20, practical: 20, units: 0, activities: 3, homework: 3, research: 1, midtermsCount: 2,
             finalExam: "18-07-1448 هـ<br>[08:00 ص - 10:00 ص]" 
         },
         { 
+            id: "fsnu344",
             name: "FSNU344 - أسس التغذية العلاجية", 
             theory: 18, practical: 20, units: 0, activities: 3, homework: 3, research: 1, midtermsCount: 2,
             finalExam: "25-07-1448 هـ<br>[08:00 ص - 10:00 ص]" 
         },
         { 
+            id: "fsnu311",
             name: "FSNU311 - شؤون صحية غذائية", 
             theory: 20, practical: 20, units: 0, activities: 3, homework: 3, research: 1, midtermsCount: 2,
             finalExam: "26-07-1448 هـ<br>[10:30 ص - 12:30 م]" 
         },
         { 
+            id: "fsnu322",
             name: "FSNU322 - أسس تقنية الألبان", 
             theory: 18, practical: 18, units: 0, activities: 3, homework: 3, research: 1, midtermsCount: 2,
             finalExam: "20-07-1448 هـ<br>[08:00 ص - 10:00 ص]" 
         },
         { 
+            id: "fsnu341",
             name: "FSNU341 - التغذية والمناعة في الإنسان", 
             theory: 18, practical: 0, units: 0, activities: 3, homework: 3, research: 1, midtermsCount: 2,
             finalExam: "21-07-1448 هـ<br>[10:30 ص - 12:30 م]" 
         },
         { 
+            id: "fsnu455",
             name: "FSNU455 - دراسات خاصة في الأغذية", 
             theory: 0, practical: 1, units: 0, activities: 0, homework: 0, research: 1, midtermsCount: 0,
             finalExam: "لم يُحدد من الكلية" 
@@ -127,8 +141,8 @@
         tdName.innerText = course.name;
         tr.appendChild(tdName);
 
-        // دالة إنشاء المربعات
-        function createBoxes(count, maxWidth) {
+        // دالة إنشاء المربعات مع دعم الحفظ المحلي
+        function createBoxes(count, maxWidth, categoryKey) {
             const container = document.createElement('div');
             container.className = 'grid-container';
             container.style.maxWidth = maxWidth + 'px';
@@ -137,14 +151,27 @@
                 box.className = 'box';
                 const span = document.createElement('span');
                 span.innerText = count === 1 ? "✓" : i;
-                if(count === 1) span.style.display = "block"; // جعل الحقل الفردي جاهز بالعلامة أو الرقم
+                if(count === 1) span.style.display = "block";
                 box.appendChild(span);
+
+                const storageKey = `tracker_${course.id}_${categoryKey}_${i}`;
+                
+                // استرجاع الحالة المحفوظة مسبقاً
+                if (localStorage.getItem(storageKey) === 'true') {
+                    box.classList.add('checked');
+                    if(count === 1) span.style.display = "none";
+                }
+
                 box.addEventListener('click', function() { 
-                    this.classList.toggle('checked'); 
+                    this.classList.toggle('checked');
+                    const isChecked = this.classList.contains('checked');
+                    localStorage.setItem(storageKey, isChecked);
+
                     if(count === 1) {
-                        this.querySelector('span').style.display = this.classList.contains('checked') ? "none" : "block";
+                        span.style.display = isChecked ? "none" : "block";
                     }
                 });
+
                 container.appendChild(box);
             }
             return container;
@@ -152,32 +179,32 @@
 
         // 2. النظري
         const tdTheory = document.createElement('td');
-        tdTheory.appendChild(course.theory > 0 ? createBoxes(course.theory, 150) : document.createTextNode("-"));
+        tdTheory.appendChild(course.theory > 0 ? createBoxes(course.theory, 150, 'theory') : document.createTextNode("-"));
         tr.appendChild(tdTheory);
 
         // 3. العملي
         const tdPractical = document.createElement('td');
-        tdPractical.appendChild(course.practical > 0 ? createBoxes(course.practical, 150) : document.createTextNode("-"));
+        tdPractical.appendChild(course.practical > 0 ? createBoxes(course.practical, 150, 'practical') : document.createTextNode("-"));
         tr.appendChild(tdPractical);
 
         // 4. الوحدات (للحاسب)
         const tdUnits = document.createElement('td');
-        tdUnits.appendChild(course.units > 0 ? createBoxes(course.units, 120) : document.createTextNode("-"));
+        tdUnits.appendChild(course.units > 0 ? createBoxes(course.units, 120, 'units') : document.createTextNode("-"));
         tr.appendChild(tdUnits);
 
         // 5. الأنشطة (3)
         const tdActivities = document.createElement('td');
-        tdActivities.appendChild(course.activities > 0 ? createBoxes(course.activities, 70) : document.createTextNode("-"));
+        tdActivities.appendChild(course.activities > 0 ? createBoxes(course.activities, 70, 'activities') : document.createTextNode("-"));
         tr.appendChild(tdActivities);
 
         // 6. الواجبات (3)
         const tdHomework = document.createElement('td');
-        tdHomework.appendChild(course.homework > 0 ? createBoxes(course.homework, 70) : document.createTextNode("-"));
+        tdHomework.appendChild(course.homework > 0 ? createBoxes(course.homework, 70, 'homework') : document.createTextNode("-"));
         tr.appendChild(tdHomework);
 
         // 7. البحوث والعروض التقديمية (1)
         const tdResearch = document.createElement('td');
-        tdResearch.appendChild(course.research > 0 ? createBoxes(course.research, 40) : document.createTextNode("-"));
+        tdResearch.appendChild(course.research > 0 ? createBoxes(course.research, 40, 'research') : document.createTextNode("-"));
         tr.appendChild(tdResearch);
 
         // 8. الاختبارات الفصلية
@@ -192,7 +219,16 @@
                 const span = document.createElement('span');
                 span.innerText = course.midtermsCount === 1 ? "ف" : "ف" + i;
                 box.appendChild(span);
-                box.addEventListener('click', function() { this.classList.toggle('checked'); });
+
+                const storageKey = `tracker_${course.id}_midterm_${i}`;
+                if (localStorage.getItem(storageKey) === 'true') {
+                    box.classList.add('checked');
+                }
+
+                box.addEventListener('click', function() { 
+                    this.classList.toggle('checked');
+                    localStorage.setItem(storageKey, this.classList.contains('checked'));
+                });
                 gridMidterms.appendChild(box);
             }
             tdMidterms.appendChild(gridMidterms);
@@ -209,6 +245,14 @@
 
         tbody.appendChild(tr);
     });
+
+    // دالة إعادة الضبط لحذف البيانات المحفوظة والبدء من جديد
+    function resetProgress() {
+        if (confirm("هل أنت متأكد من رغبتك في إعادة ضبط جميع الإشارات المحددة؟")) {
+            localStorage.clear();
+            location.reload();
+        }
+    }
 </script>
 
 </body>
