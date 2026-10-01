@@ -1,259 +1,865 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>جدول متابعة المقررات الدراسية الشامل</title>
-      <!-- Favicon -->
-  <link rel="icon" type="image/png" href="https://e.top4top.io/p_3901tcs760.jpeg">
-  <link rel="apple-touch-icon" sizes="180x180" href="https://e.top4top.io/p_3901tcs760.jpeg">
-    <style>
-        body { font-family: Tahoma, sans-serif; background-color: #f4f7f6; padding: 20px; direction: rtl; }
-        h2 { text-align: center; color: #333; }
-        .table-container { overflow-x: auto; background: #fff; padding: 15px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; min-width: 1000px; }
-        th, td { border: 1px solid #ccc; padding: 8px; text-align: center; font-size: 11px; }
-        th { background-color: #004080; color: #fff; }
-        .course-name { text-align: right; font-weight: bold; background-color: #eef2f7; width: 190px; font-size: 12px; }
-        .grid-container { display: flex; flex-wrap: wrap; gap: 3px; justify-content: center; margin: 0 auto; }
-        .box {
-            width: 22px;
-            height: 22px;
-            border: 1px solid #004080;
-            background-color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 9px;
-            border-radius: 3px;
-            user-select: none;
-            transition: 0.2s;
-        }
-        .box.checked {
-            background-color: #28a745;
-            color: #fff;
-            border-color: #1e7e34;
-        }
-        .box.checked::after {
-            content: "✓";
-            font-weight: bold;
-            font-size: 11px;
-        }
-        .box.checked span {
-            display: none;
-        }
-        .final-exam-info {
-            font-size: 10px;
-            color: #d9534f;
-            font-weight: bold;
-        }
-        .reset-container { text-align: left; margin-bottom: 10px; }
-        .reset-btn { background-color: #d9534f; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; font-family: Tahoma, sans-serif; }
-        .reset-btn:hover { background-color: #c9302c; }
-    </style>
-</head>
-<body>
+<!doctype html>
+<html lang="ar" dir="rtl" class="h-full">
+ <head><script>window["__codeletBootstrap__"]=JSON.parse('{"A":"A","B":"20261001-05-b7952c1","C":{"Abril Fatface":"YACgEZbkUVE,0","Alfa Slab One":"YACgEYS9sJU,0","Anton":"YACgEcYqQ-A,0","Archivo":"YACgEZulLoA,0","Arial Narrow":"YAGyDvJ_4Ts,0","Arial Rounded MT Bold":"YAFcfoaHu-s,0","Arial":"YAGyDvJ_4Ts,0","Avenir Next":"YAFcfmNq6UY,0","Baloo 2":"YADK30bC6HQ,0","Bebas Neue":"YACgESME5ew,0","Bricolage Grotesque":"YAFyMcdwzpc,0","Broken Glyph":"YADZ-exUkv0,0","Canva Sans":"YAFdJjTk5UU,1","Caveat":"YALBs2ploWQ,0","Comic Sans MS":"YAFcfvtOAUY,1","Cormorant Garamond":"YAFdJhX-538,0","Courier New":"YAGzXiGs0_8,0","Courier Prime":"YAD1aFjegN8,0","DM Sans":"YAD1aU3sLnI,0","DM Serif Display":"YAD1aYG82rc,0","Forum":"YACgEcnnqB4,0","Fraunces":"YAFdJpU7Kkk,0","Georgia":"YAGzXkO0pEM,0","Ghost Mono":"YAHQutsX00Q,0","Hanken Grotesk":"YAFcfhwp99E,0","Helvetica Neue":"YAFcf6CtJfI,0","Helvetica":"YAFcf6CtJfI,0","IBM Plex Mono":"YAFdJkmvhGI,0","Impact":"YAFcfnjI7Vk,0","Instrument Serif":"YAHFeOnZNEk,0","Inter":"YAFdJvSyp_k,3","Iowan Old Style":"YAGNIFa8j9o,0","Jacques Francois":"YADK3zbC6RM,0","JetBrains Mono":"YAFdJksXcAk,0","Josefin Sans":"YAFdJjvw9Ps,0","Lato":"YAFdJuFCnaw,0","Libre Baskerville":"YACgEUFdPdA,0","Lobster":"YAD8SnSjSFI,0","Lora":"YACgEXvxf8Q,0","Merriweather":"YACgEXvHxxs,0","Montserrat":"YAFdtQi73Xs,0","Nunito":"YAFdJoNRMmU,1","Oleo Script":"YACgEQQ14jI,0","Oswald":"YACgEQY10lw,0","Pacifico":"YADLjORQ1u4,0","Phantom Sans":"YAFdJvgJ5TU,0","Playfair Display":"YAFdJhem5V8,1","Plus Jakarta Sans":"YAGvf3_u0_Q,0","Poppins":"YAFdJjbTu24,1","Press Start 2P":"YAFyGr-8pmQ,0","Quicksand":"YAFdJpYtCxE,1","Raleway":"YAFdJhmxbVQ,1","Roboto Slab":"YAFdJswIKAg,0","Rockwell":"YAFcfyVZnN0,0","Rye":"YACgEdQP21k,0","Segoe UI":"YAHNdRD1Klw,0","Source Sans 3":"YAG4lO1Mj10,0","Source Serif 4":"YACgEfdj394,0","Space Grotesk":"YADZ-dYEmhg,0","Space Mono":"YADW1-vpsoc,0","Times New Roman":"YAGzXW3gftg,0","Times":"YAGzXW3gftg,0","Trebuchet MS":"YAFcfrglpVA,0","UV Display":"YAEdVfSSpYo,0","UV Sans":"YAFdJvgJ5TU,0","Ubuntu":"YACgERDU--Q,0","Verdana":"YAGzXTctYtQ,0","Work Sans":"YAGXhLOKv44,0","Yellowtail":"YACgEYG4kG4,0","ui-monospace":"YAD1aFjegN8,0","ui-sans-serif":"YACkoD1yZN0,0"}}');</script><script src="/_sdk/6542d56fbfe7a3eb.telemetry_sdk.js" integrity="sha512-ECdM0nK7EkwDuOqho2qxgyRQXyBHk9hZqRKMBr+Xsu6zjeHlt+qkO2N2YRiHN7Kg4e1fEHDhjIp4bGJYVypv1g=="></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5.1.0/dist/tesseract.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+* { font-family: 'Tajawal', sans-serif; }
+@media (max-width: 640px) { .main-content { padding: 12px !important; } .generator-tabs { overflow-x: auto; justify-content: flex-start !important; padding-bottom: 4px; } .generator-tabs button { white-space: nowrap; } }
 
-    <h2>جدول متابعة المقررات الدراسية (انقر على الحقل لتحديد ✅)</h2>
-    <div class="table-container">
-        <div class="reset-container">
-            <button class="reset-btn" onclick="resetProgress()">إعادة ضبط الكل 🔄</button>
-        </div>
-        <table>
-            <thead>
-                <tr>
-                    <th>المادة الدراسية</th>
-                    <th>نظري</th>
-                    <th>عملي</th>
-                    <th>الوحدات (للحاسب)</th>
-                    <th>أنشطة (3)</th>
-                    <th>واجبات (3)</th>
-                    <th>البحوث والعروض التقديمية</th>
-                    <th>فصلي</th>
-                    <th>الاختبار النهائي (الفاينل)</th>
-                </tr>
-            </thead>
-            <tbody id="tracker-body">
-                </tbody>
-        </table>
-    </div>
-
-<script>
-    const courses = [
-        { 
-            id: "cs101",
-            name: "CS 101 - مقدمة في الحاسب الآلي", 
-            theory: 6, practical: 0, units: 12, activities: 3, homework: 3, research: 1, midtermsCount: 1,
-            finalExam: "13-07-1448 هـ<br>[08:00 ص - 10:00 ص]" 
-        },
-        { 
-            id: "cnut318",
-            name: "CNUT318 - الكيمياء الحيوية التغذوية", 
-            theory: 20, practical: 20, units: 0, activities: 3, homework: 3, research: 1, midtermsCount: 2,
-            finalExam: "28-07-1448 هـ<br>[10:30 ص - 12:30 م]" 
-        },
-        { 
-            id: "fsnu314",
-            name: "FSNU314 - كيمياء وتحليل الأغذية", 
-            theory: 20, practical: 20, units: 0, activities: 3, homework: 3, research: 1, midtermsCount: 2,
-            finalExam: "18-07-1448 هـ<br>[08:00 ص - 10:00 ص]" 
-        },
-        { 
-            id: "fsnu344",
-            name: "FSNU344 - أسس التغذية العلاجية", 
-            theory: 18, practical: 20, units: 0, activities: 3, homework: 3, research: 1, midtermsCount: 2,
-            finalExam: "25-07-1448 هـ<br>[08:00 ص - 10:00 ص]" 
-        },
-        { 
-            id: "fsnu311",
-            name: "FSNU311 - شؤون صحية غذائية", 
-            theory: 20, practical: 20, units: 0, activities: 3, homework: 3, research: 1, midtermsCount: 2,
-            finalExam: "26-07-1448 هـ<br>[10:30 ص - 12:30 م]" 
-        },
-        { 
-            id: "fsnu322",
-            name: "FSNU322 - أسس تقنية الألبان", 
-            theory: 18, practical: 18, units: 0, activities: 3, homework: 3, research: 1, midtermsCount: 2,
-            finalExam: "20-07-1448 هـ<br>[08:00 ص - 10:00 ص]" 
-        },
-        { 
-            id: "fsnu341",
-            name: "FSNU341 - التغذية والمناعة في الإنسان", 
-            theory: 18, practical: 0, units: 0, activities: 3, homework: 3, research: 1, midtermsCount: 2,
-            finalExam: "21-07-1448 هـ<br>[10:30 ص - 12:30 م]" 
-        },
-        { 
-            id: "fsnu455",
-            name: "FSNU455 - دراسات خاصة في الأغذية", 
-            theory: 0, practical: 1, units: 0, activities: 0, homework: 0, research: 1, midtermsCount: 0,
-            finalExam: "لم يُحدد من الكلية" 
-        }
-    ];
-
-    const tbody = document.getElementById('tracker-body');
-
-    courses.forEach((course) => {
-        const tr = document.createElement('tr');
-        
-        // 1. اسم المقرر
-        const tdName = document.createElement('td');
-        tdName.className = 'course-name';
-        tdName.innerText = course.name;
-        tr.appendChild(tdName);
-
-        // دالة إنشاء المربعات مع دعم الحفظ المحلي
-        function createBoxes(count, maxWidth, categoryKey) {
-            const container = document.createElement('div');
-            container.className = 'grid-container';
-            container.style.maxWidth = maxWidth + 'px';
-            for (let i = 1; i <= count; i++) {
-                const box = document.createElement('div');
-                box.className = 'box';
-                const span = document.createElement('span');
-                span.innerText = count === 1 ? "✓" : i;
-                if(count === 1) span.style.display = "block";
-                box.appendChild(span);
-
-                const storageKey = `tracker_${course.id}_${categoryKey}_${i}`;
-                
-                // استرجاع الحالة المحفوظة مسبقاً
-                if (localStorage.getItem(storageKey) === 'true') {
-                    box.classList.add('checked');
-                    if(count === 1) span.style.display = "none";
-                }
-
-                box.addEventListener('click', function() { 
-                    this.classList.toggle('checked');
-                    const isChecked = this.classList.contains('checked');
-                    localStorage.setItem(storageKey, isChecked);
-
-                    if(count === 1) {
-                        span.style.display = isChecked ? "none" : "block";
-                    }
-                });
-
-                container.appendChild(box);
-            }
-            return container;
-        }
-
-        // 2. النظري
-        const tdTheory = document.createElement('td');
-        tdTheory.appendChild(course.theory > 0 ? createBoxes(course.theory, 150, 'theory') : document.createTextNode("-"));
-        tr.appendChild(tdTheory);
-
-        // 3. العملي
-        const tdPractical = document.createElement('td');
-        tdPractical.appendChild(course.practical > 0 ? createBoxes(course.practical, 150, 'practical') : document.createTextNode("-"));
-        tr.appendChild(tdPractical);
-
-        // 4. الوحدات (للحاسب)
-        const tdUnits = document.createElement('td');
-        tdUnits.appendChild(course.units > 0 ? createBoxes(course.units, 120, 'units') : document.createTextNode("-"));
-        tr.appendChild(tdUnits);
-
-        // 5. الأنشطة (3)
-        const tdActivities = document.createElement('td');
-        tdActivities.appendChild(course.activities > 0 ? createBoxes(course.activities, 70, 'activities') : document.createTextNode("-"));
-        tr.appendChild(tdActivities);
-
-        // 6. الواجبات (3)
-        const tdHomework = document.createElement('td');
-        tdHomework.appendChild(course.homework > 0 ? createBoxes(course.homework, 70, 'homework') : document.createTextNode("-"));
-        tr.appendChild(tdHomework);
-
-        // 7. البحوث والعروض التقديمية (1)
-        const tdResearch = document.createElement('td');
-        tdResearch.appendChild(course.research > 0 ? createBoxes(course.research, 40, 'research') : document.createTextNode("-"));
-        tr.appendChild(tdResearch);
-
-        // 8. الاختبارات الفصلية
-        const tdMidterms = document.createElement('td');
-        if (course.midtermsCount > 0) {
-            const gridMidterms = document.createElement('div');
-            gridMidterms.className = 'grid-container';
-            gridMidterms.style.maxWidth = '50px';
-            for (let i = 1; i <= course.midtermsCount; i++) {
-                const box = document.createElement('div');
-                box.className = 'box';
-                const span = document.createElement('span');
-                span.innerText = course.midtermsCount === 1 ? "ف" : "ف" + i;
-                box.appendChild(span);
-
-                const storageKey = `tracker_${course.id}_midterm_${i}`;
-                if (localStorage.getItem(storageKey) === 'true') {
-                    box.classList.add('checked');
-                }
-
-                box.addEventListener('click', function() { 
-                    this.classList.toggle('checked');
-                    localStorage.setItem(storageKey, this.classList.contains('checked'));
-                });
-                gridMidterms.appendChild(box);
-            }
-            tdMidterms.appendChild(gridMidterms);
-        } else {
-            tdMidterms.innerText = "-";
-        }
-        tr.appendChild(tdMidterms);
-
-        // 9. الاختبار النهائي
-        const tdFinal = document.createElement('td');
-        tdFinal.className = 'final-exam-info';
-        tdFinal.innerHTML = course.finalExam;
-        tr.appendChild(tdFinal);
-
-        tbody.appendChild(tr);
-    });
-
-    // دالة إعادة الضبط لحذف البيانات المحفوظة والبدء من جديد
-    function resetProgress() {
-        if (confirm("هل أنت متأكد من رغبتك في إعادة ضبط جميع الإشارات المحددة؟")) {
-            localStorage.clear();
-            location.reload();
-        }
+.cat-btn { transition: all 0.2s; }
+.cat-btn:hover { transform: translateY(-2px); }
+.cat-btn.active { ring: 2px; }
+.fade-in { animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+.code-box { background: #1e1e2e; color: #cdd6f4; border-radius: 12px; }
+.code-box .key { color: #89b4fa; }
+.code-box .str { color: #a6e3a1; }
+.code-box .num { color: #fab387; }
+.nav-btn { transition: all 0.3s; }
+.nav-btn.active { border-b: 3px solid #a29bfe; color: #a29bfe; }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.577.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.17" type="text/javascript"></script>
+  <script src="/_sdk/6c2ecc939521f244.data_sdk.js" type="text/javascript" integrity="sha512-gRx8s+XsZDN6mSIQu2sivLZysbV0WHhb5kXNUWlgVb5lCMU1foJYukyMEDPv8Tnoocb8iwqB4XdRrWc7oEGzIQ=="></script>
+  <script src="/_sdk/10f6beec21a1ad37.element_sdk.js" type="text/javascript" integrity="sha512-YaX5kozeJyVhyB0OpNRElv0/V2DF7Zpm5GJWBFYWqJQKNtDPyO2t6vy0nxWmlvleVjfaIs3ui37yytaGt4z07w=="></script>
+  <script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        bg: '#0f1117',
+        surface: '#1a1d27',
+        accent: '#6c5ce7',
+        accent2: '#a29bfe',
+        txt: '#e8e8f0'
+      }
     }
+  }
+}
 </script>
+  <style>body { box-sizing: border-box; }</style>
+ </head>
+ <body class="h-full bg-bg text-txt overflow-auto">
+  <div id="app" class="h-full w-full flex flex-col lg:flex-row gap-0"><!-- Main Content -->
+   <div class="main-content flex-1 flex flex-col p-4 sm:p-6 lg:p-8 overflow-y-auto min-w-0"><!-- Header -->
+    <header class="text-center py-4 fade-in mb-6">
+     <h1 id="siteTitle" class="text-3xl font-extrabold text-accent2">مولد أكواد الملصقات الغذائية</h1>
+     <p class="text-sm text-gray-400 mt-1">أنشئ أكوادك واحفظ سجل منتجاتك</p>
+    </header><!-- Generator Tab -->
+    <div id="generatorTab" class="fade-in flex flex-col gap-6">
+     <!-- Generator Type Tabs -->
+     <div class="flex gap-2 justify-center fade-in">
+      <button onclick="setGeneratorType('food')" id="foodGeneratorTab" class="px-5 py-2 rounded-full text-sm font-bold bg-accent text-white transition">🍎 القيم الغذائية</button> <button onclick="setGeneratorType('exercise')" id="exerciseGeneratorTab" class="px-5 py-2 rounded-full text-sm font-bold bg-surface text-gray-400 transition">🏋️ التمارين</button> <button onclick="setGeneratorType('recipe')" id="recipeGeneratorTab" class="px-5 py-2 rounded-full text-sm font-bold bg-surface text-gray-400 transition">🍲 الوصفات</button>
+     </div><!-- Exercise Generator -->
+     <section id="exerciseGenerator" class="hidden fade-in flex flex-col gap-4">
+      <h2 class="font-bold text-lg text-accent2">🏋️ مولد كود تمرين</h2>
+      <div class="bg-surface rounded-xl p-5 border border-gray-700/50 flex flex-col gap-3">
+       <div class="grid grid-cols-2 gap-3">
+        <div><label for="eId" class="text-xs text-gray-400">المعرّف</label><input id="eId" type="number" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm" placeholder="201">
+        </div>
+        <div><label for="eName" class="text-xs text-gray-400">اسم التمرين</label><input id="eName" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm" placeholder="سحب بار أمامي (Lat Pulldown)">
+        </div>
+        <div><label for="eImage" class="text-xs text-gray-400">رابط الصورة</label><input id="eImage" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm" placeholder="https://...">
+        </div>
+        <div><label for="eVideo" class="text-xs text-gray-400">رابط الفيديو</label><input id="eVideo" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm" placeholder="https://www.youtube.com/embed/...">
+        </div>
+        <div><label for="eLevel" class="text-xs text-gray-400">المستوى</label><select id="eLevel" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm"><option>مبتدئ</option><option>متوسط</option><option>متقدم</option></select>
+        </div>
+        <div><label for="eMuscle" class="text-xs text-gray-400">العضلة المستهدفة</label><input id="eMuscle" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm" placeholder="العضلة الظهرية العريضة">
+        </div>
+        <div class="col-span-2"><label class="text-xs text-gray-400 block mb-2">الأدوات المستخدمة</label>
+         <div id="equipmentGrid" class="grid grid-cols-3 sm:grid-cols-5 gap-2"></div>
+        </div>
+        <div class="col-span-2"><label for="eSteps" class="text-xs text-gray-400">خطوات التمرين</label><textarea id="eSteps" rows="4" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm" placeholder="1. اجلس مع تثبيت الفخذين
+2. امسك البار بعرض الكتفين"></textarea>
+        </div>
+        <div><label for="eCalories" class="text-xs text-gray-400">السعرات / دقيقة</label><input id="eCalories" type="number" step="0.1" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm" placeholder="7">
+        </div>
+        <div><label for="eReps" class="text-xs text-gray-400">التكرارات</label><input id="eReps" type="number" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm" placeholder="12">
+        </div>
+        <div><label for="eMinutes" class="text-xs text-gray-400">الدقائق / تكرار</label><input id="eMinutes" type="number" step="0.1" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm" placeholder="1.5">
+        </div>
+       </div>
+      </div><button onclick="generateExerciseCode()" class="w-full bg-accent hover:bg-accent2 text-white font-bold py-3 rounded-xl text-lg transition">⚡ إنشاء كود التمرين</button>
+      <div id="exerciseOutput" class="hidden bg-surface rounded-xl p-4 border border-gray-700/50">
+       <div id="exerciseCodeBox" class="code-box p-3 text-xs leading-relaxed overflow-x-auto" dir="ltr">
+        <pre></pre>
+       </div><button onclick="copyExerciseCode()" class="w-full mt-3 bg-accent text-white font-bold py-2 rounded-lg">📋 نسخ الكود</button>
+      </div>
+     </section><!-- Recipe Generator -->
+     <section id="recipeGenerator" class="hidden fade-in flex flex-col gap-4">
+      <h2 class="font-bold text-lg text-accent2">🍲 مولد كود الوصفات</h2>
+      <div class="bg-surface rounded-xl p-4 sm:p-5 border border-gray-700/50 flex flex-col gap-4">
+       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div>
+         <label for="rId" class="text-xs text-gray-400">المعرّف</label><input id="rId" type="number" value="1" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm">
+        </div>
+        <div>
+         <label for="rName" class="text-xs text-gray-400">اسم الوصفة</label><input id="rName" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm" placeholder="سلطة كينوا بالخضار المشوية">
+        </div>
+        <div>
+         <label for="rCategory" class="text-xs text-gray-400">التصنيف</label><select id="rCategory" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm"><option value="breakfast">فطور</option><option value="lunch">غداء</option><option value="dinner">عشاء</option><option value="snack">وجبة خفيفة</option></select>
+        </div>
+        <div>
+         <label for="rImage" class="text-xs text-gray-400">رابط الصورة</label><input id="rImage" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm" placeholder="https://...">
+        </div>
+        <div>
+         <label for="rCalories" class="text-xs text-gray-400">السعرات</label><input id="rCalories" type="number" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm" placeholder="140">
+        </div>
+        <div>
+         <label for="rTime" class="text-xs text-gray-400">وقت التحضير</label><input id="rTime" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm" placeholder="25 دقيقة">
+        </div>
+        <div>
+         <label for="rServings" class="text-xs text-gray-400">عدد الحصص</label><input id="rServings" type="number" value="1" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm">
+        </div>
+       </div>
+       <div>
+        <label class="text-xs text-gray-400 block mb-2">اختر المكونات</label>
+        <div id="ingredientsGrid" class="grid grid-cols-3 sm:grid-cols-5 gap-2 max-h-56 overflow-y-auto"></div>
+       </div>
+       <div class="bg-bg rounded-xl p-3 border border-dashed border-gray-700 flex flex-col gap-3">
+        <div>
+         <h3 class="text-sm font-bold text-accent2">➕ إضافة مكوّن جديد</h3>
+         <p class="text-xs text-gray-500 mt-1">سيظهر المكوّن مع المكونات السابقة وسيُحفظ في هذا المتصفح.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+         <div>
+          <label for="customIngredientName" class="text-xs text-gray-400">اسم المكوّن</label><input id="customIngredientName" class="w-full bg-surface border border-gray-700 rounded-lg px-3 py-2 text-sm" placeholder="مثال: أفوكادو">
+         </div>
+         <div>
+          <label for="customIngredientImage" class="text-xs text-gray-400">رابط صورة المكوّن</label><input id="customIngredientImage" type="url" dir="ltr" class="w-full bg-surface border border-gray-700 rounded-lg px-3 py-2 text-sm" placeholder="https://...">
+         </div>
+        </div><button type="button" onclick="addCustomIngredient()" class="w-full bg-surface border border-accent text-accent2 hover:bg-accent hover:text-white font-bold py-2 rounded-lg transition">إضافة إلى المكونات</button>
+       </div>
+       <div id="selectedIngredients" class="flex flex-col gap-2"></div>
+       <div>
+        <label for="rInstructions" class="text-xs text-gray-400">طريقة التحضير</label><textarea id="rInstructions" rows="5" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm" placeholder="1. اخلط المكونات..."></textarea>
+       </div>
+       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <input id="rProtein" class="bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm" placeholder="البروتين 6g"><input id="rCarbs" class="bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm" placeholder="الكربوهيدرات 17.5g"><input id="rFat" class="bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm" placeholder="الدهون 4g"><input id="rFiber" class="bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm" placeholder="الألياف 3g">
+       </div>
+       <div class="flex flex-wrap gap-4 text-sm">
+        <label><input id="rHealthy" type="checkbox" checked> وصفة صحية</label><label><input id="rPopular" type="checkbox"> وصفة شائعة</label>
+       </div>
+      </div><button onclick="generateRecipeCode()" class="w-full bg-accent hover:bg-accent2 text-white font-bold py-3 rounded-xl text-lg transition">⚡ إنشاء كود الوصفة</button>
+      <div id="recipeOutput" class="hidden bg-surface rounded-xl p-4 border border-gray-700/50">
+       <div id="recipeCodeBox" class="code-box p-3 text-xs leading-relaxed overflow-x-auto" dir="ltr">
+        <pre></pre>
+       </div><button onclick="copyRecipeCode()" class="w-full mt-3 bg-accent text-white font-bold py-2 rounded-lg">📋 نسخ الكود</button>
+      </div>
+     </section><!-- Food Generator -->
+     <div id="foodGenerator">
+      <!-- Method Tabs -->
+      <div class="flex gap-2 justify-center fade-in">
+       <button onclick="setMethod('image')" id="tabImage" class="px-5 py-2 rounded-full text-sm font-bold bg-accent text-white transition">📷 من صورة الملصق</button> <button onclick="setMethod('manual')" id="tabManual" class="px-5 py-2 rounded-full text-sm font-bold bg-surface text-gray-400 transition">✏️ تعبئة يدوية</button>
+      </div><!-- Image Method -->
+      <div id="imageMethod" class="fade-in flex flex-col gap-4">
+       <div class="bg-surface rounded-xl p-5 border border-gray-700/50">
+        <label class="block text-center cursor-pointer border-2 border-dashed border-gray-600 rounded-xl p-8 hover:border-accent transition" id="dropZone"> <input type="file" accept="image/*" class="hidden" id="imageInput" onchange="handleImage(event)">
+         <div id="uploadPrompt">
+          <i data-lucide="camera" class="mx-auto mb-2 text-gray-500" style="width:40px;height:40px"></i>
+          <p class="text-gray-400 font-bold">اضغط لتصوير أو اختيار صورة الملصق</p>
+          <p class="text-xs text-gray-500 mt-1">سيتم قراءة القيم الغذائية تلقائياً من الصورة</p>
+         </div>
+         <div id="loadingState" class="hidden text-center">
+          <div class="animate-spin inline-block mb-3">
+           <i data-lucide="loader" style="width:32px;height:32px" class="text-accent"></i>
+          </div>
+          <p class="text-gray-300 font-bold text-sm">جاري قراءة الملصق...</p>
+         </div><img id="previewImg" class="hidden max-h-48 mx-auto rounded-lg"> </label>
+       </div>
+       <div id="extractedData" class="hidden bg-green-500/10 border border-green-500/30 rounded-lg p-3">
+        <p class="text-xs text-green-400 font-bold">✅ تم قراءة البيانات من الصورة:</p>
+        <p id="extractedText" class="text-xs text-gray-300 mt-2 max-h-32 overflow-y-auto leading-relaxed"></p>
+       </div>
+       <p class="text-xs text-center text-gray-500">📌 بعد رفع الصورة، ستُملأ القيم تلقائياً في الحقول أدناه</p>
+      </div><!-- Category Selection -->
+      <div id="categorySection" class="fade-in flex flex-col gap-4">
+       <h2 class="font-bold text-lg text-accent2">📂 اختر التصنيف</h2>
+       <div id="catGrid" class="grid grid-cols-3 sm:grid-cols-4 gap-2"></div>
+       <div class="bg-surface rounded-xl p-4 border border-dashed border-gray-700/70 flex flex-col gap-3">
+        <div>
+         <h3 class="text-sm font-bold text-accent2">➕ إضافة تصنيف غذائي جديد</h3>
+         <p class="text-xs text-gray-500 mt-1">سيُضاف التصنيف إلى القائمة ويُحفظ في هذا المتصفح.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-2">
+         <div>
+          <label for="customCategoryName" class="text-xs text-gray-400">اسم التصنيف</label> <input id="customCategoryName" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm" placeholder="مثال: أطعمة عضوية">
+         </div>
+         <div>
+          <label for="customCategoryIcon" class="text-xs text-gray-400">رمز</label> <input id="customCategoryIcon" maxlength="2" class="w-full sm:w-20 bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm text-center" placeholder="🥗">
+         </div>
+        </div>
+        <div>
+         <label for="customCategorySubcategories" class="text-xs text-gray-400">التصنيفات الفرعية</label> <input id="customCategorySubcategories" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm" placeholder="مثال: عضوي، خالٍ من السكر، نباتي">
+         <p class="text-xs text-gray-500 mt-1">اكتب أكثر من تصنيف فرعي وافصل بينها بفاصلة.</p>
+        </div><button type="button" onclick="addCustomCategory()" class="w-full bg-bg border border-accent text-accent2 hover:bg-accent hover:text-white font-bold py-2 rounded-lg transition">إضافة إلى التصنيفات</button>
+       </div>
+       <div id="subcatSection" class="hidden">
+        <h3 class="font-bold text-sm text-gray-300 mb-2">التصنيف الفرعي:</h3>
+        <div id="subcatGrid" class="flex flex-wrap gap-2"></div>
+       </div>
+      </div><!-- Form Fields -->
+      <div id="formSection" class="fade-in flex flex-col gap-3">
+       <h2 class="font-bold text-lg text-accent2">📝 بيانات المنتج</h2>
+       <div class="bg-surface rounded-xl p-5 border border-gray-700/50 flex flex-col gap-3">
+        <div class="grid grid-cols-2 gap-3">
+         <div class="col-span-2">
+          <label class="text-xs text-gray-400">اسم الطعام (بالعربي)</label> <input id="fName" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-accent outline-none" placeholder="مثال: جبن كريمة بوك">
+         </div>
+         <div class="col-span-2">
+          <label class="text-xs text-gray-400">ID (بالإنجليزي)</label> <input id="fId" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-accent outline-none" placeholder="مثال: Cheese-Puck">
+         </div>
+         <div class="col-span-2">
+          <label for="fImage" class="text-xs text-gray-400">رابط صورة المنتج</label> <input id="fImage" type="url" dir="ltr" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-accent outline-none" placeholder="https://example.com/product-image.jpg">
+         </div>
+         <div>
+          <label class="text-xs text-gray-400">الحصة (جرام)</label> <input id="fServing" type="number" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-accent outline-none" placeholder="30">
+         </div>
+         <div>
+          <label class="text-xs text-gray-400">السعرات / حصة</label> <input id="fCal" type="number" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-accent outline-none" placeholder="97">
+         </div>
+         <div>
+          <label class="text-xs text-gray-400">الدهون (جم) / حصة</label> <input id="fFat" type="number" step="0.1" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-accent outline-none" placeholder="9.3">
+         </div>
+         <div>
+          <label class="text-xs text-gray-400">الدهون المشبعة (جم) / حصة</label> <input id="fSatFat" type="number" step="0.1" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-accent outline-none" placeholder="5.5">
+         </div>
+         <div>
+          <label class="text-xs text-gray-400">الكربوهيدرات (جم) / حصة</label> <input id="fCarb" type="number" step="0.1" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-accent outline-none" placeholder="0.6">
+         </div>
+         <div>
+          <label class="text-xs text-gray-400">السكر (جم) / حصة</label> <input id="fSugar" type="number" step="0.1" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-accent outline-none" placeholder="0.3">
+         </div>
+         <div>
+          <label class="text-xs text-gray-400">الألياف (جم) / حصة</label> <input id="fFiber" type="number" step="0.1" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-accent outline-none" placeholder="1.2">
+         </div>
+         <div>
+          <label class="text-xs text-gray-400">البروتين (جم) / حصة</label> <input id="fProt" type="number" step="0.1" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-accent outline-none" placeholder="2.6">
+         </div>
+        </div>
+       </div>
+      </div><!-- Generate Button --> <button onclick="generateCode()" class="w-full bg-accent hover:bg-accent2 text-white font-bold py-3 rounded-xl text-lg transition transform hover:scale-[1.02] active:scale-95"> ⚡ إنشاء الكود </button> <!-- Codes List -->
+      <div id="codesListSection" class="hidden fade-in flex flex-col gap-3">
+       <h2 class="font-bold text-lg text-accent2">📋 الأكواد المُنشأة</h2>
+       <div id="codesList" class="flex flex-col gap-3"></div><button onclick="addNewCode()" class="w-full bg-surface border border-gray-700 hover:border-accent text-accent2 font-bold py-2.5 rounded-xl transition flex items-center justify-center gap-2"> <i data-lucide="plus" style="width:18px;height:18px"></i> <span>إضافة كود جديد</span> </button> <button onclick="clearAllCodes()" class="w-full bg-red-500/20 border border-red-500/30 hover:bg-red-500/30 text-red-400 font-bold py-2.5 rounded-xl transition"> 🗑️ حذف الكل </button>
+      </div>
+     </div><!-- Food Generator -->
+    </div><!-- Record Panel (Sidebar) -->
+    <div class="w-full lg:w-80 bg-surface border-t lg:border-t-0 lg:border-r border-gray-700/50 p-4 sm:p-6 flex flex-col gap-4 lg:overflow-y-auto shrink-0">
+     <h2 class="font-bold text-lg text-accent2 flex items-center gap-2"><i data-lucide="book" style="width:20px;height:20px"></i> <span>📚 السجل</span></h2><!-- Add Product Form -->
+     <div class="bg-bg rounded-xl p-4 border border-gray-700/50 flex flex-col gap-3">
+      <h3 class="font-bold text-sm text-accent">➕ منتج جديد</h3><!-- Label Image -->
+      <div><label class="text-xs text-gray-400 block mb-2">📸 صورة الملصق</label> <label class="block cursor-pointer border-2 border-dashed border-gray-600 rounded-lg p-3 hover:border-accent transition text-center"> <input type="file" accept="image/*" class="hidden" id="labelImageInput" onchange="handleLabelImage(event)">
+        <div id="labelImagePrompt"><i data-lucide="upload" class="mx-auto mb-1 text-gray-500" style="width:20px;height:20px"></i>
+         <p class="text-xs text-gray-400">رفع الملصق</p>
+        </div><img id="labelImagePreview" class="hidden w-full h-20 object-cover rounded-lg"> </label>
+      </div><!-- Product Image -->
+      <div><label class="text-xs text-gray-400 block mb-2">🍲 صورة المنتج</label> <label class="block cursor-pointer border-2 border-dashed border-gray-600 rounded-lg p-3 hover:border-accent transition text-center"> <input type="file" accept="image/*" class="hidden" id="productImageInput" onchange="handleProductImage(event)">
+        <div id="productImagePrompt"><i data-lucide="upload" class="mx-auto mb-1 text-gray-500" style="width:20px;height:20px"></i>
+         <p class="text-xs text-gray-400">رفع المنتج</p>
+        </div><img id="productImagePreview" class="hidden w-full h-20 object-cover rounded-lg"> </label>
+      </div><!-- Product Name -->
+      <div><label class="text-xs text-gray-400 block mb-2">📝 الاسم</label> <input id="recordProductName" class="w-full bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm focus:border-accent outline-none" placeholder="اسم المنتج">
+      </div><!-- Save Button --> <button onclick="saveProductToRecord()" class="w-full bg-accent hover:bg-accent2 text-white font-bold py-2.5 rounded-lg transition flex items-center justify-center gap-2 text-sm"> <i data-lucide="save" style="width:16px;height:16px"></i> <span>حفظ</span> </button>
+     </div><!-- Products List -->
+     <div class="flex-1 flex flex-col gap-2 min-h-0">
+      <h3 class="font-bold text-sm text-gray-300">المحفوظ:</h3>
+      <div id="productsRecordList" class="flex flex-col gap-2 overflow-y-auto flex-1"></div>
+      <div id="emptyRecordMessage" class="text-center text-gray-500 text-xs py-4">
+       <p>📭 لا توجد منتجات</p>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+  <script>
+const categories = {
+  "الفواكه والخضروات": { icon: "🍎", sub: ["فواكه","خضراوات","ورقيات","سلطات","عصائر طبيعية","فواكة مجمدة","خضراوات مجمدة","مجففه"] },
+  "الحليب و مشتقاته": { icon: "🧀", sub: ["الحليب","الالبان","الاجبان","لبنه","زبادي","قشطة","كريمة","حليب مكثف","حليب شاهي","منتجات اخرى"] },
+  "المخبوزات": { icon: "🍞", sub: ["مفرود","صامولي و خبز برجر","توست","تورتيلا","فطائر","شابورة","معمول","مقرمشات","مخبوزات صحية"] },
+  "المشروبات": { icon: "🥤", sub: ["عصائر","مشروبات غازية","مشروبات طاقة","مشروب شاي مثلج","مشروبات ساخنة","مشروبات باردة","اظرف سريعة التحضير"] },
+  "السكريات": { icon: "🍦", sub: ["🍦ايسكريم","شوكولاتة","تمور","كيك","حلويات شرقية","مارشميلو","علك","سكر"] },
+  "موالح": { icon: "🍪", sub: ["🍿شبسات","فصفص","مكسرات"] },
+  "المعلبات": { icon: "📦", sub: ["حلاوة طحينية","المربى","الفول السوداني","فواكة معلبة","خضروات معلبة","اسماك معلبة"] },
+  "اللحوم والبيض": { icon: "🍗", sub: ["بيض🥚","لحم غنم🐑","دواجن🐓","بحريات🐟","لحم بقري🐄","لحم جمل🐪"] },
+  "الحبوب والبذور": { icon: "🌱", sub: ["حبوب كاملة","رز🍚","مكرونة🍝","شعبيات","شوربات","كورن فليكس","طحين","بذور"] },
+  "الصلصات والإضافات": { icon: "🫙", sub: ["معجون و صلصة الطماطم","كاتشب و مايونيز","➕إضافات للطعام","صلصات البيتزا و الباستا","صلصات الباربكيو و الصويا","صلصات حارة","خل"] },
+  "الزيوت والدهون": { icon: "🫒", sub: ["زيوت صحية","زيوت","زبدة"] },
+  "مطاعم عالميه": { icon: "🏪", sub: ["ماكدونالدز🍔","🍗كنتاكي","🍗هارديز","🥪كودو","دومينوز🍕"] },
+  "وصفاتBEST": { icon: "⭐", sub: [] }
+};
 
-</body>
+let selectedCat = null, selectedSub = null, currentMethod = 'image', generatedCodes = [], generatedProducts = [];
+let currentLabelImage = null, currentProductImage = null;
+let selectedEquipment = [];
+const equipmentData = [
+ {id:'bodyweight',name:'وزن الجسم'}, {id:'bar',name:'بار'}, {id:'machines',name:'آلات'},
+ {id:'bench',name:'مقعد'}, {id:'dumbbells',name:'دمبلز'}, {id:'pull-up-bar',name:'بار العقلة'},
+ {id:'resistance-band',name:'شريط المقاومة'}, {id:'weight-plates',name:'أوزان'}, {id:'cardio',name:'كارديو'}, {id:'kettlebell',name:'كتلبل'}, {id:'other',name:'أخرى'}
+];
+const equipmentGrid = document.getElementById('equipmentGrid');
+equipmentData.forEach(item => {
+  const b = document.createElement('button'); b.type='button'; b.textContent=item.name;
+  b.className='px-2 py-2 bg-bg border border-gray-700 rounded-lg text-xs font-bold hover:border-accent transition';
+  b.onclick=()=>{ selectedEquipment = selectedEquipment.includes(item.id) ? selectedEquipment.filter(x=>x!==item.id) : [...selectedEquipment,item.id]; b.classList.toggle('border-accent',selectedEquipment.includes(item.id)); b.classList.toggle('text-accent2',selectedEquipment.includes(item.id)); };
+  equipmentGrid.appendChild(b);
+});
+const recipeIngredients = [
+ ['بصل','https://up6.cc/2026/06/178201454923841.png'],['طماطم','https://up6.cc/2026/06/178201545601131.png'],['فلفل','https://up6.cc/2026/06/178201429529473.png'],['جزر','https://up6.cc/2026/06/178201461662631.png'],['كوسة','https://up6.cc/2026/06/178201593692961.png'],['بطاطس','https://up6.cc/2026/06/178201566539142.png'],['ثوم','https://c.top4top.io/p_38247xdgc0.png'],['خيار','https://f.top4top.io/p_38249kmpb0.png'],['خس','https://up6.cc/2026/06/178202191273241.png'],['بقدونس','https://l.top4top.io/p_38247p2y32.png'],['نعناع','https://b.top4top.io/p_3824lmrka4.png'],['بروكلي','https://via.placeholder.com/40x40/21e67f/ffffff?text=B'],['موز','https://f.top4top.io/p_3824zsbav0.png'],['تفاح','https://g.top4top.io/p_3824hpgd61.png'],['ليمون','https://k.top4top.io/p_3824c27jj9.png'],['دجاج','https://f.top4top.io/p_3824ymgrv0.png'],['لحم','https://d.top4top.io/p_38249hbi40.png'],['سمك','https://e.top4top.io/p_3824f195c1.png'],['بيض','https://up6.cc/2026/06/178202324711311.png'],['أرز','https://f.top4top.io/p_3824llx4g3.jpeg'],['مكرونة','https://f.top4top.io/p_38242g1qc2.png'],['شوفان','https://c.top4top.io/p_38249ko5l5.png'],['كينوا','https://via.placeholder.com/40x40/21e67f/ffffff?text=Q'],['زبادي','https://via.placeholder.com/40x40/ffffff/000000?text=Z'],['زيت زيتون','https://l.top4top.io/p_3824aw4dt0.png'],['ملح','https://a.top4top.io/p_3824cq3ld1.png'],['فلفل أسود','https://d.top4top.io/p_38248ojac1.png'],['عسل','https://d.top4top.io/p_3824yfktr0.png']
+];
+let selectedIngredients = [];
+let customIngredients = [];
+try { customIngredients = JSON.parse(localStorage.getItem('foodCustomIngredients') || '[]'); } catch (e) { customIngredients = []; }
+const ingredientsGrid = document.getElementById('ingredientsGrid');
+function allRecipeIngredients() { return [...recipeIngredients, ...customIngredients]; }
+function renderIngredientsGrid() {
+  ingredientsGrid.innerHTML = '';
+  allRecipeIngredients().forEach(([name,image],i) => {
+    const b=document.createElement('button'); b.type='button'; b.className='bg-bg border border-gray-700 rounded-lg p-2 text-xs font-bold flex flex-col items-center gap-1 hover:border-accent transition';
+    b.innerHTML=`<img src="${image || 'https://via.placeholder.com/40x40/333333/ffffff?text=+'}" alt="${name}" class="w-9 h-9 object-cover rounded-full" loading="lazy" onerror="this.style.background='#333';this.alt='صورة غير متاحة'">${name}`;
+    b.onclick=()=>{ selectedIngredients=selectedIngredients.includes(i)?selectedIngredients.filter(x=>x!==i):[...selectedIngredients,i]; b.classList.toggle('border-accent',selectedIngredients.includes(i)); b.classList.toggle('text-accent2',selectedIngredients.includes(i)); renderIngredientFields(); };
+    ingredientsGrid.appendChild(b);
+  });
+}
+function renderIngredientFields(){ const items=allRecipeIngredients(); document.getElementById('selectedIngredients').innerHTML=selectedIngredients.map(i=>`<div class="grid grid-cols-[1fr_1fr] gap-2"><input class="recipe-amount bg-bg border border-gray-700 rounded-lg px-3 py-2 text-sm" data-name="${items[i][0]}" placeholder="كمية ${items[i][0]}"><span class="text-xs text-accent2 self-center">${items[i][0]}</span></div>`).join(''); }
+function addCustomIngredient() {
+  const name = document.getElementById('customIngredientName').value.trim();
+  const image = document.getElementById('customIngredientImage').value.trim();
+  if (!name) { showToast('⚠️ أدخل اسم المكوّن'); return; }
+  if (image && !/^https:\/\//i.test(image)) { showToast('⚠️ يجب أن يبدأ رابط الصورة بـ https://'); return; }
+  if (allRecipeIngredients().some(item => item[0].toLowerCase() === name.toLowerCase())) { showToast('⚠️ هذا المكوّن موجود مسبقاً'); return; }
+  customIngredients.push([name, image || 'https://via.placeholder.com/40x40/333333/ffffff?text=+']);
+  localStorage.setItem('foodCustomIngredients', JSON.stringify(customIngredients));
+  document.getElementById('customIngredientName').value = '';
+  document.getElementById('customIngredientImage').value = '';
+  renderIngredientsGrid();
+  showToast('✅ تمت إضافة المكوّن وحفظه');
+}
+renderIngredientsGrid();
+function setGeneratorType(type) {
+  const sections = {
+    food: document.getElementById('foodGenerator'),
+    exercise: document.getElementById('exerciseGenerator'),
+    recipe: document.getElementById('recipeGenerator')
+  };
+
+  Object.entries(sections).forEach(([name, section]) => {
+    const isActive = name === type;
+    section.classList.toggle('hidden', !isActive);
+    section.classList.toggle('flex', isActive);
+    section.classList.toggle('flex-col', isActive);
+    section.classList.toggle('gap-6', isActive && name === 'food');
+    section.setAttribute('aria-hidden', String(!isActive));
+  });
+
+  ['food', 'exercise', 'recipe'].forEach(name => {
+    const button = document.getElementById(name + 'GeneratorTab');
+    if (button) {
+      button.className = `px-5 py-2 rounded-full text-sm font-bold transition ${type === name ? 'bg-accent text-white' : 'bg-surface text-gray-400'}`;
+      button.setAttribute('aria-selected', String(type === name));
+    }
+  });
+}
+function generateRecipeCode(){
+ const id=Number(val('rId')), name=val('rName'), image=val('rImage'), category=val('rCategory'); if(!id||!name){showToast('⚠️ أدخل المعرّف واسم الوصفة');return;}
+ const amounts=[...document.querySelectorAll('.recipe-amount')]; const ingredients=amounts.map(x=>({name:x.dataset.name,amount:x.value.trim()||'حسب الحاجة'}));
+ const q=s=>s.replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/\n/g,'\\n'); const obj={id,name,category,calories:Number(val('rCalories'))||0,time:val('rTime'),servings:Number(val('rServings'))||1,image,ingredients,instructions:val('rInstructions'),nutrition:{protein:val('rProtein'),carbs:val('rCarbs'),fat:val('rFat'),fiber:val('rFiber')},isHealthy:document.getElementById('rHealthy').checked,isPopular:document.getElementById('rPopular').checked};
+ const ingredientText=obj.ingredients.map(x=>`            { name: '${q(x.name)}', amount: '${q(x.amount)}' }`).join(',\n'); const code=`{\n        id: ${obj.id},\n        name: '${q(obj.name)}',\n        category: '${q(obj.category)}',\n        calories: ${obj.calories},\n        time: '${q(obj.time)}',\n        servings: ${obj.servings},\n        image: '${q(obj.image)}',\n        ingredients: [\n${ingredientText}\n        ],\n        instructions: '${q(obj.instructions)}',\n        nutrition: { protein: '${q(obj.nutrition.protein)}', carbs: '${q(obj.nutrition.carbs)}', fat: '${q(obj.nutrition.fat)}', fiber: '${q(obj.nutrition.fiber)}' },\n        isHealthy: ${obj.isHealthy},\n        isPopular: ${obj.isPopular}\n    },`;
+ document.querySelector('#recipeCodeBox pre').textContent=code; document.getElementById('recipeOutput').classList.remove('hidden'); window.latestRecipeCode=code; showToast('✅ تم إنشاء كود الوصفة');
+}
+function copyRecipeCode(){navigator.clipboard.writeText(window.latestRecipeCode||'').then(()=>showToast('✅ تم نسخ كود الوصفة'));}
+function val(id){ return document.getElementById(id).value.trim(); }
+function generateExerciseCode() {
+  const id=Number(val('eId')), name=val('eName'), image=val('eImage'), videoUrl=val('eVideo'), level=val('eLevel'), targetMuscle=val('eMuscle'), steps=val('eSteps');
+  const caloriesPerMinute=Number(val('eCalories')), repetitions=Number(val('eReps')), minutesPerRep=Number(val('eMinutes'));
+  if(!id || !name || !targetMuscle){ showToast('⚠️ أدخل المعرّف والاسم والعضلة المستهدفة'); return; }
+  const obj={id,name,image,level,equipment:selectedEquipment,targetMuscle,videoUrl,steps,caloriesPerMinute,repetitions,minutesPerRep};
+  const code=`{\n  id: ${obj.id},\n  name: "${obj.name}",\n  image: "${obj.image}",\n  level: "${obj.level}",\n  equipment: [${obj.equipment.map(x=>`"${x}"`).join(', ')}],\n  targetMuscle: "${obj.targetMuscle}",\n  videoUrl: "${obj.videoUrl}",\n  steps: "${obj.steps.replace(/\n/g,'\\n')}",\n  caloriesPerMinute: ${obj.caloriesPerMinute || 0},\n  repetitions: ${obj.repetitions || 0},\n  minutesPerRep: ${obj.minutesPerRep || 0},\n},`;
+  document.querySelector('#exerciseCodeBox pre').textContent=code;
+  document.getElementById('exerciseOutput').classList.remove('hidden');
+  window.latestExerciseCode=code; showToast('✅ تم إنشاء كود التمرين');
+}
+function copyExerciseCode(){ navigator.clipboard.writeText(window.latestExerciseCode||'').then(()=>showToast('✅ تم نسخ كود التمرين')); }
+
+// Load from localStorage
+function loadFromStorage() {
+  const stored = localStorage.getItem('foodCodesApp');
+  if (stored) {
+    const data = JSON.parse(stored);
+    generatedCodes = data.codes || [];
+    generatedProducts = data.products || [];
+    renderCodesList();
+    renderProductsList();
+  }
+}
+
+// Save to localStorage
+function saveToStorage() {
+  localStorage.setItem('foodCodesApp', JSON.stringify({
+    codes: generatedCodes,
+    products: generatedProducts
+  }));
+}
+
+// Tab switching
+function switchTab(tab) {
+  document.getElementById('generatorTab').style.display = tab === 'generator' ? 'flex' : 'none';
+  
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  if (event && event.target) event.target.classList.add('active');
+  
+  if (tab === 'record') {
+    renderProductsList();
+  }
+}
+
+// Build category grid and restore user-created categories
+const catGrid = document.getElementById('catGrid');
+let customCategories = {};
+try { customCategories = JSON.parse(localStorage.getItem('foodCustomCategories') || '{}'); } catch (e) { customCategories = {}; }
+Object.assign(categories, customCategories);
+
+function renderCategoryGrid() {
+  catGrid.innerHTML = '';
+  Object.entries(categories).forEach(([name, data]) => {
+    const btn = document.createElement('button');
+    btn.className = 'cat-btn bg-surface border border-gray-700/50 rounded-xl p-3 text-center hover:border-accent transition flex flex-col items-center gap-1';
+    btn.innerHTML = `<span class="text-2xl">${data.icon || '📁'}</span><span class="text-xs font-bold leading-tight">${name}</span>`;
+    btn.onclick = () => selectCategory(name);
+    btn.dataset.cat = name;
+    catGrid.appendChild(btn);
+  });
+}
+
+function addCustomCategory() {
+  const name = document.getElementById('customCategoryName').value.trim();
+  const icon = document.getElementById('customCategoryIcon').value.trim() || '📁';
+  const subcategoriesText = document.getElementById('customCategorySubcategories').value.trim();
+  const sub = [...new Set(subcategoriesText.split(/[،,]/).map(item => item.trim()).filter(Boolean))];
+  if (!name) { showToast('⚠️ أدخل اسم التصنيف'); return; }
+  if (Object.keys(categories).some(category => category.toLowerCase() === name.toLowerCase())) {
+    showToast('⚠️ هذا التصنيف موجود مسبقاً'); return;
+  }
+  const newCategory = { icon, sub };
+  categories[name] = newCategory;
+  customCategories[name] = newCategory;
+  localStorage.setItem('foodCustomCategories', JSON.stringify(customCategories));
+  document.getElementById('customCategoryName').value = '';
+  document.getElementById('customCategoryIcon').value = '';
+  document.getElementById('customCategorySubcategories').value = '';
+  renderCategoryGrid();
+  selectCategory(name);
+  showToast(sub.length ? `✅ تمت إضافة التصنيف مع ${sub.length} تصنيفات فرعية` : '✅ تمت إضافة التصنيف وحفظه');
+}
+
+renderCategoryGrid();
+
+function selectCategory(name) {
+  selectedCat = name; selectedSub = null;
+  catGrid.querySelectorAll('.cat-btn').forEach(b => {
+    b.classList.toggle('border-accent', b.dataset.cat === name);
+    b.classList.toggle('bg-accent/10', b.dataset.cat === name);
+  });
+  const subcatSection = document.getElementById('subcatSection');
+  const subcatGrid = document.getElementById('subcatGrid');
+  const subs = categories[name].sub;
+  if (subs.length === 0) { subcatSection.classList.add('hidden'); return; }
+  subcatSection.classList.remove('hidden');
+  subcatGrid.innerHTML = '';
+  subs.forEach(s => {
+    const btn = document.createElement('button');
+    btn.className = 'px-3 py-1.5 bg-bg border border-gray-700 rounded-full text-xs font-bold hover:border-accent transition';
+    btn.textContent = s;
+    btn.onclick = () => {
+      selectedSub = s;
+      subcatGrid.querySelectorAll('button').forEach(b => {
+        b.classList.toggle('border-accent', b.textContent === s);
+        b.classList.toggle('bg-accent/10', b.textContent === s);
+        b.classList.toggle('text-accent2', b.textContent === s);
+      });
+    };
+    subcatGrid.appendChild(btn);
+  });
+}
+
+function setMethod(m) {
+  currentMethod = m;
+  document.getElementById('tabImage').className = `px-5 py-2 rounded-full text-sm font-bold transition ${m==='image'?'bg-accent text-white':'bg-surface text-gray-400'}`;
+  document.getElementById('tabManual').className = `px-5 py-2 rounded-full text-sm font-bold transition ${m==='manual'?'bg-accent text-white':'bg-surface text-gray-400'}`;
+  document.getElementById('imageMethod').style.display = m==='image'?'flex':'none';
+}
+
+async function handleImage(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = async (ev) => {
+    const imageData = ev.target.result;
+    document.getElementById('previewImg').src = imageData;
+    document.getElementById('previewImg').classList.remove('hidden');
+    document.getElementById('uploadPrompt').classList.add('hidden');
+    document.getElementById('loadingState').classList.remove('hidden');
+    
+    try {
+      const { data: { text } } = await Tesseract.recognize(imageData, 'ara+eng');
+      document.getElementById('loadingState').classList.add('hidden');
+      document.getElementById('extractedData').classList.remove('hidden');
+      document.getElementById('extractedText').textContent = text;
+      
+      const values = parseNutritionValues(text);
+      if (values) {
+        // تبقى حقول الاسم وID فارغة حتى يضيفها المستخدم يدويًا.
+        document.getElementById('fName').value = '';
+        document.getElementById('fId').value = '';
+
+        if (values.serving !== undefined) document.getElementById('fServing').value = values.serving;
+        if (values.calories !== undefined) document.getElementById('fCal').value = values.calories;
+        if (values.fat !== undefined) document.getElementById('fFat').value = values.fat;
+        if (values.saturatedFat !== undefined) document.getElementById('fSatFat').value = values.saturatedFat;
+        if (values.carb !== undefined) document.getElementById('fCarb').value = values.carb;
+        if (values.sugar !== undefined) document.getElementById('fSugar').value = values.sugar;
+        if (values.fiber !== undefined) document.getElementById('fFiber').value = values.fiber;
+        if (values.protein !== undefined) document.getElementById('fProt').value = values.protein;
+        document.getElementById('fName').focus();
+        showToast('✅ تم تعبئة القيم الغذائية، أدخل الاسم العربي وID بالإنجليزي');
+      }
+    } catch (error) {
+      console.error('OCR Error:', error);
+      document.getElementById('loadingState').classList.add('hidden');
+      showToast('⚠️ حدث خطأ في قراءة الصورة');
+    }
+  };
+  reader.readAsDataURL(file);
+}
+
+function parseNutritionValues(text) {
+  const patterns = {
+    serving: /(?:حصة|serving|portion|حجم الحصة)[\s:]*(\d+\.?\d*)\s*(?:g|جرام|غ|ml)/i,
+    calories: /(?:طاقة|calories|سعرات|kcal|كيلو)[\s:]*(\d+\.?\d*)/i,
+    fat: /(?:دهون|fat|脂肪)[\s:]*(\d+\.?\d*)\s*(?:g|جرام|غ)?/i,
+    saturatedFat: /(?:دهون مشبعة|saturated fat|saturated)[\s:]*(\d+\.?\d*)\s*(?:g|جرام|غ)?/i,
+    carb: /(?:كربوهيدرات|carbs?|carbohydrates|الكربو)[\s:]*(\d+\.?\d*)\s*(?:g|جرام|غ)?/i,
+    sugar: /(?:سكر|sugar)[\s:]*(\d+\.?\d*)\s*(?:g|جرام|غ)?/i,
+    fiber: /(?:ألياف|fiber|حبوب|fibre)[\s:]*(\d+\.?\d*)\s*(?:g|جرام|غ)?/i,
+    protein: /(?:بروتين|protein|proteine|الب)[\s:]*(\d+\.?\d*)\s*(?:g|جرام|غ)?/i
+  };
+
+  const values = {};
+  for (const [key, pattern] of Object.entries(patterns)) {
+    const match = text.match(pattern);
+    if (match) values[key] = parseFloat(match[1]);
+  }
+  return Object.keys(values).length > 0 ? values : null;
+}
+
+function per100(val, serving) {
+  if (!serving || !val) return 0;
+  return Math.round((parseFloat(val) / parseFloat(serving)) * 1000) / 10;
+}
+
+function generateCode() {
+  const name = document.getElementById('fName').value.trim();
+  const id = document.getElementById('fId').value.trim();
+  const image = document.getElementById('fImage').value.trim();
+  const serving = parseFloat(document.getElementById('fServing').value);
+  const cal = parseFloat(document.getElementById('fCal').value);
+  const fat = parseFloat(document.getElementById('fFat').value);
+  const satFat = parseFloat(document.getElementById('fSatFat').value);
+  const carb = parseFloat(document.getElementById('fCarb').value);
+  const sugar = parseFloat(document.getElementById('fSugar').value);
+  const fiber = parseFloat(document.getElementById('fFiber').value);
+  const prot = parseFloat(document.getElementById('fProt').value);
+
+  if (!name || !id) {
+    showToast('⚠️ أدخل اسم الطعام و ID');
+    return;
+  }
+  if (!selectedCat) {
+    showToast('⚠️ اختر التصنيف');
+    return;
+  }
+
+  const c100 = per100(cal, serving);
+  const f100 = per100(fat, serving);
+  const sf100 = per100(satFat, serving);
+  const p100 = per100(prot, serving);
+  const cb100 = per100(carb, serving);
+  const s100 = per100(sugar, serving);
+  const fb100 = per100(fiber, serving);
+
+  const obj = {
+    id: id,
+    name: name,
+    image: image,
+
+    calories: c100,
+    fat: f100,
+    saturatedFat: sf100,
+    protein: p100,
+    carb: cb100,
+    sugar: s100,
+    fiber: fb100,
+    category: selectedCat,
+    subcategory: selectedSub || ""
+  };
+
+  const codeStr = ` {\n   id: "${obj.id}",\n   name: "${obj.name}",\n   image: "${obj.image}",\n   calories: ${obj.calories},\n   fat: ${obj.fat},\n   saturatedFat: ${obj.saturatedFat},\n   protein: ${obj.protein},\n   carb: ${obj.carb},\n   sugar: ${obj.sugar},\n   fiber: ${obj.fiber},\n   category: "${obj.category}",\n   subcategory: "${obj.subcategory}"\n },`;
+
+  generatedCodes.push({
+    id: Date.now(),
+    code: codeStr,
+    object: obj,
+    timestamp: new Date().toLocaleString('ar-SA')
+  });
+
+  saveToStorage();
+  renderCodesList();
+  showToast('✅ تم إنشاء الكود بنجاح');
+}
+
+function renderCodesList() {
+  const section = document.getElementById('codesListSection');
+  const list = document.getElementById('codesList');
+  
+  if (generatedCodes.length === 0) {
+    section.classList.add('hidden');
+    return;
+  }
+  
+  section.classList.remove('hidden');
+  list.innerHTML = '';
+  
+  generatedCodes.forEach((item, idx) => {
+    const div = document.createElement('div');
+    div.className = 'bg-surface rounded-xl p-4 border border-gray-700/50 fade-in';
+    div.innerHTML = `
+      <div class="flex justify-between items-start mb-2">
+        <span class="text-xs text-gray-400">${item.timestamp}</span>
+        <button onclick="deleteCode(${idx})" class="text-red-400 hover:text-red-300 transition">
+          <i data-lucide="trash-2" style="width:16px;height:16px"></i>
+        </button>
+      </div>
+      <div class="code-box p-3 text-xs leading-relaxed overflow-x-auto mb-2" dir="ltr">
+        <pre>${highlightCode(item.code)}</pre>
+      </div>
+      <div class="flex gap-2">
+        <button onclick="copyCode(${idx})" class="flex-1 bg-accent hover:bg-accent2 text-white text-xs font-bold py-2 rounded-lg transition flex items-center justify-center gap-1">
+          <i data-lucide="copy" style="width:14px;height:14px"></i> نسخ
+        </button>
+      </div>
+    `;
+    list.appendChild(div);
+  });
+  lucide.createIcons();
+}
+
+function highlightCode(code) {
+  return code
+    .replace(/(id|name|image|level|equipment|targetMuscle|videoUrl|steps|caloriesPerMinute|repetitions|minutesPerRep|calories|fat|protein|carb|sugar|fiber|category|subcategory):/g, '<span class="key">$1</span>:')
+    .replace(/"([^"]+)"/g, '<span class="str">"$1"</span>')
+    .replace(/: (\d+\.?\d*)/g, ': <span class="num">$1</span>');
+}
+
+function copyCode(idx) {
+  navigator.clipboard.writeText(generatedCodes[idx].code).then(() => {
+    showToast('✅ تم نسخ الكود');
+  });
+}
+
+function deleteCode(idx) {
+  generatedCodes.splice(idx, 1);
+  saveToStorage();
+  renderCodesList();
+  showToast('🗑️ تم حذف الكود');
+}
+
+function addNewCode() {
+  document.getElementById('fName').value = '';
+  document.getElementById('fId').value = '';
+  document.getElementById('fImage').value = '';
+  document.getElementById('fServing').value = '';
+  document.getElementById('fCal').value = '';
+  document.getElementById('fFat').value = '';
+  document.getElementById('fCarb').value = '';
+  document.getElementById('fProt').value = '';
+  selectedCat = null;
+  selectedSub = null;
+  catGrid.querySelectorAll('.cat-btn').forEach(b => {
+    b.classList.remove('border-accent', 'bg-accent/10');
+  });
+  document.getElementById('categorySection').scrollIntoView({ behavior: 'smooth' });
+}
+
+function clearAllCodes() {
+  if (generatedCodes.length === 0) return;
+  generatedCodes = [];
+  saveToStorage();
+  renderCodesList();
+  showToast('🗑️ تم حذف جميع الأكواد');
+}
+
+// Record functions
+function handleLabelImage(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    currentLabelImage = ev.target.result;
+    document.getElementById('labelImagePreview').src = currentLabelImage;
+    document.getElementById('labelImagePreview').classList.remove('hidden');
+    document.getElementById('labelImagePrompt').classList.add('hidden');
+  };
+  reader.readAsDataURL(file);
+}
+
+function handleProductImage(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    currentProductImage = ev.target.result;
+    document.getElementById('productImagePreview').src = currentProductImage;
+    document.getElementById('productImagePreview').classList.remove('hidden');
+    document.getElementById('productImagePrompt').classList.add('hidden');
+  };
+  reader.readAsDataURL(file);
+}
+
+function saveProductToRecord() {
+  const name = document.getElementById('recordProductName').value.trim();
+  
+  if (!name) {
+    showToast('⚠️ أدخل اسم الطعام');
+    return;
+  }
+  if (!currentLabelImage && !currentProductImage) {
+    showToast('⚠️ رفع صورة واحدة على الأقل');
+    return;
+  }
+
+  const product = {
+    id: Date.now(),
+    name: name,
+    labelImage: currentLabelImage || null,
+    productImage: currentProductImage || null,
+    timestamp: new Date().toLocaleString('ar-SA')
+  };
+
+  generatedProducts.push(product);
+  saveToStorage();
+  renderProductsList();
+  
+  // Reset form
+  document.getElementById('recordProductName').value = '';
+  document.getElementById('labelImageInput').value = '';
+  document.getElementById('productImageInput').value = '';
+  document.getElementById('labelImagePreview').classList.add('hidden');
+  document.getElementById('productImagePreview').classList.add('hidden');
+  document.getElementById('labelImagePrompt').classList.remove('hidden');
+  document.getElementById('productImagePrompt').classList.remove('hidden');
+  currentLabelImage = null;
+  currentProductImage = null;
+  
+  showToast('✅ تم حفظ المنتج في السجل');
+}
+
+function renderProductsList() {
+  const list = document.getElementById('productsRecordList');
+  const empty = document.getElementById('emptyRecordMessage');
+  
+  if (generatedProducts.length === 0) {
+    list.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  
+  empty.style.display = 'none';
+  list.innerHTML = '';
+  
+  generatedProducts.forEach((product, idx) => {
+    const div = document.createElement('div');
+    div.className = 'bg-bg rounded-lg p-2 border border-gray-700/50 fade-in flex flex-col gap-2';
+    div.innerHTML = `
+      <h4 class="font-bold text-xs text-accent2 truncate">${product.name}</h4>
+      <div class="flex gap-1 h-16">
+        ${product.labelImage ? `<img src="${product.labelImage}" class="w-8 h-16 object-cover rounded">` : '<div class="w-8 h-16 bg-gray-700/30 rounded"></div>'}
+        ${product.productImage ? `<img src="${product.productImage}" class="w-8 h-16 object-cover rounded">` : '<div class="w-8 h-16 bg-gray-700/30 rounded"></div>'}
+      </div>
+      <p class="text-xs text-gray-500">${product.timestamp}</p>
+      <button onclick="deleteProduct(${idx})" class="w-full bg-red-500/20 hover:bg-red-500/30 text-red-400 text-xs font-bold py-1 rounded transition flex items-center justify-center gap-1">
+        <i data-lucide="trash-2" style="width:12px;height:12px"></i>
+        <span>حذف</span>
+      </button>
+    `;
+    list.appendChild(div);
+  });
+  lucide.createIcons();
+}
+
+function deleteProduct(idx) {
+  generatedProducts.splice(idx, 1);
+  saveToStorage();
+  renderProductsList();
+  showToast('🗑️ تم حذف المنتج');
+}
+
+function showToast(msg) {
+  let t = document.createElement('div');
+  t.className = 'fixed top-4 left-1/2 -translate-x-1/2 bg-red-500/90 text-white px-5 py-2.5 rounded-xl text-sm font-bold z-50 fade-in';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 2500);
+}
+
+// Element SDK
+const defaultConfig = {
+  site_title: 'مولد أكواد الملصقات الغذائية',
+  background_color: '#0f1117',
+  surface_color: '#1a1d27',
+  text_color: '#e8e8f0',
+  accent_color: '#6c5ce7',
+  accent2_color: '#a29bfe',
+  font_family: 'Tajawal',
+  font_size: 16
+};
+
+function applyConfig(config) {
+  const c = { ...defaultConfig, ...config };
+  document.getElementById('siteTitle').textContent = c.site_title;
+  document.body.style.backgroundColor = c.background_color;
+  document.body.style.color = c.text_color;
+  document.body.style.fontFamily = `${c.font_family}, Tajawal, sans-serif`;
+}
+
+if (window.elementSdk) {
+  window.elementSdk.init({
+    defaultConfig,
+    onConfigChange: async (config) => applyConfig(config),
+    mapToCapabilities: (config) => ({
+      recolorables: [
+        { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
+        { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
+        { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
+        { get: () => config.accent_color || defaultConfig.accent_color, set: (v) => { config.accent_color = v; window.elementSdk.setConfig({ accent_color: v }); } },
+        { get: () => config.accent2_color || defaultConfig.accent2_color, set: (v) => { config.accent2_color = v; window.elementSdk.setConfig({ accent2_color: v }); } }
+      ],
+      borderables: [],
+      fontEditable: { get: () => config.font_family || defaultConfig.font_family, set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); } },
+      fontSizeable: { get: () => config.font_size || defaultConfig.font_size, set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); } }
+    }),
+    mapToEditPanelValues: (config) => new Map([
+      ["site_title", config.site_title || defaultConfig.site_title]
+    ])
+  });
+}
+
+lucide.createIcons();
+loadFromStorage();
+  </script>
+ </body>
 </html>
